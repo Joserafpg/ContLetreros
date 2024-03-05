@@ -187,13 +187,6 @@
         fyerrQAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="bunifuSeparator2.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAAA4AAABVCAYAAAB5AdXlAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABCSURBVFhH7csxCoBAEATB/f+r9meKYGpzsVTBBBP0fNnd
-        69l7zwmDMAiDMAiDMAiDMAiDMAiDMAiDMAiDMPwmnLkB/LUn9RT62foAAAAASUVORK5CYII=
-</value>
-  </data>
   <data name="bunifuButton24.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAMAAAAAyCAYAAAAKhtQVAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
@@ -329,7 +322,7 @@
         yec63IS5zKltEpK67i9JfVTfuLAbfAAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="bunifuButton21.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnestudiantes.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAPEAAAA8CAYAAAC3vVxjAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABPSURBVHhe7cExAQAAAMKg9U9tCy8gAAAAAAAAAAAAAAAA
@@ -337,7 +330,7 @@
         TkSuQmCC
 </value>
   </data>
-  <data name="bunifuButton21.IdleIconLeftImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnestudiantes.IdleIconLeftImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAAAOsAAADrASts18IAAAAZdEVYdFNvZnR3YXJlAHd3dy5pbmtzY2FwZS5vcmeb7jwa
@@ -375,7 +368,7 @@
         ihvjB2kTZdkf8JxE/oba2WwAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="bunifuButton22.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnmaestros.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAPEAAAA8CAYAAAC3vVxjAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABPSURBVHhe7cExAQAAAMKg9U9tCy8gAAAAAAAAAAAAAAAA
@@ -383,7 +376,7 @@
         TkSuQmCC
 </value>
   </data>
-  <data name="bunifuButton23.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnconfiguracion.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAPEAAAA8CAYAAAC3vVxjAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABPSURBVHhe7cExAQAAAMKg9U9tCy8gAAAAAAAAAAAAAAAA
@@ -391,7 +384,7 @@
         TkSuQmCC
 </value>
   </data>
-  <data name="bunifuButton23.IdleIconLeftImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnconfiguracion.IdleIconLeftImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAAE64AABOuAbGhbCcAAAAZdEVYdFNvZnR3YXJlAHd3dy5pbmtzY2FwZS5vcmeb7jwa
@@ -463,13 +456,31 @@
         nZpJlJwo+gZUXemmGIWiNAAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="bunifuSeparator1.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="bunifuButton25.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAAA4AAAHXCAYAAACMDmuCAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAC0SURBVHhe7cuxCcBAEAPB67+q68zG8KmXL2AGFCjY+bO7
-        z7dz7wmDMAiDMAiDMAiDMAiDMAiDMAiDMAiDMAiDMAiDMAiDMAiDMAiDMAiDMAiDMAiDMAiDMAiDMAiD
-        MAiDMAiDMAiDMAiDMAiDMAiDMAiDMAiDMAiDMAiDMAiDMAiDMAiDMAiDMAiDMAiDMAiDMAiDMAiDMAiD
-        MAiDMAiDMAiDMAiDMAiDMAiDMAiDMAiDcOYFPQXyeBpEzVkAAAAASUVORK5CYII=
+        iVBORw0KGgoAAAANSUhEUgAAACwAAAAnCAYAAAB0Q6rCAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAeSURBVFhH7cEBDQAAAMKg909tDjcgAAAAAAAAeFcDGvcA
+        Ad1bVzYAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="bunifuButton25.IdleIconLeftImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAZdEVYdFNvZnR3YXJlAHd3dy5pbmtzY2FwZS5vcmeb7jwa
+        AAAAxUlEQVRYR+2XMQoCMRRE03gA0cJKz+JJtNFCe7HxClZeKiEJkl70JOJE5reRTRZS+B982B2GPwO7
+        EGJaiDGuQgg37/2E0k/gPWPWfK2H4U/MPaU0pVwEwRf435gdpTqwaIkljxyO5znlIvCecjj8B0p1aLiG
+        Uy6i4Rpezf+GO+cWWPQ9WKy1M8pFECoHy55SPVhyxbwGhG9GC88MLQDvdtQC3T9BBgv7/YSClhC0hNBS
+        AnOk1IaWELSEoCWErpdTof16bswHGs589yaZfTcAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="bunifuButton25.OnIdleState.IconLeftImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAZdEVYdFNvZnR3YXJlAHd3dy5pbmtzY2FwZS5vcmeb7jwa
+        AAAAxUlEQVRYR+2XMQoCMRRE03gA0cJKz+JJtNFCe7HxClZeKiEJkl70JOJE5reRTRZS+B982B2GPwO7
+        EGJaiDGuQgg37/2E0k/gPWPWfK2H4U/MPaU0pVwEwRf435gdpTqwaIkljxyO5znlIvCecjj8B0p1aLiG
+        Uy6i4Rpezf+GO+cWWPQ9WKy1M8pFECoHy55SPVhyxbwGhG9GC88MLQDvdtQC3T9BBgv7/YSClhC0hNBS
+        AnOk1IaWELSEoCWErpdTof16bswHGs589yaZfTcAAAAASUVORK5CYII=
 </value>
   </data>
 </root>

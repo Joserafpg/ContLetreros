@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -13,9 +14,40 @@ namespace ContAlumnos
 {
     public partial class Menu : Form
     {
+        static bool ocultar = true;
+
         public Menu()
         {
             InitializeComponent();
+        }
+
+        void hide()
+        {
+            if (ocultar == true)
+            {
+                btnInicio.Visible = false;
+                btnestudiantes.Visible = false;
+                btnmaestros.Visible = false;
+                btnconfiguracion.Visible = false;
+                btnSalir.Visible = false;
+
+                panel2.Width = 170;
+
+                ocultar = false;
+            }
+
+            else
+            {
+                panel2.Width = 262;
+
+                btnInicio.Visible = true;
+                btnestudiantes.Visible = true;
+                btnmaestros.Visible = true;
+                btnconfiguracion.Visible = true;
+                btnSalir.Visible = true;
+
+                ocultar = true;
+            }
         }
 
         public void text(string tittle)
@@ -49,6 +81,24 @@ namespace ContAlumnos
             this.Region = new Region(objDraw);
         }
 
+        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
+        private extern static void ReleaseCapture();
+        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
+        private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
+
+        private void panel1_MouseDown(object sender, MouseEventArgs e)
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
+
+        private void label1_MouseDown(object sender, MouseEventArgs e)
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
+
+
         private void Menu_Load(object sender, EventArgs e)
         {
             bordesradius();
@@ -59,6 +109,11 @@ namespace ContAlumnos
         {
             text("Menu Principal");
             AbrirFormEnPanel(new Inicio());
+        }
+
+        private void bunifuButton25_Click(object sender, EventArgs e)
+        {
+            hide();
         }
     }
 }
