@@ -34,6 +34,11 @@ namespace ContAlumnos
                 panel2.Width = 170;
 
                 ocultar = false;
+
+                Point newLocation = btnocultar.Location;
+                newLocation.X = 12;
+
+                btnocultar.Location = newLocation;
             }
 
             else
@@ -47,6 +52,11 @@ namespace ContAlumnos
                 btnSalir.Visible = true;
 
                 ocultar = true;
+
+                Point newLocation = btnocultar.Location;
+                newLocation.X = 210;
+
+                btnocultar.Location = newLocation;
             }
         }
 
@@ -105,15 +115,15 @@ namespace ContAlumnos
             btnInicio.PerformClick();
         }
 
-        private void btnInicio_Click(object sender, EventArgs e)
-        {
-            text("Menu Principal");
-            AbrirFormEnPanel(new Inicio());
-        }
-
         private void bunifuButton25_Click(object sender, EventArgs e)
         {
             hide();
         }
+
+        private void btnInicio_Click(object sender, EventArgs e)
+        {
+            text("Menu Principal");
+            AbrirFormEnPanel(new Inicio());
+        }        
     }
 }
