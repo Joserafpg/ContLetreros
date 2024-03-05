@@ -18,6 +18,23 @@ namespace ContAlumnos
             InitializeComponent();
         }
 
+        public void text(string tittle)
+        {
+            titulo.Text = tittle;
+        }
+
+        public void AbrirFormEnPanel(object Formhijo)
+        {
+            if (this.panelDesktop.Controls.Count > 0)
+                this.panelDesktop.Controls.RemoveAt(0);
+            Form fh = Formhijo as Form;
+            fh.TopLevel = false;
+            fh.Dock = DockStyle.Fill;
+            this.panelDesktop.Controls.Add(fh);
+            this.panelDesktop.Tag = fh;
+            fh.Show();
+        }
+
         void bordesradius()
         {
             int borderRadius = 20;
@@ -35,6 +52,13 @@ namespace ContAlumnos
         private void Menu_Load(object sender, EventArgs e)
         {
             bordesradius();
+            btnInicio.PerformClick();
+        }
+
+        private void btnInicio_Click(object sender, EventArgs e)
+        {
+            text("Menu Principal");
+            AbrirFormEnPanel(new Inicio());
         }
     }
 }
