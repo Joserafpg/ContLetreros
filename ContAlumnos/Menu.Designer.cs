@@ -71,7 +71,7 @@
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.Transparent;
+            this.panel2.BackColor = System.Drawing.Color.White;
             this.panel2.Controls.Add(this.btnocultar);
             this.panel2.Controls.Add(this.btnSalir);
             this.panel2.Controls.Add(this.btnconfiguracion);
@@ -353,6 +353,7 @@
             this.btnestudiantes.TextMarginLeft = 0;
             this.btnestudiantes.TextPadding = new System.Windows.Forms.Padding(0);
             this.btnestudiantes.UseDefaultRadiusAndThickness = true;
+            this.btnestudiantes.Click += new System.EventHandler(this.btnestudiantes_Click);
             // 
             // btnmaestros
             // 
@@ -362,7 +363,7 @@
             this.btnmaestros.AnimationSpeed = 200;
             this.btnmaestros.AutoGenerateColors = false;
             this.btnmaestros.AutoRoundBorders = false;
-            this.btnmaestros.AutoSizeLeftIcon = true;
+            this.btnmaestros.AutoSizeLeftIcon = false;
             this.btnmaestros.AutoSizeRightIcon = true;
             this.btnmaestros.BackColor = System.Drawing.Color.Transparent;
             this.btnmaestros.BackColor1 = System.Drawing.Color.Transparent;
@@ -387,7 +388,7 @@
             this.btnmaestros.ForeColor = System.Drawing.SystemColors.WindowText;
             this.btnmaestros.IconLeftAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnmaestros.IconLeftCursor = System.Windows.Forms.Cursors.Default;
-            this.btnmaestros.IconLeftPadding = new System.Windows.Forms.Padding(11, 3, 3, 3);
+            this.btnmaestros.IconLeftPadding = new System.Windows.Forms.Padding(25, 3, 3, 3);
             this.btnmaestros.IconMarginLeft = 11;
             this.btnmaestros.IconPadding = 10;
             this.btnmaestros.IconRightAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -398,7 +399,7 @@
             this.btnmaestros.IdleBorderRadius = 35;
             this.btnmaestros.IdleBorderThickness = 1;
             this.btnmaestros.IdleFillColor = System.Drawing.Color.Transparent;
-            this.btnmaestros.IdleIconLeftImage = null;
+            this.btnmaestros.IdleIconLeftImage = ((System.Drawing.Image)(resources.GetObject("btnmaestros.IdleIconLeftImage")));
             this.btnmaestros.IdleIconRightImage = null;
             this.btnmaestros.IndicateFocus = false;
             this.btnmaestros.Location = new System.Drawing.Point(13, 267);
@@ -425,7 +426,7 @@
             this.btnmaestros.OnIdleState.BorderThickness = 1;
             this.btnmaestros.OnIdleState.FillColor = System.Drawing.Color.Transparent;
             this.btnmaestros.OnIdleState.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.btnmaestros.OnIdleState.IconLeftImage = null;
+            this.btnmaestros.OnIdleState.IconLeftImage = ((System.Drawing.Image)(resources.GetObject("bunifuButton22.OnIdleState.IconLeftImage")));
             this.btnmaestros.OnIdleState.IconRightImage = null;
             this.btnmaestros.OnPressedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
             this.btnmaestros.OnPressedState.BorderRadius = 35;
@@ -442,6 +443,7 @@
             this.btnmaestros.TextMarginLeft = 0;
             this.btnmaestros.TextPadding = new System.Windows.Forms.Padding(0);
             this.btnmaestros.UseDefaultRadiusAndThickness = true;
+            this.btnmaestros.Click += new System.EventHandler(this.btnmaestros_Click);
             // 
             // btnconfiguracion
             // 
@@ -531,6 +533,7 @@
             this.btnconfiguracion.TextMarginLeft = 0;
             this.btnconfiguracion.TextPadding = new System.Windows.Forms.Padding(0);
             this.btnconfiguracion.UseDefaultRadiusAndThickness = true;
+            this.btnconfiguracion.Click += new System.EventHandler(this.btnconfiguracion_Click);
             // 
             // btnSalir
             // 
@@ -802,7 +805,7 @@
             this.btnocultar.onHoverState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton2.BorderStyles.Solid;
             this.btnocultar.onHoverState.BorderThickness = 1;
             this.btnocultar.onHoverState.FillColor = System.Drawing.Color.Empty;
-            this.btnocultar.onHoverState.ForeColor = System.Drawing.Color.White;
+            this.btnocultar.onHoverState.ForeColor = System.Drawing.Color.Transparent;
             this.btnocultar.onHoverState.IconLeftImage = null;
             this.btnocultar.onHoverState.IconRightImage = null;
             this.btnocultar.OnIdleState.BorderColor = System.Drawing.Color.Transparent;
@@ -818,7 +821,7 @@
             this.btnocultar.OnPressedState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton2.BorderStyles.Solid;
             this.btnocultar.OnPressedState.BorderThickness = 1;
             this.btnocultar.OnPressedState.FillColor = System.Drawing.Color.Empty;
-            this.btnocultar.OnPressedState.ForeColor = System.Drawing.Color.White;
+            this.btnocultar.OnPressedState.ForeColor = System.Drawing.Color.Transparent;
             this.btnocultar.OnPressedState.IconLeftImage = null;
             this.btnocultar.OnPressedState.IconRightImage = null;
             this.btnocultar.Size = new System.Drawing.Size(44, 39);

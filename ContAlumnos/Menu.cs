@@ -124,6 +124,24 @@ namespace ContAlumnos
         {
             text("Menu Principal");
             AbrirFormEnPanel(new Inicio());
-        }        
+        }
+
+        private void btnestudiantes_Click(object sender, EventArgs e)
+        {
+            text("Manejo Estudiantes");
+            AbrirFormEnPanel(new Inicio());
+        }
+
+        private void btnmaestros_Click(object sender, EventArgs e)
+        {
+            text("Manejo Maestros");
+            AbrirFormEnPanel(new Inicio());
+        }
+
+        private void btnconfiguracion_Click(object sender, EventArgs e)
+        {
+            text("Configuracion");
+            AbrirFormEnPanel(new Inicio());
+        }
     }
 }
