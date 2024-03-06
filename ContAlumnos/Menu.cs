@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ContAlumnos.Clases.Login;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -113,6 +114,7 @@ namespace ContAlumnos
         {
             bordesradius();
             btnInicio.PerformClick();
+            btnuser.Text = Acceso.Nombre;
         }
 
         private void bunifuButton25_Click(object sender, EventArgs e)
@@ -142,6 +144,23 @@ namespace ContAlumnos
         {
             text("Configuracion");
             AbrirFormEnPanel(new Inicio());
+        }
+
+        private void bunifuFormControlBox1_HelpClicked(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bunifuFormControlBox1_CloseClicked(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            Login frm = new Login();
+            Visible = false;
+            frm.Visible = true;
         }
     }
 }
