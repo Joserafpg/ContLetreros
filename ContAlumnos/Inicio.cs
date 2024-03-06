@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ContAlumnos.Clases.Login;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,11 @@ namespace ContAlumnos
         public Inicio()
         {
             InitializeComponent();
+        }
+
+        private void Inicio_Load(object sender, EventArgs e)
+        {
+            lname.Text = Acceso.Nombre;
         }
     }
 }

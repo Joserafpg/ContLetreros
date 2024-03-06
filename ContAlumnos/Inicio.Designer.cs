@@ -35,7 +35,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.bunifuPanel1 = new Bunifu.UI.WinForms.BunifuPanel();
             this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.lname = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.bunifuPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -103,7 +103,7 @@
             this.bunifuPanel1.BorderRadius = 35;
             this.bunifuPanel1.BorderThickness = 1;
             this.bunifuPanel1.Controls.Add(this.label5);
-            this.bunifuPanel1.Controls.Add(this.label4);
+            this.bunifuPanel1.Controls.Add(this.lname);
             this.bunifuPanel1.Controls.Add(this.label3);
             this.bunifuPanel1.Location = new System.Drawing.Point(79, 53);
             this.bunifuPanel1.Name = "bunifuPanel1";
@@ -123,16 +123,16 @@
             this.label5.TabIndex = 6;
             this.label5.Text = "Listo para comenzar el día\r\n";
             // 
-            // label4
+            // lname
             // 
-            this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Font = new System.Drawing.Font("Century Gothic", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(151, 64);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(381, 38);
-            this.label4.TabIndex = 5;
-            this.label4.Text = "...";
+            this.lname.BackColor = System.Drawing.Color.Transparent;
+            this.lname.Font = new System.Drawing.Font("Century Gothic", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lname.ForeColor = System.Drawing.Color.White;
+            this.lname.Location = new System.Drawing.Point(151, 64);
+            this.lname.Name = "lname";
+            this.lname.Size = new System.Drawing.Size(381, 38);
+            this.lname.TabIndex = 5;
+            this.lname.Text = "...";
             // 
             // label3
             // 
@@ -161,6 +161,7 @@
             this.Name = "Inicio";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Inicio";
+            this.Load += new System.EventHandler(this.Inicio_Load);
             this.bunifuPanel1.ResumeLayout(false);
             this.bunifuPanel1.PerformLayout();
             this.ResumeLayout(false);
@@ -176,7 +177,7 @@
         private System.Windows.Forms.Label label6;
         private Bunifu.UI.WinForms.BunifuPanel bunifuPanel1;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lname;
         private System.Windows.Forms.Label label3;
     }
 }
