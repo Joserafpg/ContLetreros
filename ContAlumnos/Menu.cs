@@ -158,7 +158,7 @@ namespace ContAlumnos
         private void btnconfiguracion_Click(object sender, EventArgs e)
         {
             text("Configuracion");
-            AbrirFormEnPanel(new Inicio());
+            AbrirFormEnPanel(new Configuracion());
         }
 
         private void bunifuFormControlBox1_HelpClicked(object sender, EventArgs e)

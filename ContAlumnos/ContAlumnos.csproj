@@ -56,6 +56,12 @@
     <Compile Include="Clases\Conexion.cs" />
     <Compile Include="Clases\Login\Acceso.cs" />
     <Compile Include="Clases\Login\Permisos.cs" />
+    <Compile Include="Configuracion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Configuracion.Designer.cs">
+      <DependentUpon>Configuracion.cs</DependentUpon>
+    </Compile>
     <Compile Include="Estudiantes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -74,6 +80,12 @@
     <Compile Include="Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
+    <Compile Include="Maestros.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Maestros.Designer.cs">
+      <DependentUpon>Maestros.cs</DependentUpon>
+    </Compile>
     <Compile Include="Menu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -82,6 +94,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Configuracion.resx">
+      <DependentUpon>Configuracion.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Estudiantes.resx">
       <DependentUpon>Estudiantes.cs</DependentUpon>
     </EmbeddedResource>
@@ -90,6 +105,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Maestros.resx">
+      <DependentUpon>Maestros.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Menu.resx">
       <DependentUpon>Menu.cs</DependentUpon>
