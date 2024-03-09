@@ -41,6 +41,14 @@ namespace ContAlumnos
                 newLocation.X = 12;
 
                 btnocultar.Location = newLocation;
+
+
+
+
+                Point newLocation2 = pUser.Location;
+                newLocation2.X = 858;
+
+                pUser.Location = newLocation2;
             }
 
             else
@@ -59,6 +67,12 @@ namespace ContAlumnos
                 newLocation.X = 210;
 
                 btnocultar.Location = newLocation;
+
+
+                Point newLocation2 = pUser.Location;
+                newLocation2.X = 950;
+
+                pUser.Location = newLocation2;
             }
         }
 
