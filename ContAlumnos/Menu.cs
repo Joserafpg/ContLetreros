@@ -16,6 +16,7 @@ namespace ContAlumnos
     public partial class Menu : Form
     {
         static bool ocultar = true;
+        static bool encender = false;
 
         public Menu()
         {
@@ -131,7 +132,7 @@ namespace ContAlumnos
         private void btnestudiantes_Click(object sender, EventArgs e)
         {
             text("Manejo Estudiantes");
-            AbrirFormEnPanel(new Inicio());
+            AbrirFormEnPanel(new Estudiantes());
         }
 
         private void btnmaestros_Click(object sender, EventArgs e)
@@ -161,6 +162,23 @@ namespace ContAlumnos
             Login frm = new Login();
             Visible = false;
             frm.Visible = true;
+        }
+
+        private void btnuser_Click(object sender, EventArgs e)
+        {
+            
+
+            if(encender == false)
+            {
+                pUser.Visible = true;
+                encender = true;
+            }
+
+            else
+            {
+                pUser.Visible = false;
+                encender = false;
+            }
         }
     }
 }

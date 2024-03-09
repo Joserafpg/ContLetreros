@@ -56,6 +56,12 @@
     <Compile Include="Clases\Conexion.cs" />
     <Compile Include="Clases\Login\Acceso.cs" />
     <Compile Include="Clases\Login\Permisos.cs" />
+    <Compile Include="Estudiantes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Estudiantes.Designer.cs">
+      <DependentUpon>Estudiantes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Inicio.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -76,6 +82,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Estudiantes.resx">
+      <DependentUpon>Estudiantes.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Inicio.resx">
       <DependentUpon>Inicio.cs</DependentUpon>
     </EmbeddedResource>
