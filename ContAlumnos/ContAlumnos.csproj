@@ -54,6 +54,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Clases\Conexion.cs" />
+    <Compile Include="Clases\Estudiantes\DatosbaseEstudiantes.cs" />
+    <Compile Include="Clases\Estudiantes\DatosgetEstudiantes.cs" />
     <Compile Include="Clases\Login\Acceso.cs" />
     <Compile Include="Clases\Login\Permisos.cs" />
     <Compile Include="Configuracion.cs">

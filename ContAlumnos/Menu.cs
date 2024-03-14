@@ -152,7 +152,7 @@ namespace ContAlumnos
         private void btnmaestros_Click(object sender, EventArgs e)
         {
             text("Manejo Maestros");
-            AbrirFormEnPanel(new Inicio());
+            AbrirFormEnPanel(new Maestros());
         }
 
         private void btnconfiguracion_Click(object sender, EventArgs e)

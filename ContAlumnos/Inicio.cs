@@ -22,5 +22,10 @@ namespace ContAlumnos
         {
             lname.Text = Acceso.Nombre;
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
