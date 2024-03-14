@@ -1,4 +1,6 @@
 ﻿using ContAlumnos.Clases.Estudiantes;
+using CrystalDecisions.CrystalReports.Engine;
+using CrystalDecisions.Shared;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -145,6 +147,27 @@ namespace ContAlumnos
             {
                 Buscar();
             }
+        }
+
+        private void bunifuButton23_Click(object sender, EventArgs e)
+        {
+            PlantillaReporte form = new PlantillaReporte();
+            ReportDocument oRep = new ReportDocument();
+            ParameterField pf = new ParameterField();
+            ParameterFields pfs = new ParameterFields();
+            ParameterDiscreteValue pdv = new ParameterDiscreteValue();
+            pf.Name = "@Curso";
+            pf.Name = "@Seccion";
+            pf.Name = "@Area";
+            pdv.Value = txtcurso.Text;
+            pdv.Value = txtseccion.Text;
+            pdv.Value = txtarea.Text;
+            pf.CurrentValues.Add(pdv);
+            pfs.Add(pf);
+            form.crystalReportViewer1.ParameterFieldInfo = pfs;
+            oRep.Load(@"C:\Users\User\source\repos\ContAlumnos\ContAlumnos\Reportes de cursos.rpt");
+            form.crystalReportViewer1.ReportSource = oRep;
+            form.Show();
         }
     }
 }

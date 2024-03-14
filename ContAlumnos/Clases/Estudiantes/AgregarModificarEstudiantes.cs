@@ -19,22 +19,23 @@ namespace ContAlumnos.Clases.Estudiantes
             InitializeComponent();
         }
 
-        public bool EditMode { get; set; }
-
-        public static string computerName = Environment.MachineName;
-        public static SqlConnection Conn = new SqlConnection($"Server = {computerName}; database=ContAlumnos; Integrated Security=True");
-
-
         int numero = 0;
         string curso;
         string seccion;
         string area;
 
-        public void InitializeData(Int64 id, string nombre, string apellido, string curso, string seccion, string area)
+        public bool EditMode { get; set; }
+
+        public static string computerName = Environment.MachineName;
+        public static SqlConnection Conn = new SqlConnection($"Server = {computerName}; database=ContAlumnos; Integrated Security=True");
+
+        public void InitializeData(Int64 id, string nombre, string apellido, string sexo, bool discapacidad, string curso, string seccion, string area)
         {
             txtnumero.Text = id.ToString();
             txtnombre.Text = nombre;
             txtapellido.Text = apellido;
+            csexo.Text = sexo;
+            chdiscapacidad.Checked = discapacidad;
             cCurso.Text = curso;
             cSeccion.Text = seccion;
             cArea.Text = area;
@@ -75,10 +76,12 @@ namespace ContAlumnos.Clases.Estudiantes
         {
             if (EditMode)
             {
-                /*DatosgetEstudiantes pEstudiantes = new DatosgetEstudiantes();
+                DatosgetEstudiantes pEstudiantes = new DatosgetEstudiantes();
                 pEstudiantes.Numero = Convert.ToInt64(txtnumero.Text);
                 pEstudiantes.Nombre = txtnombre.Text;
                 pEstudiantes.Apellido = txtapellido.Text;
+                pEstudiantes.Sexo = csexo.Text;
+                pEstudiantes.Discapacidad = chdiscapacidad.Validate();
                 pEstudiantes.Curso = cCurso.Text;
                 pEstudiantes.Seccion = cSeccion.Text;
                 pEstudiantes.Area = cArea.Text;
@@ -93,7 +96,7 @@ namespace ContAlumnos.Clases.Estudiantes
                 else
                 {
                     MessageBox.Show("No se pudo modificar el alumno", "Ocurrio un error!!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                }*/
+                }
             }
 
             else
@@ -163,6 +166,11 @@ namespace ContAlumnos.Clases.Estudiantes
         private void bunifuPanel1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void bunifuButton21_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

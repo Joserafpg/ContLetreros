@@ -39,7 +39,21 @@ Materia varchar (40),
 )
 
 SELECT * FROM Estudiantes WHERE Numero = '30' AND Curso = 'Sexto' AND Seccion = 'A' AND Area = 'Contabilidad'
-SELECT * FROM Estudiantes WHERE Area = 'Contabilidad'
+SELECT Numero, Nombre, Apellido, Sexo, Discapacidad FROM Estudiantes WHERE Curso = 'Sexto' AND Seccion = 'A' AND Area = 'Contabilidad'
 
 
 Drop table Maestros
+
+
+CREATE PROCEDURE ObtenerEstudiantesPorCursoSeccionYArea
+    @Curso NVARCHAR(50),
+    @Seccion NVARCHAR(50),
+    @Area NVARCHAR(50)
+AS
+BEGIN
+    SET NOCOUNT ON;
+    
+    SELECT Numero, Nombre, Apellido, Sexo, Discapacidad 
+    FROM Estudiantes 
+    WHERE Curso = @Curso AND Seccion = @Seccion AND Area = @Area;
+END

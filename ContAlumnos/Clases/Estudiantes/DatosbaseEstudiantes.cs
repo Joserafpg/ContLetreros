@@ -25,18 +25,18 @@ namespace ContAlumnos.Clases.Estudiantes
 
         }
 
-        /*public static int Modificar(DatosgetEstudiantes pAlumno)
+        public static int Modificar(DatosgetEstudiantes pget)
         {
             int retorno = 0;
             Conexion.opencon();
             {
-                SqlCommand comando = new SqlCommand(string.Format("update Productos set Nombre = '{0}', Precio_Compra = '{1}', Precio = '{2}', Cantidad = '{3}', Departamento = '{4}', Fecha_Ingreso = '{5}' where Id_Producto = {6}",
-                    pAlumno.Nombre, pAlumno.Precio_Compra, pAlumno.Precio, pAlumno.Cantidad, pAlumno.Departamento, pAlumno.Fecha_Ingreso.ToString("yyyy-MM-dd HH:mm:ss"), pAlumno.Codigo), Conexion.ObtenerConexion());
+                SqlCommand comando = new SqlCommand(string.Format("update Estudiantes set Nombre = '{0}', Apellido = '{1}', Sexo = '{2}', Discapacidad = '{3}' WHERE Numero = {4} AND Curso = '{3}' AND Seccion = '{3}' AND Area = '{3}'",
+                    pget.Nombre, pget.Apellido, pget.Sexo, pget.Discapacidad, pget.Numero, pget.Curso, pget.Seccion, pget.Area), Conexion.ObtenerConexion());
                 retorno = comando.ExecuteNonQuery();
             }
             Conexion.cerrarcon();
             return retorno;
-        }*/
+        }
 
         public static int Eliminar(int pID, string curso, string seccion, string area)
         {
