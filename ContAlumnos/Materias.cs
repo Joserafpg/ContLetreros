@@ -189,7 +189,7 @@ namespace ContAlumnos
                 pf.CurrentValues.Add(pdv);
                 pfs.Add(pf);
                 form.crystalReportViewer1.ParameterFieldInfo = pfs;
-                oRep.Load(@"C:\Users\User\source\repos\ContAlumnos\ContAlumnos\Reportes de cursos.rpt");
+                oRep.Load(@"C:\Users\User\source\repos\ContAlumnos\ContAlumnos\CrystalReport1.rpt");
                 form.crystalReportViewer1.ReportSource = oRep;
                 form.Show();
             }

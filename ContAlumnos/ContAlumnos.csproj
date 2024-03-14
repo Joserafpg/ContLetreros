@@ -79,6 +79,12 @@
     <Compile Include="AgregarModificarEstudiantes.Designer.cs">
       <DependentUpon>AgregarModificarEstudiantes.cs</DependentUpon>
     </Compile>
+    <Compile Include="CrystalReport1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrystalReport1.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Clases\Materias\DatosbaseMaterias.cs" />
     <Compile Include="Clases\Materias\DatosgetMaterias.cs" />
     <Compile Include="Clases\Maestro-Cursos\DatosbaseMaestros.cs" />
@@ -151,6 +157,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AgregarModificarEstudiantes.resx">
       <DependentUpon>AgregarModificarEstudiantes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReport1.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrystalReport1.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Configuracion.resx">
       <DependentUpon>Configuracion.cs</DependentUpon>

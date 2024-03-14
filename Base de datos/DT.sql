@@ -113,14 +113,16 @@ AS
 BEGIN
     SET NOCOUNT ON;
 
-    SELECT Materia, Maestro
-    FROM Materias
-    WHERE Curso = @Curso AND Seccion = @Seccion AND Area = @Area
-    ORDER BY Materia;
+    SELECT m.Materia, m.Maestro, c.Maestro_Titular
+    FROM Materias m
+    INNER JOIN Curso c ON m.Curso = c.Curso AND m.Seccion = c.Seccion AND m.Area = c.Area
+    WHERE m.Curso = @Curso AND m.Seccion = @Seccion AND m.Area = @Area
+    ORDER BY m.Materia;
 END
 
 
-drop procedure CalcularTotalVarones
+
+drop procedure ObtenerMateriasPorCursoSeccionYArea
 
 EXEC ObtenerEstudiantesPorCursoSeccionYArea 'Sexto', 'A', 'Contabilidad';
 EXEC CalcularTotalEstudiantes;
