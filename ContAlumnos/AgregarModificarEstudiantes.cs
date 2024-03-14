@@ -97,7 +97,12 @@ namespace ContAlumnos.Clases.Estudiantes
                 {
                     MessageBox.Show("No se pudo modificar el alumno", "Ocurrio un error!!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
+
+                // Indica que la operación fue exitosa
+                this.DialogResult = DialogResult.OK;
+                this.Close();
             }
+                        
 
             else
             {               

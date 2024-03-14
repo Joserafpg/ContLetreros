@@ -42,18 +42,57 @@ SELECT * FROM Estudiantes WHERE Numero = '30' AND Curso = 'Sexto' AND Seccion = 
 SELECT Numero, Nombre, Apellido, Sexo, Discapacidad FROM Estudiantes WHERE Curso = 'Sexto' AND Seccion = 'A' AND Area = 'Contabilidad'
 
 
-Drop table Maestros
+Drop table Curso
 
-
-CREATE PROCEDURE ObtenerEstudiantesPorCursoSeccionYArea
+CREATE PROCEDURE ObtenerEstudiantesPorCursoSeccionYArea 
     @Curso NVARCHAR(50),
     @Seccion NVARCHAR(50),
     @Area NVARCHAR(50)
 AS
 BEGIN
     SET NOCOUNT ON;
-    
-    SELECT Numero, Nombre, Apellido, Sexo, Discapacidad 
-    FROM Estudiantes 
-    WHERE Curso = @Curso AND Seccion = @Seccion AND Area = @Area;
+
+    SELECT e.Numero, e.Nombre, e.Apellido, e.Sexo, e.Discapacidad, c.Maestro_Titular
+    FROM Estudiantes e
+    INNER JOIN Curso c ON e.Curso = c.Curso AND e.Seccion = c.Seccion AND e.Area = c.Area
+    WHERE e.Curso = @Curso AND e.Seccion = @Seccion AND e.Area = @Area
+    ORDER BY e.Numero;
 END
+
+CREATE PROCEDURE CalcularTotalEstudiantes
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    SELECT COUNT(*) AS TotalEstudiantes
+    FROM Estudiantes;
+END
+
+
+
+DROP TABLE Maestros
+
+CREATE PROCEDURE CalcularTotalHembras
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    SELECT COUNT(*) AS TotalHembras
+    FROM Estudiantes
+    WHERE Sexo = 'F';
+END
+
+CREATE PROCEDURE CalcularTotalVarones
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    SELECT COUNT(*) AS TotalVarones
+    FROM Estudiantes
+    WHERE Sexo = 'M';
+END
+
+drop procedure CalcularTotalVarones
+
+EXEC ObtenerEstudiantesPorCursoSeccionYArea 'Sexto', 'A', 'Contabilidad';
+EXEC CalcularTotalEstudiantes;

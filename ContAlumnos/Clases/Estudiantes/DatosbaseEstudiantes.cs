@@ -30,7 +30,7 @@ namespace ContAlumnos.Clases.Estudiantes
             int retorno = 0;
             Conexion.opencon();
             {
-                SqlCommand comando = new SqlCommand(string.Format("update Estudiantes set Nombre = '{0}', Apellido = '{1}', Sexo = '{2}', Discapacidad = '{3}' WHERE Numero = {4} AND Curso = '{3}' AND Seccion = '{3}' AND Area = '{3}'",
+                SqlCommand comando = new SqlCommand(string.Format("update Estudiantes set Nombre = '{0}', Apellido = '{1}', Sexo = '{2}', Discapacidad = '{3}' WHERE Numero = {4} AND Curso = '{5}' AND Seccion = '{6}' AND Area = '{7}'",
                     pget.Nombre, pget.Apellido, pget.Sexo, pget.Discapacidad, pget.Numero, pget.Curso, pget.Seccion, pget.Area), Conexion.ObtenerConexion());
                 retorno = comando.ExecuteNonQuery();
             }

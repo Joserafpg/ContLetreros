@@ -30,13 +30,13 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Inicio));
             this.bunifuPanel4 = new Bunifu.UI.WinForms.BunifuPanel();
-            this.label9 = new System.Windows.Forms.Label();
+            this.varones = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.bunifuPanel3 = new Bunifu.UI.WinForms.BunifuPanel();
-            this.label8 = new System.Windows.Forms.Label();
+            this.hembras = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.bunifuPanel2 = new Bunifu.UI.WinForms.BunifuPanel();
-            this.label7 = new System.Windows.Forms.Label();
+            this.total = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.bunifuPanel1 = new Bunifu.UI.WinForms.BunifuPanel();
@@ -57,7 +57,7 @@
             this.bunifuPanel4.BorderColor = System.Drawing.Color.Transparent;
             this.bunifuPanel4.BorderRadius = 35;
             this.bunifuPanel4.BorderThickness = 1;
-            this.bunifuPanel4.Controls.Add(this.label9);
+            this.bunifuPanel4.Controls.Add(this.varones);
             this.bunifuPanel4.Controls.Add(this.label4);
             this.bunifuPanel4.Location = new System.Drawing.Point(611, 284);
             this.bunifuPanel4.Name = "bunifuPanel4";
@@ -65,17 +65,17 @@
             this.bunifuPanel4.Size = new System.Drawing.Size(250, 115);
             this.bunifuPanel4.TabIndex = 15;
             // 
-            // label9
+            // varones
             // 
-            this.label9.AutoSize = true;
-            this.label9.BackColor = System.Drawing.Color.Transparent;
-            this.label9.Font = new System.Drawing.Font("Century Gothic", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(99, 43);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(53, 38);
-            this.label9.TabIndex = 10;
-            this.label9.Text = "00";
+            this.varones.AutoSize = true;
+            this.varones.BackColor = System.Drawing.Color.Transparent;
+            this.varones.Font = new System.Drawing.Font("Century Gothic", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.varones.ForeColor = System.Drawing.Color.White;
+            this.varones.Location = new System.Drawing.Point(99, 43);
+            this.varones.Name = "varones";
+            this.varones.Size = new System.Drawing.Size(53, 38);
+            this.varones.TabIndex = 10;
+            this.varones.Text = "00";
             // 
             // label4
             // 
@@ -97,7 +97,7 @@
             this.bunifuPanel3.BorderColor = System.Drawing.Color.Transparent;
             this.bunifuPanel3.BorderRadius = 35;
             this.bunifuPanel3.BorderThickness = 1;
-            this.bunifuPanel3.Controls.Add(this.label8);
+            this.bunifuPanel3.Controls.Add(this.hembras);
             this.bunifuPanel3.Controls.Add(this.label2);
             this.bunifuPanel3.Location = new System.Drawing.Point(345, 284);
             this.bunifuPanel3.Name = "bunifuPanel3";
@@ -105,17 +105,17 @@
             this.bunifuPanel3.Size = new System.Drawing.Size(250, 115);
             this.bunifuPanel3.TabIndex = 14;
             // 
-            // label8
+            // hembras
             // 
-            this.label8.AutoSize = true;
-            this.label8.BackColor = System.Drawing.Color.Transparent;
-            this.label8.Font = new System.Drawing.Font("Century Gothic", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(99, 43);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(53, 38);
-            this.label8.TabIndex = 9;
-            this.label8.Text = "00";
+            this.hembras.AutoSize = true;
+            this.hembras.BackColor = System.Drawing.Color.Transparent;
+            this.hembras.Font = new System.Drawing.Font("Century Gothic", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.hembras.ForeColor = System.Drawing.Color.White;
+            this.hembras.Location = new System.Drawing.Point(99, 43);
+            this.hembras.Name = "hembras";
+            this.hembras.Size = new System.Drawing.Size(53, 38);
+            this.hembras.TabIndex = 9;
+            this.hembras.Text = "00";
             // 
             // label2
             // 
@@ -137,7 +137,7 @@
             this.bunifuPanel2.BorderColor = System.Drawing.Color.Transparent;
             this.bunifuPanel2.BorderRadius = 35;
             this.bunifuPanel2.BorderThickness = 1;
-            this.bunifuPanel2.Controls.Add(this.label7);
+            this.bunifuPanel2.Controls.Add(this.total);
             this.bunifuPanel2.Controls.Add(this.label1);
             this.bunifuPanel2.Location = new System.Drawing.Point(79, 284);
             this.bunifuPanel2.Name = "bunifuPanel2";
@@ -145,17 +145,17 @@
             this.bunifuPanel2.Size = new System.Drawing.Size(250, 115);
             this.bunifuPanel2.TabIndex = 13;
             // 
-            // label7
+            // total
             // 
-            this.label7.AutoSize = true;
-            this.label7.BackColor = System.Drawing.Color.Transparent;
-            this.label7.Font = new System.Drawing.Font("Century Gothic", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(99, 43);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(53, 38);
-            this.label7.TabIndex = 8;
-            this.label7.Text = "00";
+            this.total.AutoSize = true;
+            this.total.BackColor = System.Drawing.Color.Transparent;
+            this.total.Font = new System.Drawing.Font("Century Gothic", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.total.ForeColor = System.Drawing.Color.White;
+            this.total.Location = new System.Drawing.Point(99, 43);
+            this.total.Name = "total";
+            this.total.Size = new System.Drawing.Size(53, 38);
+            this.total.TabIndex = 8;
+            this.total.Text = "00";
             // 
             // label1
             // 
@@ -178,7 +178,7 @@
             this.label6.ForeColor = System.Drawing.Color.DarkGray;
             this.label6.Location = new System.Drawing.Point(97, 260);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(60, 16);
+            this.label6.Size = new System.Drawing.Size(61, 16);
             this.label6.TabIndex = 12;
             this.label6.Text = "General";
             // 
@@ -276,8 +276,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label varones;
+        private System.Windows.Forms.Label hembras;
+        private System.Windows.Forms.Label total;
     }
 }

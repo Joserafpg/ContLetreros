@@ -96,7 +96,30 @@ namespace ContAlumnos
 
         private void bunifuButton21_Click(object sender, EventArgs e)
         {
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
+                DataGridViewRow row = dataGridView1.SelectedRows[0];
 
+                // Obtén los datos de la fila seleccionada
+                Int64 id = Convert.ToInt64(row.Cells[0].Value);
+                string nombre = row.Cells[1].Value.ToString();
+                string apellido = row.Cells[2].Value.ToString();
+                string sexo = row.Cells[3].Value.ToString();
+                bool discapacidad = Convert.ToBoolean(row.Cells[4].Value);
+                string curso = row.Cells[5].Value.ToString();
+                string seccion = row.Cells[6].Value.ToString();
+                string area = row.Cells[7].Value.ToString();
+
+                // Abre el formulario para editar el producto
+                AgregarModificarEstudiantes formEditar = new AgregarModificarEstudiantes();
+                formEditar.EditMode = true; // Estás en modo editar
+                formEditar.InitializeData(id, nombre, apellido, sexo, discapacidad, curso, seccion, area);
+                if (formEditar.ShowDialog() == DialogResult.OK)
+                {
+                    // Actualiza el DataGridView después de la edición
+                    Buscar();
+                }
+            }
         }
 
         private void bunifuButton22_Click(object sender, EventArgs e)
