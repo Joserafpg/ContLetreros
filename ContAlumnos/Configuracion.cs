@@ -19,7 +19,8 @@ namespace ContAlumnos
 
         private void bunifuButton22_Click(object sender, EventArgs e)
         {
-
+            Materias form = new Materias();
+            form.ShowDialog();
         }
     }
 }

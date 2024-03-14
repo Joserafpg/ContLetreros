@@ -35,7 +35,14 @@ Nombre varchar (40),
 Curso varchar (10),
 Seccion varchar (1),
 Area varchar (15),
-Materia varchar (40),
+)
+
+create table Materias(
+Materia varchar (50),
+Maestro varchar (50),
+Curso varchar (10),
+Seccion varchar (1),
+Area varchar (15),
 )
 
 SELECT * FROM Maestros
