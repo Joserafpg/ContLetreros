@@ -16,8 +16,8 @@ namespace ContAlumnos.Clases.Estudiantes
 
             Conexion.opencon();
 
-            SqlCommand Comando = new SqlCommand(string.Format("Insert into Estudiantes (Nombre, Apellido, Sexo, Discapacidad, Curso, Seccion, Area) values ('{0}','{1}','{2}','{3}','{4}','{5}','{6}')",
-                    pget.Nombre, pget.Apellido, pget.Sexo, pget.Discapacidad, pget.Curso, pget.Seccion, pget.Area), Conexion.ObtenerConexion());
+            SqlCommand Comando = new SqlCommand(string.Format("Insert into Estudiantes (Numero, Nombre, Apellido, Sexo, Discapacidad, Curso, Seccion, Area) values ('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}')",
+                    pget.Numero, pget.Nombre, pget.Apellido, pget.Sexo, pget.Discapacidad, pget.Curso, pget.Seccion, pget.Area), Conexion.ObtenerConexion());
 
             retorno = Comando.ExecuteNonQuery();
             Conexion.cerrarcon();

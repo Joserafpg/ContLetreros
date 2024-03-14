@@ -520,6 +520,7 @@
             this.btnestudiantes.TextMarginLeft = 0;
             this.btnestudiantes.TextPadding = new System.Windows.Forms.Padding(0);
             this.btnestudiantes.UseDefaultRadiusAndThickness = true;
+            this.btnestudiantes.Click += new System.EventHandler(this.btnestudiantes_Click);
             // 
             // bunifuButton21
             // 

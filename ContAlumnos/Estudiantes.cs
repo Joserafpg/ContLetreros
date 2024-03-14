@@ -99,30 +99,52 @@ namespace ContAlumnos
 
         private void bunifuButton22_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Esta seguro que desea eliminar el estudiante actual??", "Esta Seguro?!", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (dataGridView1.SelectedRows.Count == 0)
             {
-                int rowIndex = dataGridView1.SelectedRows[0].Index;
-                int id = Convert.ToInt32(dataGridView1.Rows[rowIndex].Cells[0].Value); // Suponiendo que el nombre de la columna que contiene el ID es "Numero"
-                string curso = dataGridView1.Rows[rowIndex].Cells[5].Value.ToString();
-                string seccion = dataGridView1.Rows[rowIndex].Cells[6].Value.ToString();
-                string area = dataGridView1.Rows[rowIndex].Cells[7].Value.ToString();
+                MessageBox.Show("Debes seleccionar un estudiantes", "Seleccionar un estudiante", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
 
-                Int64 resultado = DatosbaseEstudiantes.Eliminar(id, curso, seccion, area);
-                if (resultado > 0)
+            else if(dataGridView1.SelectedRows.Count == 1)
+            {
+                if (MessageBox.Show("Esta seguro que desea eliminar el estudiante actual??", "Esta Seguro?!", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    MessageBox.Show("Estudiante eliminado", "Estudiante Eliminado", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    Refresh();
-                    Buscar();
+                    int rowIndex = dataGridView1.SelectedRows[0].Index;
+                    int id = Convert.ToInt32(dataGridView1.Rows[rowIndex].Cells[0].Value); // Suponiendo que el nombre de la columna que contiene el ID es "Numero"
+                    string curso = dataGridView1.Rows[rowIndex].Cells[5].Value.ToString();
+                    string seccion = dataGridView1.Rows[rowIndex].Cells[6].Value.ToString();
+                    string area = dataGridView1.Rows[rowIndex].Cells[7].Value.ToString();
+
+                    Int64 resultado = DatosbaseEstudiantes.Eliminar(id, curso, seccion, area);
+                    if (resultado > 0)
+                    {
+                        MessageBox.Show("Estudiante eliminado", "Estudiante Eliminado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        Refresh();
+                        Buscar();
+                    }
+
+                    else
+                    {
+                        MessageBox.Show("No se pudo eliminar al estudiante", "estudiante eliminado", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    }
                 }
 
                 else
-                {
-                    MessageBox.Show("No se pudo eliminar al estudiante", "estudiante eliminado", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                }
+                    MessageBox.Show("Se cancelo la eliminacion", "Cancelado");
             }
-
             else
-                MessageBox.Show("Se cancelo la eliminacion", "Cancelado");
+            {
+                MessageBox.Show("No se pudo eliminar mas de un estudiante a la ves", "Seleccionar un estudiante", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+        }
+
+        private void btnestudiantes_Click(object sender, EventArgs e)
+        {
+            AgregarModificarEstudiantes formAgregar = new AgregarModificarEstudiantes();
+            formAgregar.EditMode = false;
+            if (formAgregar.ShowDialog() == DialogResult.OK)
+            {
+                Buscar();
+            }
         }
     }
 }
