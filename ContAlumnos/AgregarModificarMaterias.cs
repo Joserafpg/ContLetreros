@@ -19,13 +19,16 @@ namespace ContAlumnos.Clases.Estudiantes
             InitializeComponent();
         }
 
+
+        public static Int64 numero1;
         public bool EditMode { get; set; }
 
         public static string computerName = Environment.MachineName;
         public static SqlConnection Conn = new SqlConnection($"Server = {computerName}; database=ContAlumnos; Integrated Security=True");
 
-        public void InitializeData(string materia, string maestro, string curso, string seccion, string area)
+        public void InitializeData(Int64 numero, string materia, string maestro, string curso, string seccion, string area)
         {
+            numero1 = numero;
             txtmateria.Text = materia;
             txtmaestro.Text = maestro;
             cCurso.Text = curso;
@@ -58,6 +61,7 @@ namespace ContAlumnos.Clases.Estudiantes
             if (EditMode)
             {
                 DatosgetMaterias pEstudiantes = new DatosgetMaterias();
+                pEstudiantes.ID = numero1;
                 pEstudiantes.Materia = txtmateria.Text;
                 pEstudiantes.Maestro = txtmaestro.Text;
                 pEstudiantes.Curso = cCurso.Text;

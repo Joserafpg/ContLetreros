@@ -79,6 +79,7 @@
     <Compile Include="AgregarModificarEstudiantes.Designer.cs">
       <DependentUpon>AgregarModificarEstudiantes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Clases\Usuarios\Usuarios.cs" />
     <Compile Include="CrystalReport1.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -149,6 +150,12 @@
       <DependentUpon>Reportes de cursos.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Usuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Usuarios.Designer.cs">
+      <DependentUpon>Usuarios.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AgregarModificarMaterias.resx">
       <DependentUpon>AgregarModificarMaterias.cs</DependentUpon>
     </EmbeddedResource>
@@ -199,6 +206,9 @@
     <EmbeddedResource Include="Reportes de cursos.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>Reportes de cursos.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Usuarios.resx">
+      <DependentUpon>Usuarios.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

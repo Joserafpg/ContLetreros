@@ -8,6 +8,7 @@ namespace ContAlumnos.Clases.Estudiantes
 {
     public class DatosgetMaterias
     {
+        public Int64 ID { get; set; }
         public string Materia { get; set; }
         public string Maestro { get; set; }
         public string Curso { get; set; }
@@ -16,8 +17,9 @@ namespace ContAlumnos.Clases.Estudiantes
 
         public DatosgetMaterias() { }
 
-        public DatosgetMaterias(string pMateria, string pMaestro, string pCurso, string pSeccion, string pArea)
+        public DatosgetMaterias(Int64 pid, string pMateria, string pMaestro, string pCurso, string pSeccion, string pArea)
         {
+            this.ID = pid;
             this.Materia = pMateria;
             this.Maestro = pMaestro;
             this.Curso = pCurso;

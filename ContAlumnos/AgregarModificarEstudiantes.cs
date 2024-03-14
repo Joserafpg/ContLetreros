@@ -81,7 +81,7 @@ namespace ContAlumnos.Clases.Estudiantes
                 pEstudiantes.Nombre = txtnombre.Text;
                 pEstudiantes.Apellido = txtapellido.Text;
                 pEstudiantes.Sexo = csexo.Text;
-                pEstudiantes.Discapacidad = chdiscapacidad.Validate();
+                pEstudiantes.Discapacidad = chdiscapacidad.Checked;
                 pEstudiantes.Curso = cCurso.Text;
                 pEstudiantes.Seccion = cSeccion.Text;
                 pEstudiantes.Area = cArea.Text;
@@ -113,7 +113,7 @@ namespace ContAlumnos.Clases.Estudiantes
                     pEstudiantes.Nombre = txtnombre.Text;
                     pEstudiantes.Apellido = txtapellido.Text;
                     pEstudiantes.Sexo = csexo.Text;
-                    pEstudiantes.Discapacidad = chdiscapacidad.Validate();
+                    pEstudiantes.Discapacidad = chdiscapacidad.Checked;
                     pEstudiantes.Curso = cCurso.Text;
                     pEstudiantes.Seccion = cSeccion.Text;
                     pEstudiantes.Area = cArea.Text;

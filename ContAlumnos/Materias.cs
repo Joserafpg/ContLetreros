@@ -27,7 +27,7 @@ namespace ContAlumnos
         void CargarComboBox()
         {
             Conn.Open();
-            string consulta = "SELECT DISTINCT Curso FROM Estudiantes";
+            string consulta = "SELECT DISTINCT Curso FROM Materias";
             SqlCommand comando = new SqlCommand(consulta, Conn);
             SqlDataReader lector = comando.ExecuteReader();
 
@@ -39,7 +39,7 @@ namespace ContAlumnos
             Conn.Close();
 
             Conn.Open();
-            string consulta2 = "SELECT DISTINCT Seccion FROM Estudiantes";
+            string consulta2 = "SELECT DISTINCT Seccion FROM Materias";
             SqlCommand comando2 = new SqlCommand(consulta2, Conn);
             SqlDataReader lector2 = comando2.ExecuteReader();
 
@@ -101,17 +101,17 @@ namespace ContAlumnos
                 DataGridViewRow row = dataGridView1.SelectedRows[0];
 
                 // Obtén los datos de la fila seleccionada
-                int rowIndex = dataGridView1.SelectedRows[0].Index;
-                string materia = dataGridView1.Rows[rowIndex].Cells[0].Value.ToString();
-                string maestro = dataGridView1.Rows[rowIndex].Cells[1].Value.ToString();
-                string curso = dataGridView1.Rows[rowIndex].Cells[2].Value.ToString();
-                string seccion = dataGridView1.Rows[rowIndex].Cells[3].Value.ToString();
-                string area = dataGridView1.Rows[rowIndex].Cells[4].Value.ToString();
+                Int64 numero = Convert.ToInt64(row.Cells[0].Value);
+                string materia = row.Cells[1].Value.ToString();
+                string maestro = row.Cells[2].Value.ToString();
+                string curso = row.Cells[3].Value.ToString();
+                string seccion = row.Cells[4].Value.ToString();
+                string area = row.Cells[5].Value.ToString();
 
                 // Abre el formulario para editar el producto
                 AgregarModificarMaterias formEditar = new AgregarModificarMaterias();
                 formEditar.EditMode = true; // Estás en modo editar
-                formEditar.InitializeData(materia, maestro, curso, seccion, area);
+                formEditar.InitializeData(numero, materia, maestro, curso, seccion, area);
                 if (formEditar.ShowDialog() == DialogResult.OK)
                 {
                     // Actualiza el DataGridView después de la edición
@@ -131,14 +131,10 @@ namespace ContAlumnos
             {
                 if (MessageBox.Show("Esta seguro que desea eliminar el estudiante actual??", "Esta Seguro?!", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    int rowIndex = dataGridView1.SelectedRows[0].Index;
-                    string materia = dataGridView1.Rows[rowIndex].Cells[0].Value.ToString();
-                    string maestro = dataGridView1.Rows[rowIndex].Cells[1].Value.ToString(); 
-                    string curso = dataGridView1.Rows[rowIndex].Cells[2].Value.ToString();
-                    string seccion = dataGridView1.Rows[rowIndex].Cells[3].Value.ToString();
-                    string area = dataGridView1.Rows[rowIndex].Cells[4].Value.ToString();
+                    DataGridViewRow row = dataGridView1.SelectedRows[0];
+                    Int64 numero = Convert.ToInt64(row.Cells[0].Value);
 
-                    Int64 resultado = DatosbaseMaterias.Eliminar(materia, maestro, curso, seccion, area);
+                    Int64 resultado = DatosbaseMaterias.Eliminar(numero);
                     if (resultado > 0)
                     {
                         MessageBox.Show("Estudiante eliminado", "Estudiante Eliminado", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -167,6 +163,7 @@ namespace ContAlumnos
             formAgregar.EditMode = false;
             if (formAgregar.ShowDialog() == DialogResult.OK)
             {
+                Refresh();
                 Buscar();
             }
         }

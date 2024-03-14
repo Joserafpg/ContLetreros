@@ -30,8 +30,8 @@ namespace ContAlumnos.Clases.Estudiantes
             int retorno = 0;
             Conexion.opencon();
             {
-                SqlCommand comando = new SqlCommand(string.Format("update Materias set Materia = '{0}' WHERE Maestro = '{1}' AND Curso = '{2}' AND Seccion = '{3}' AND Area = '{4}'",
-                    pget.Materia, pget.Maestro, pget.Curso, pget.Seccion, pget.Area), Conexion.ObtenerConexion());
+                SqlCommand comando = new SqlCommand(string.Format("UPDATE Materias SET Materia = '{0}', Maestro = '{1}', Curso = '{2}', Seccion = '{3}', Area = '{4}' WHERE Id_Materia = {5}",
+                    pget.Materia, pget.Maestro, pget.Curso, pget.Seccion, pget.Area, pget.ID), Conexion.ObtenerConexion());
 
                 retorno = comando.ExecuteNonQuery();
             }
@@ -39,11 +39,12 @@ namespace ContAlumnos.Clases.Estudiantes
             return retorno;
         }
 
-        public static int Eliminar(string materia, string maestro, string curso, string seccion, string area)
+
+        public static int Eliminar(Int64 pId)
         {
             int retorno = 0;
             Conexion.opencon();
-            SqlCommand Comando = new SqlCommand(string.Format("DELETE FROM Materias WHERE Materia = '{0}' AND Maestro = '{1}' AND Curso = '{2}' AND Seccion = '{3}' AND Area = '{4}'", materia, maestro, curso, seccion, area), Conexion.ObtenerConexion());
+            SqlCommand Comando = new SqlCommand(string.Format("DELETE FROM Materias WHERE Id_Materia = '{0}'", pId), Conexion.ObtenerConexion());
 
             retorno = Comando.ExecuteNonQuery();
             Conexion.cerrarcon();
@@ -56,18 +57,19 @@ namespace ContAlumnos.Clases.Estudiantes
             Conexion.opencon();
             {
 
-                SqlCommand comando = new SqlCommand(String.Format("SELECT Materia, Maestro, Curso, Seccion, Area FROM Materias where Curso like '%{0}%' and Seccion like '%{1}%' and Area like '%{2}%' ", pCurso, pSeccion, pArea),
+                SqlCommand comando = new SqlCommand(String.Format("SELECT Id_Materia, Materia, Maestro, Curso, Seccion, Area FROM Materias where Curso like '%{0}%' and Seccion like '%{1}%' and Area like '%{2}%' ", pCurso, pSeccion, pArea),
                     Conexion.ObtenerConexion());
 
                 SqlDataReader reader = comando.ExecuteReader();
                 while (reader.Read())
                 {
                     DatosgetMaterias pAlumnos = new DatosgetMaterias();
-                    pAlumnos.Materia = reader.GetString(0);
-                    pAlumnos.Maestro = reader.GetString(1);
-                    pAlumnos.Curso = reader.GetString(2);
-                    pAlumnos.Seccion = reader.GetString(3);
-                    pAlumnos.Area = reader.GetString(4);
+                    pAlumnos.ID = Convert.ToInt64(reader.GetValue(0));
+                    pAlumnos.Materia = reader.GetString(1);
+                    pAlumnos.Maestro = reader.GetString(2);
+                    pAlumnos.Curso = reader.GetString(3);
+                    pAlumnos.Seccion = reader.GetString(4);
+                    pAlumnos.Area = reader.GetString(5);
 
                     lista.Add(pAlumnos);
                 }
