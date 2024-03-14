@@ -129,6 +129,17 @@ namespace ContAlumnos.Clases.Estudiantes
             return retorno;
         }
 
+        public static int Eliminar2(string curso, string seccion, string area)
+        {
+            int retorno = 0;
+            Conexion.opencon();
+            SqlCommand Comando = new SqlCommand(string.Format("update Curso set Maestro_Titular = ' ' WHERE Curso = '{0}' AND Seccion = '{1}' AND Area = '{2}'", curso, seccion, area), Conexion.ObtenerConexion());
+
+            retorno = Comando.ExecuteNonQuery();
+            Conexion.cerrarcon();
+            return retorno;
+        }
+
         public static List<DatosgetMaestros> BuscarAlumnos(string pCurso, string pSeccion, string pArea)
         {
             List<DatosgetMaestros> lista = new List<DatosgetMaestros>();

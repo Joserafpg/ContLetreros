@@ -433,7 +433,9 @@
             this.cCurso.ItemHighLightColor = System.Drawing.Color.DodgerBlue;
             this.cCurso.ItemHighLightForeColor = System.Drawing.Color.White;
             this.cCurso.Items.AddRange(new object[] {
-            "Sexto"});
+            "Sexto",
+            "Quinto",
+            "Cuarto"});
             this.cCurso.ItemTopMargin = 3;
             this.cCurso.Location = new System.Drawing.Point(130, 248);
             this.cCurso.Name = "cCurso";
@@ -480,7 +482,9 @@
             this.cSeccion.ItemHighLightColor = System.Drawing.Color.DodgerBlue;
             this.cSeccion.ItemHighLightForeColor = System.Drawing.Color.White;
             this.cSeccion.Items.AddRange(new object[] {
-            "A"});
+            "A",
+            "B",
+            "C"});
             this.cSeccion.ItemTopMargin = 3;
             this.cSeccion.Location = new System.Drawing.Point(130, 286);
             this.cSeccion.Name = "cSeccion";
