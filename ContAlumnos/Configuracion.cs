@@ -22,5 +22,11 @@ namespace ContAlumnos
             Materias form = new Materias();
             form.ShowDialog();
         }
+
+        private void bunifuButton21_Click(object sender, EventArgs e)
+        {
+            Usuarios form = new Usuarios();
+            form.ShowDialog();
+        }
     }
 }

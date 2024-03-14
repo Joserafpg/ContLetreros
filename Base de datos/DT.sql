@@ -17,7 +17,7 @@ Nombre varchar (20),
 Apellido varchar (20),
 Sexo varchar (15),
 Discapacidad bit,
-Curso varchar (5),
+Curso varchar (10),
 Seccion varchar (1),
 Area varchar (15),
 )
@@ -38,6 +38,7 @@ Area varchar (15),
 )
 
 create table Materias(
+Id_Materia INT IDENTITY (1,1) NOT NULL PRIMARY KEY,
 Materia varchar (50),
 Maestro varchar (50),
 Curso varchar (10),
@@ -47,14 +48,14 @@ Area varchar (15),
 
 SELECT * FROM Maestros
 SELECT * FROM Curso
-SELECT * FROM Materias
+SELECT * FROM Estudiantes
 
 
 SELECT * FROM Estudiantes WHERE Numero = '30' AND Curso = 'Sexto' AND Seccion = 'A' AND Area = 'Contabilidad'
 SELECT Numero, Nombre, Apellido, Sexo, Discapacidad FROM Estudiantes WHERE Curso = 'Sexto' AND Seccion = 'A' AND Area = 'Contabilidad'
 
 
-Drop table Curso
+Drop table Estudiantes
 
 CREATE PROCEDURE ObtenerEstudiantesPorCursoSeccionYArea 
     @Curso NVARCHAR(50),

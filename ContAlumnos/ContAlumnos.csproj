@@ -79,7 +79,8 @@
     <Compile Include="AgregarModificarEstudiantes.Designer.cs">
       <DependentUpon>AgregarModificarEstudiantes.cs</DependentUpon>
     </Compile>
-    <Compile Include="Clases\Usuarios\Usuarios.cs" />
+    <Compile Include="Clases\Usuarios\DTUsuarios.cs" />
+    <Compile Include="Clases\Usuarios\UsuariosGET.cs" />
     <Compile Include="CrystalReport1.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

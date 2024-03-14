@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ContAlumnos.Clases.Usuarios;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -21,5 +22,27 @@ namespace ContAlumnos
         {
             this.Close();
         }
+
+        private void btnestudiantes_Click(object sender, EventArgs e)
+        {
+            UsuariosGET pEstudiantes = new UsuariosGET();
+            pEstudiantes.Usuario = txtusuario.Text;
+            pEstudiantes.Contraseña = txtcontraseña.Text;
+            pEstudiantes.SuperUsuario = chsp.Checked;
+            pEstudiantes.UsuarioComun = chc.Checked;
+
+            int Resultado = DTUsuarios.Agregar(pEstudiantes);
+
+            if (Resultado > 0)
+            {
+                MessageBox.Show("Usuario agregado con exito", "Alumno modificado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            }
+            else
+            {
+                MessageBox.Show("No se pudo agregar el usuario", "Ocurrio un error!!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+        }
+
     }
 }
