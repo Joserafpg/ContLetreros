@@ -60,6 +60,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AgregarModificarMaestros.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AgregarModificarMaestros.Designer.cs">
+      <DependentUpon>AgregarModificarMaestros.cs</DependentUpon>
+    </Compile>
     <Compile Include="Clases\Conexion.cs" />
     <Compile Include="AgregarModificarEstudiantes.cs">
       <SubType>Form</SubType>
@@ -67,6 +73,8 @@
     <Compile Include="AgregarModificarEstudiantes.Designer.cs">
       <DependentUpon>AgregarModificarEstudiantes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Clases\Maestro-Cursos\DatosbaseMaestros.cs" />
+    <Compile Include="Clases\Maestro-Cursos\DatosgetMaestros.cs" />
     <Compile Include="Clases\Estudiantes\DatosbaseEstudiantes.cs" />
     <Compile Include="Clases\Estudiantes\DatosgetEstudiantes.cs" />
     <Compile Include="Clases\Login\Acceso.cs" />
@@ -121,6 +129,9 @@
       <DependentUpon>Reportes de cursos.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <EmbeddedResource Include="AgregarModificarMaestros.resx">
+      <DependentUpon>AgregarModificarMaestros.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AgregarModificarEstudiantes.resx">
       <DependentUpon>AgregarModificarEstudiantes.cs</DependentUpon>
     </EmbeddedResource>
