@@ -16,5 +16,10 @@ namespace ContAlumnos
         {
             InitializeComponent();
         }
+
+        private void bunifuButton22_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -49,7 +49,7 @@
             this.bunifuButton21.BackColor1 = System.Drawing.Color.LightSkyBlue;
             this.bunifuButton21.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuButton21.BackgroundImage")));
             this.bunifuButton21.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton2.BorderStyles.Solid;
-            this.bunifuButton21.ButtonText = "bunifuButton21";
+            this.bunifuButton21.ButtonText = "Usuarios";
             this.bunifuButton21.ButtonTextMarginLeft = 0;
             this.bunifuButton21.ColorContrastOnClick = 45;
             this.bunifuButton21.ColorContrastOnHover = 45;
@@ -138,7 +138,7 @@
             this.bunifuButton22.BackColor1 = System.Drawing.Color.LightSkyBlue;
             this.bunifuButton22.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuButton22.BackgroundImage")));
             this.bunifuButton22.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton2.BorderStyles.Solid;
-            this.bunifuButton22.ButtonText = "bunifuButton22";
+            this.bunifuButton22.ButtonText = "Materias";
             this.bunifuButton22.ButtonTextMarginLeft = 0;
             this.bunifuButton22.ColorContrastOnClick = 45;
             this.bunifuButton22.ColorContrastOnHover = 45;
@@ -212,6 +212,7 @@
             this.bunifuButton22.TextMarginLeft = 0;
             this.bunifuButton22.TextPadding = new System.Windows.Forms.Padding(0);
             this.bunifuButton22.UseDefaultRadiusAndThickness = true;
+            this.bunifuButton22.Click += new System.EventHandler(this.bunifuButton22_Click);
             // 
             // Configuracion
             // 

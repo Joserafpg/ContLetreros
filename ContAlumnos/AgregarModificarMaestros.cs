@@ -111,6 +111,7 @@ namespace ContAlumnos.Clases.Estudiantes
             {
                 txtnumero.Visible = true;
                 txtnumero.Enabled = false;
+                label1.Enabled = false;
             }
 
             else
