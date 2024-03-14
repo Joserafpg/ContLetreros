@@ -60,6 +60,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AgregarModificarMaterias.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AgregarModificarMaterias.Designer.cs">
+      <DependentUpon>AgregarModificarMaterias.cs</DependentUpon>
+    </Compile>
     <Compile Include="AgregarModificarMaestros.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -137,6 +143,9 @@
       <DependentUpon>Reportes de cursos.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <EmbeddedResource Include="AgregarModificarMaterias.resx">
+      <DependentUpon>AgregarModificarMaterias.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AgregarModificarMaestros.resx">
       <DependentUpon>AgregarModificarMaestros.cs</DependentUpon>
     </EmbeddedResource>

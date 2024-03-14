@@ -47,6 +47,8 @@ Area varchar (15),
 
 SELECT * FROM Maestros
 SELECT * FROM Curso
+SELECT * FROM Materias
+
 
 SELECT * FROM Estudiantes WHERE Numero = '30' AND Curso = 'Sexto' AND Seccion = 'A' AND Area = 'Contabilidad'
 SELECT Numero, Nombre, Apellido, Sexo, Discapacidad FROM Estudiantes WHERE Curso = 'Sexto' AND Seccion = 'A' AND Area = 'Contabilidad'
@@ -102,7 +104,25 @@ BEGIN
     WHERE Sexo = 'M';
 END
 
+
+CREATE PROCEDURE ObtenerMateriasPorCursoSeccionYArea 
+    @Curso NVARCHAR(50),
+    @Seccion NVARCHAR(50),
+    @Area NVARCHAR(50)
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    SELECT Materia, Maestro
+    FROM Materias
+    WHERE Curso = @Curso AND Seccion = @Seccion AND Area = @Area
+    ORDER BY Materia;
+END
+
+
 drop procedure CalcularTotalVarones
 
 EXEC ObtenerEstudiantesPorCursoSeccionYArea 'Sexto', 'A', 'Contabilidad';
 EXEC CalcularTotalEstudiantes;
+EXEC ObtenerMateriasPorCursoSeccionYArea 'Sexto', 'A', 'Informatica';
+

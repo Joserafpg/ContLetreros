@@ -101,19 +101,17 @@ namespace ContAlumnos
                 DataGridViewRow row = dataGridView1.SelectedRows[0];
 
                 // Obtén los datos de la fila seleccionada
-                Int64 id = Convert.ToInt64(row.Cells[0].Value);
-                string nombre = row.Cells[1].Value.ToString();
-                string apellido = row.Cells[2].Value.ToString();
-                string sexo = row.Cells[3].Value.ToString();
-                bool discapacidad = Convert.ToBoolean(row.Cells[4].Value);
-                string curso = row.Cells[5].Value.ToString();
-                string seccion = row.Cells[6].Value.ToString();
-                string area = row.Cells[7].Value.ToString();
+                int rowIndex = dataGridView1.SelectedRows[0].Index;
+                string materia = dataGridView1.Rows[rowIndex].Cells[0].Value.ToString();
+                string maestro = dataGridView1.Rows[rowIndex].Cells[1].Value.ToString();
+                string curso = dataGridView1.Rows[rowIndex].Cells[2].Value.ToString();
+                string seccion = dataGridView1.Rows[rowIndex].Cells[3].Value.ToString();
+                string area = dataGridView1.Rows[rowIndex].Cells[4].Value.ToString();
 
                 // Abre el formulario para editar el producto
-                AgregarModificarEstudiantes formEditar = new AgregarModificarEstudiantes();
+                AgregarModificarMaterias formEditar = new AgregarModificarMaterias();
                 formEditar.EditMode = true; // Estás en modo editar
-                formEditar.InitializeData(id, nombre, apellido, sexo, discapacidad, curso, seccion, area);
+                formEditar.InitializeData(materia, maestro, curso, seccion, area);
                 if (formEditar.ShowDialog() == DialogResult.OK)
                 {
                     // Actualiza el DataGridView después de la edición
@@ -165,7 +163,7 @@ namespace ContAlumnos
 
         private void btnestudiantes_Click(object sender, EventArgs e)
         {
-            AgregarModificarEstudiantes formAgregar = new AgregarModificarEstudiantes();
+            AgregarModificarMaterias formAgregar = new AgregarModificarMaterias();
             formAgregar.EditMode = false;
             if (formAgregar.ShowDialog() == DialogResult.OK)
             {
