@@ -19,7 +19,8 @@ namespace ContAlumnos
             InitializeComponent();
         }
 
-        public static SqlConnection Conn = new SqlConnection("Server = DESKTOP-NDDA7LS; database=ContAlumnos; Integrated Security=True");
+        public static string computerName = Environment.MachineName;
+        public static SqlConnection Conn = new SqlConnection($"Server = {computerName}; database=ContAlumnos; Integrated Security=True");
 
         void CargarComboBox()
         {
@@ -60,6 +61,11 @@ namespace ContAlumnos
             Conn.Close();
         }
 
+        void Buscar()
+        {
+            dataGridView1.DataSource = DatosbaseEstudiantes.BuscarAlumnos(txtcurso.Text, txtseccion.Text, txtarea.Text);
+        }
+
         private void bunifuTextBox1_TextChanged(object sender, EventArgs e)
         {
 
@@ -67,13 +73,13 @@ namespace ContAlumnos
 
         private void bunifuButton24_Click(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = DatosbaseEstudiantes.BuscarAlumnos(txtcurso.Text, txtseccion.Text, txtarea.Text);
+            Buscar();
         }
 
         private void Estudiantes_Load(object sender, EventArgs e)
         {
             CargarComboBox();
-            dataGridView1.DataSource = DatosbaseEstudiantes.BuscarAlumnos(txtcurso.Text, txtseccion.Text, txtarea.Text);
+            Buscar();
         }
 
         private void txtcurso_TextChanged(object sender, EventArgs e)
@@ -83,7 +89,40 @@ namespace ContAlumnos
 
         private void txtcurso_SelectedIndexChanged(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = DatosbaseEstudiantes.BuscarAlumnos(txtcurso.Text, txtseccion.Text, txtarea.Text);
+            Buscar();
+        }
+
+        private void bunifuButton21_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bunifuButton22_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Esta seguro que desea eliminar el estudiante actual??", "Esta Seguro?!", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                int rowIndex = dataGridView1.SelectedRows[0].Index;
+                int id = Convert.ToInt32(dataGridView1.Rows[rowIndex].Cells[0].Value); // Suponiendo que el nombre de la columna que contiene el ID es "Numero"
+                string curso = dataGridView1.Rows[rowIndex].Cells[5].Value.ToString();
+                string seccion = dataGridView1.Rows[rowIndex].Cells[6].Value.ToString();
+                string area = dataGridView1.Rows[rowIndex].Cells[7].Value.ToString();
+
+                Int64 resultado = DatosbaseEstudiantes.Eliminar(id, curso, seccion, area);
+                if (resultado > 0)
+                {
+                    MessageBox.Show("Estudiante eliminado", "Estudiante Eliminado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Refresh();
+                    Buscar();
+                }
+
+                else
+                {
+                    MessageBox.Show("No se pudo eliminar al estudiante", "estudiante eliminado", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+            }
+
+            else
+                MessageBox.Show("Se cancelo la eliminacion", "Cancelado");
         }
     }
 }

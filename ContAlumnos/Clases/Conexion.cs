@@ -10,7 +10,10 @@ namespace ContAlumnos.Clases
 {
     public class Conexion
     {
-        private static SqlConnection Conn = new SqlConnection("Data source = DESKTOP-NDDA7LS; Initial Catalog=ContAlumnos; Integrated Security=True");
+
+        public static string computerName = Environment.MachineName;
+
+        private static SqlConnection Conn = new SqlConnection($"Data source = {computerName}; Initial Catalog=ContAlumnos; Integrated Security=True");
 
         public static SqlConnection ObtenerConexion()
         {

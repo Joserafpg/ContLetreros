@@ -36,18 +36,18 @@ namespace ContAlumnos.Clases.Estudiantes
             }
             Conexion.cerrarcon();
             return retorno;
-        }
+        }*/
 
-        public static int Eliminar(int pID)
+        public static int Eliminar(int pID, string curso, string seccion, string area)
         {
             int retorno = 0;
             Conexion.opencon();
-            SqlCommand Comando = new SqlCommand(string.Format("Delete from Productos where Id_Producto = {0}", pID), Conexion.ObtenerConexion());
+            SqlCommand Comando = new SqlCommand(string.Format("DELETE FROM Estudiantes WHERE Numero = {0} AND Curso = '{1}' AND Seccion = '{2}' AND Area = '{3}'", pID, curso, seccion, area), Conexion.ObtenerConexion());
 
             retorno = Comando.ExecuteNonQuery();
             Conexion.cerrarcon();
             return retorno;
-        }*/
+        }
 
         public static List<DatosgetEstudiantes> BuscarAlumnos(string pCurso, string pSeccion, string pArea)
         {
