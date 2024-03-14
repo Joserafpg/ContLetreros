@@ -140,13 +140,13 @@ namespace ContAlumnos.Clases.Estudiantes
             return retorno;
         }
 
-        public static List<DatosgetMaestros> BuscarAlumnos(string pCurso, string pSeccion, string pArea)
+        public static List<DatosgetMaestros> BuscarAlumnos(string pCurso, string pSeccion, string pArea, string nombre)
         {
             List<DatosgetMaestros> lista = new List<DatosgetMaestros>();
             Conexion.opencon();
             {
 
-                SqlCommand comando = new SqlCommand(String.Format("SELECT Id_Maestro, Nombre, Curso, Seccion, Area FROM Maestros where Curso like '%{0}%' and Seccion like '%{1}%' and Area like '%{2}%' ", pCurso, pSeccion, pArea),
+                SqlCommand comando = new SqlCommand(String.Format("SELECT Id_Maestro, Nombre, Curso, Seccion, Area FROM Maestros where Curso like '%{0}%' and Seccion like '%{1}%' and Area like '%{2}%' and Nombre like '%{3}%' ", pCurso, pSeccion, pArea, nombre),
                     Conexion.ObtenerConexion());
 
                 SqlDataReader reader = comando.ExecuteReader();

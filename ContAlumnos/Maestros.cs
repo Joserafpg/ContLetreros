@@ -24,7 +24,7 @@ namespace ContAlumnos
 
         void Buscar()
         {
-            dataGridView1.DataSource = DatosbaseMaestros.BuscarAlumnos(txtcurso.Text, txtseccion.Text, txtarea.Text);
+            dataGridView1.DataSource = DatosbaseMaestros.BuscarAlumnos(txtcurso.Text, txtseccion.Text, txtarea.Text, bunifuTextBox1.Text);
         }
 
         void CargarComboBox()

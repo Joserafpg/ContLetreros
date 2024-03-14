@@ -65,7 +65,7 @@ namespace ContAlumnos
 
         void Buscar()
         {
-            dataGridView1.DataSource = DatosbaseMaterias.BuscarAlumnos(txtcurso.Text, txtseccion.Text, txtarea.Text);
+            dataGridView1.DataSource = DatosbaseMaterias.BuscarAlumnos(txtcurso.Text, txtseccion.Text, txtarea.Text, bunifuTextBox1.Text);
         }
 
         private void bunifuTextBox1_TextChanged(object sender, EventArgs e)
