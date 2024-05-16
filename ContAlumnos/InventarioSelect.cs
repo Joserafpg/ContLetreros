@@ -33,7 +33,7 @@ namespace ContAlumnos
         private void bunifuButton21_Click(object sender, EventArgs e)
         {
             panel1.Visible = true;
-            AbrirFormEnPanel(new Inventario());
+            AbrirFormEnPanel(new InventarioMateriaPrima());
         }
     }
 }

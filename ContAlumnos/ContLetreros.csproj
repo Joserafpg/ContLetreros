@@ -60,6 +60,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AgregarModificarClientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AgregarModificarClientes.Designer.cs">
+      <DependentUpon>AgregarModificarClientes.cs</DependentUpon>
+    </Compile>
     <Compile Include="AgregarModificarMateriaPrima.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -95,11 +101,11 @@
     <Compile Include="InventarioSelect.Designer.cs">
       <DependentUpon>InventarioSelect.cs</DependentUpon>
     </Compile>
-    <Compile Include="Inventario.cs">
+    <Compile Include="InventarioMateriaPrima.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Inventario.Designer.cs">
-      <DependentUpon>Inventario.cs</DependentUpon>
+    <Compile Include="InventarioMateriaPrima.Designer.cs">
+      <DependentUpon>InventarioMateriaPrima.cs</DependentUpon>
     </Compile>
     <Compile Include="Inicio.cs">
       <SubType>Form</SubType>
@@ -139,6 +145,9 @@
     <Compile Include="Usuarios.Designer.cs">
       <DependentUpon>Usuarios.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AgregarModificarClientes.resx">
+      <DependentUpon>AgregarModificarClientes.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AgregarModificarMateriaPrima.resx">
       <DependentUpon>AgregarModificarMateriaPrima.cs</DependentUpon>
     </EmbeddedResource>
@@ -152,8 +161,8 @@
     <EmbeddedResource Include="InventarioSelect.resx">
       <DependentUpon>InventarioSelect.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Inventario.resx">
-      <DependentUpon>Inventario.cs</DependentUpon>
+    <EmbeddedResource Include="InventarioMateriaPrima.resx">
+      <DependentUpon>InventarioMateriaPrima.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Inicio.resx">
       <DependentUpon>Inicio.cs</DependentUpon>

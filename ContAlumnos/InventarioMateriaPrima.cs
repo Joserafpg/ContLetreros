@@ -14,9 +14,9 @@ using System.Windows.Forms;
 
 namespace ContAlumnos
 {
-    public partial class Inventario : Form
+    public partial class InventarioMateriaPrima : Form
     {
-        public Inventario()
+        public InventarioMateriaPrima()
         {
             InitializeComponent();
         }
