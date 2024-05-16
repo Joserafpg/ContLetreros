@@ -178,5 +178,20 @@ namespace ContAlumnos.Clases.Estudiantes
         {
 
         }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void compra_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void caducidad_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
