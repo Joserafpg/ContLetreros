@@ -19,15 +19,10 @@ namespace ContAlumnos.Clases.Estudiantes
             InitializeComponent();
         }
 
-        int numero = 0;
-        string curso;
-        string seccion;
-        string area;
-
         public bool EditMode { get; set; }
 
         public static string computerName = Environment.MachineName;
-        public static SqlConnection Conn = new SqlConnection($"Server = {computerName}; database=ContAlumnos; Integrated Security=True");
+        public static SqlConnection Conn = new SqlConnection($"Server = {computerName}; database=ContLetreros; Integrated Security=True");
 
         public void InitializeData(Int64 id, string nombre, string apellido, string sexo, bool discapacidad, string curso, string seccion, string area)
         {
@@ -140,16 +135,6 @@ namespace ContAlumnos.Clases.Estudiantes
             }            
         }
 
-        private void cCurso_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            curso = cUnidadMedida.Text;
-
-            if (!string.IsNullOrEmpty(curso) && !string.IsNullOrEmpty(seccion) && !string.IsNullOrEmpty(area))
-            {
-                numero = Buscar(curso, seccion, area) + 1;
-                txtnumero.Text = numero.ToString();
-            }
-        }
 
         private void AgregarModificarEstudiantes_Load(object sender, EventArgs e)
         {

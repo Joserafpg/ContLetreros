@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace ContAlumnos.Clases.Estudiantes
 {
-    public class DatosbaseMaestros
+    public class DatosbaseClientes
     {
         /*public static int Agregar(DatosgetMaestros pget)
         {
@@ -91,9 +91,9 @@ namespace ContAlumnos.Clases.Estudiantes
             return retorno;
         }*/
 
-        public static List<DatosgetMaestros> BuscarAlumnos(string cedula)
+        public static List<DatosgetClientes> BuscarAlumnos(string cedula)
         {
-            List<DatosgetMaestros> lista = new List<DatosgetMaestros>();
+            List<DatosgetClientes> lista = new List<DatosgetClientes>();
             Conexion.opencon();
             {
 
@@ -103,7 +103,7 @@ namespace ContAlumnos.Clases.Estudiantes
                 SqlDataReader reader = comando.ExecuteReader();
                 while (reader.Read())
                 {
-                    DatosgetMaestros pAlumnos = new DatosgetMaestros();
+                    DatosgetClientes pAlumnos = new DatosgetClientes();
                     pAlumnos.Numero = Convert.ToInt64(reader.GetValue(0));
                     pAlumnos.Nombre = reader.GetString(1);
                     pAlumnos.Apellido = reader.GetString(2);

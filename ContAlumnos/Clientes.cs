@@ -24,7 +24,7 @@ namespace ContAlumnos
 
         void Buscar()
         {
-            dataGridView1.DataSource = DatosbaseMaestros.BuscarAlumnos(bunifuTextBox1.Text);
+            dataGridView1.DataSource = DatosbaseClientes.BuscarAlumnos(bunifuTextBox1.Text);
         }
 
         void CargarComboBox()
@@ -140,12 +140,12 @@ namespace ContAlumnos
 
         private void btnestudiantes_Click(object sender, EventArgs e)
         {
-            /*AgregarModificarMaestros formAgregar = new AgregarModificarMaestros();
+            AgregarModificarClientes formAgregar = new AgregarModificarClientes();
             formAgregar.EditMode = false;
             if (formAgregar.ShowDialog() == DialogResult.OK)
             {
                 Buscar();
-            }*/
+            }
         }
 
         private void Maestros_Load(object sender, EventArgs e)

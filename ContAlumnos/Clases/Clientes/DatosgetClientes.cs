@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ContAlumnos.Clases.Estudiantes
 {
-    public class DatosgetMaestros
+    public class DatosgetClientes
     {
         public Int64 Numero { get; set; }
         public string Nombre { get; set; }
@@ -15,9 +15,9 @@ namespace ContAlumnos.Clases.Estudiantes
         public string Sexo { get; set; }
         public DateTime Fecha_Ingreso { get; set; }
 
-        public DatosgetMaestros() { }
+        public DatosgetClientes() { }
 
-        public DatosgetMaestros(Int64 pNumero, string pNombre, string pApellido, string pCedula, string pSexo, DateTime pFecha)
+        public DatosgetClientes(Int64 pNumero, string pNombre, string pApellido, string pCedula, string pSexo, DateTime pFecha)
         {
             this.Numero = pNumero;
             this.Nombre = pNombre;

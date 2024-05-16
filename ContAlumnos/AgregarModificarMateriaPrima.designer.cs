@@ -455,7 +455,6 @@
             this.cUnidadMedida.Text = null;
             this.cUnidadMedida.TextAlignment = Bunifu.UI.WinForms.BunifuDropdown.TextAlign.Left;
             this.cUnidadMedida.TextLeftMargin = 5;
-            this.cUnidadMedida.SelectedIndexChanged += new System.EventHandler(this.cCurso_SelectedIndexChanged);
             // 
             // bunifuPanel1
             // 

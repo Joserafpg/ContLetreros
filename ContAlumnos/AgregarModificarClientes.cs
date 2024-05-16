@@ -17,29 +17,6 @@ namespace ContAlumnos
             InitializeComponent();
         }
 
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void compra_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void bunifuPanel1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cUnidadMedida_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
+        public bool EditMode { get; set; }
     }
 }

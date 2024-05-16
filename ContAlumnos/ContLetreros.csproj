@@ -83,10 +83,10 @@
     </Compile>
     <Compile Include="Clases\Materias\DatosbaseMaterias.cs" />
     <Compile Include="Clases\Materias\DatosgetMaterias.cs" />
-    <Compile Include="Clases\Maestro-Cursos\DatosbaseMaestros.cs" />
-    <Compile Include="Clases\Maestro-Cursos\DatosgetMaestros.cs" />
-    <Compile Include="Clases\Estudiantes\DatosbaseInventario.cs" />
-    <Compile Include="Clases\Estudiantes\DatosgetInventario.cs" />
+    <Compile Include="Clases\Clientes\DatosbaseClientes.cs" />
+    <Compile Include="Clases\Clientes\DatosgetClientes.cs" />
+    <Compile Include="Clases\Inventario\DatosbaseInventario.cs" />
+    <Compile Include="Clases\Inventario\DatosgetInventario.cs" />
     <Compile Include="Clases\Login\Acceso.cs" />
     <Compile Include="Clases\Login\Permisos.cs" />
     <Compile Include="Configuracion.cs">
