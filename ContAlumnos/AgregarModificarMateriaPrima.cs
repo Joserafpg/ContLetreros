@@ -24,13 +24,17 @@ namespace ContAlumnos.Clases.Estudiantes
         public static string computerName = Environment.MachineName;
         public static SqlConnection Conn = new SqlConnection($"Server = {computerName}; database=ContLetreros; Integrated Security=True");
 
-        public void InitializeData(Int64 id, string nombre, string apellido, string sexo, bool discapacidad, string curso, string seccion, string area)
+        public void InitializeData(Int64 id, string nombre, string descripcion, string categoria, int cantidad, decimal unidadmedida, decimal costo, DateTime vcompra, DateTime vcaducidad)
         {
             txtnumero.Text = id.ToString();
             txtnombre.Text = nombre;
-            txtapellido.Text = apellido;
-            cCategoria.Text = sexo;
-            cUnidadMedida.Text = curso;
+            txtdescripcion.Text = descripcion;
+            cCategoria.Text = categoria;
+            txtcantidad.Text = Convert.ToString(cantidad);
+            cUnidadMedida.Text = Convert.ToString(unidadmedida);
+            txtcosto.Text = Convert.ToString(costo);
+            caducidad.Value = vcaducidad;
+            compra.Value = vcompra;
         }
 
         private int Buscar(string curso, string seccion, string area)
@@ -71,7 +75,7 @@ namespace ContAlumnos.Clases.Estudiantes
                 DatosgetInventario pEstudiantes = new DatosgetInventario();
                 pEstudiantes.Numero = Convert.ToInt64(txtnumero.Text);
                 pEstudiantes.Nombre = txtnombre.Text;
-                pEstudiantes.Descripción = txtapellido.Text;
+                pEstudiantes.Descripción = txtdescripcion.Text;
                 pEstudiantes.Categoria = cCategoria.Text;
                 pEstudiantes.Cantidad = Convert.ToDecimal(txtcantidad.Text);
                 pEstudiantes.UnidadMedida = cUnidadMedida.Text;
@@ -103,7 +107,7 @@ namespace ContAlumnos.Clases.Estudiantes
                 {
                     DatosgetInventario pEstudiantes = new DatosgetInventario();
                     pEstudiantes.Nombre = txtnombre.Text;
-                    pEstudiantes.Descripción = txtapellido.Text;
+                    pEstudiantes.Descripción = txtdescripcion.Text;
                     pEstudiantes.Categoria = cCategoria.Text;
                     pEstudiantes.Cantidad = 100m;
                     pEstudiantes.UnidadMedida = cUnidadMedida.Text;
