@@ -78,9 +78,9 @@ namespace ContAlumnos.Clases.Estudiantes
                 pEstudiantes.Nombre = txtnombre.Text;
                 pEstudiantes.Descripción = txtapellido.Text;
                 pEstudiantes.Categoria = cCategoria.Text;
-                pEstudiantes.Cantidad = 100m;
+                pEstudiantes.Cantidad = Convert.ToDecimal(txtcantidad.Text);
                 pEstudiantes.UnidadMedida = cUnidadMedida.Text;
-                pEstudiantes.CostoUnitario = 100m;
+                pEstudiantes.CostoUnitario = Convert.ToDecimal(txtcosto.Text);
                 pEstudiantes.FechaCaducidad = caducidad.Value;
                 pEstudiantes.FechaCompra = compra.Value;
 
