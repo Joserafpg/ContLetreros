@@ -10,7 +10,7 @@ namespace ContAlumnos.Clases.Estudiantes
 {
     public class DatosbaseMaestros
     {
-        public static int Agregar(DatosgetMaestros pget)
+        /*public static int Agregar(DatosgetMaestros pget)
         {
             int retorno = 0;
 
@@ -51,31 +51,6 @@ namespace ContAlumnos.Clases.Estudiantes
             return count > 0;
         }
 
-        public static int Agregar2(DatosgetMaestros pget)
-        {
-            int retorno = 0;
-
-            // Verificar si el curso ya existe
-            if (CursoExiste(pget.Curso, pget.Seccion, pget.Area))
-            {
-                // Si el curso ya existe, modificar en lugar de agregar
-                retorno = Modificar(pget);
-            }
-            else
-            {
-                Conexion.opencon();
-
-                SqlCommand Comando = new SqlCommand(string.Format("Insert into Curso (Maestro_Titular, Curso, Seccion, Area) values ('{0}','{1}','{2}','{3}')",
-                        pget.Nombre, pget.Curso, pget.Seccion, pget.Area), Conexion.ObtenerConexion());
-
-                retorno = Comando.ExecuteNonQuery();
-
-                Conexion.cerrarcon();
-            }
-
-            return retorno;
-        }
-
         public static bool CursoExiste(string curso, string seccion, string area)
         {
             Conexion.opencon();
@@ -105,19 +80,6 @@ namespace ContAlumnos.Clases.Estudiantes
             return retorno;
         }
 
-        public static int Modificar2(DatosgetMaestros pget)
-        {
-            int retorno = 0;
-            Conexion.opencon();
-            {
-                SqlCommand comando = new SqlCommand(string.Format("update Maestros set Nombre = '{0}' WHERE Id_Maestro = {1} AND Curso = '{2}' AND Seccion = '{3}' AND Area = '{4}'",
-                   pget.Nombre, pget.Numero, pget.Curso, pget.Seccion, pget.Area), Conexion.ObtenerConexion());
-                retorno = comando.ExecuteNonQuery();
-            }
-            Conexion.cerrarcon();
-            return retorno;
-        }
-
         public static int Eliminar(int pID)
         {
             int retorno = 0;
@@ -127,26 +89,15 @@ namespace ContAlumnos.Clases.Estudiantes
             retorno = Comando.ExecuteNonQuery();
             Conexion.cerrarcon();
             return retorno;
-        }
+        }*/
 
-        public static int Eliminar2(string curso, string seccion, string area)
-        {
-            int retorno = 0;
-            Conexion.opencon();
-            SqlCommand Comando = new SqlCommand(string.Format("update Curso set Maestro_Titular = ' ' WHERE Curso = '{0}' AND Seccion = '{1}' AND Area = '{2}'", curso, seccion, area), Conexion.ObtenerConexion());
-
-            retorno = Comando.ExecuteNonQuery();
-            Conexion.cerrarcon();
-            return retorno;
-        }
-
-        public static List<DatosgetMaestros> BuscarAlumnos(string pCurso, string pSeccion, string pArea, string nombre)
+        public static List<DatosgetMaestros> BuscarAlumnos(string cedula)
         {
             List<DatosgetMaestros> lista = new List<DatosgetMaestros>();
             Conexion.opencon();
             {
 
-                SqlCommand comando = new SqlCommand(String.Format("SELECT Id_Maestro, Nombre, Curso, Seccion, Area FROM Maestros where Curso like '%{0}%' and Seccion like '%{1}%' and Area like '%{2}%' and Nombre like '%{3}%' ", pCurso, pSeccion, pArea, nombre),
+                SqlCommand comando = new SqlCommand(String.Format("SELECT ID_Cliente, Nombre, Apellido, Cedula, Sexo, Fecha_Ingreso FROM Clientes where Cedula like '%{0}%'", cedula),
                     Conexion.ObtenerConexion());
 
                 SqlDataReader reader = comando.ExecuteReader();
@@ -155,9 +106,10 @@ namespace ContAlumnos.Clases.Estudiantes
                     DatosgetMaestros pAlumnos = new DatosgetMaestros();
                     pAlumnos.Numero = Convert.ToInt64(reader.GetValue(0));
                     pAlumnos.Nombre = reader.GetString(1);
-                    pAlumnos.Curso = reader.GetString(2);
-                    pAlumnos.Seccion = reader.GetString(3);
-                    pAlumnos.Area = reader.GetString(4);
+                    pAlumnos.Apellido = reader.GetString(2);
+                    pAlumnos.Cedula = reader.GetString(3);
+                    pAlumnos.Sexo = reader.GetString(4);
+                    pAlumnos.Fecha_Ingreso = reader.GetDateTime(5);
 
                     lista.Add(pAlumnos);
                 }

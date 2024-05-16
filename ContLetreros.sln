@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34511.84
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContAlumnos", "ContAlumnos\ContAlumnos.csproj", "{92E4375F-0D42-4F10-901F-B0C07322B2C6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContLetreros", "ContAlumnos\ContLetreros.csproj", "{92E4375F-0D42-4F10-901F-B0C07322B2C6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

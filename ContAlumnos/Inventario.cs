@@ -14,20 +14,20 @@ using System.Windows.Forms;
 
 namespace ContAlumnos
 {
-    public partial class Materias : Form
+    public partial class Inventario : Form
     {
-        public Materias()
+        public Inventario()
         {
             InitializeComponent();
         }
 
         public static string computerName = Environment.MachineName;
-        public static SqlConnection Conn = new SqlConnection($"Server = {computerName}; database=ContAlumnos; Integrated Security=True");
+        public static SqlConnection Conn = new SqlConnection($"Server = {computerName}; database=ContLetreros; Integrated Security=True");
 
         void CargarComboBox()
         {
-            Conn.Open();
-            string consulta = "SELECT DISTINCT Curso FROM Materias";
+            /*Conn.Open();
+            string consulta = "SELECT DISTINCT Curso FROM Estudiantes";
             SqlCommand comando = new SqlCommand(consulta, Conn);
             SqlDataReader lector = comando.ExecuteReader();
 
@@ -39,7 +39,7 @@ namespace ContAlumnos
             Conn.Close();
 
             Conn.Open();
-            string consulta2 = "SELECT DISTINCT Seccion FROM Materias";
+            string consulta2 = "SELECT DISTINCT Seccion FROM Estudiantes";
             SqlCommand comando2 = new SqlCommand(consulta2, Conn);
             SqlDataReader lector2 = comando2.ExecuteReader();
 
@@ -60,12 +60,12 @@ namespace ContAlumnos
                 txtarea.Items.Add(lector3.GetString(0));
             }
 
-            Conn.Close();
+            Conn.Close();*/
         }
 
         void Buscar()
         {
-            dataGridView1.DataSource = DatosbaseMaterias.BuscarAlumnos(txtcurso.Text, txtseccion.Text, txtarea.Text, bunifuTextBox1.Text);
+            dataGridView1.DataSource = DatosbaseInventario.BuscarAlumnos(txtcurso.Text, txtseccion.Text, txtarea.Text, bunifuTextBox1.Text);
         }
 
         private void bunifuTextBox1_TextChanged(object sender, EventArgs e)
@@ -101,22 +101,24 @@ namespace ContAlumnos
                 DataGridViewRow row = dataGridView1.SelectedRows[0];
 
                 // Obtén los datos de la fila seleccionada
-                Int64 numero = Convert.ToInt64(row.Cells[0].Value);
-                string materia = row.Cells[1].Value.ToString();
-                string maestro = row.Cells[2].Value.ToString();
-                string curso = row.Cells[3].Value.ToString();
-                string seccion = row.Cells[4].Value.ToString();
-                string area = row.Cells[5].Value.ToString();
+                Int64 id = Convert.ToInt64(row.Cells[0].Value);
+                string nombre = row.Cells[1].Value.ToString();
+                string apellido = row.Cells[2].Value.ToString();
+                string sexo = row.Cells[3].Value.ToString();
+                bool discapacidad = Convert.ToBoolean(row.Cells[4].Value);
+                string curso = row.Cells[5].Value.ToString();
+                string seccion = row.Cells[6].Value.ToString();
+                string area = row.Cells[7].Value.ToString();
 
                 // Abre el formulario para editar el producto
-                AgregarModificarMaterias formEditar = new AgregarModificarMaterias();
+                /*AgregarModificarEstudiantes formEditar = new AgregarModificarEstudiantes();
                 formEditar.EditMode = true; // Estás en modo editar
-                formEditar.InitializeData(numero, materia, maestro, curso, seccion, area);
+                formEditar.InitializeData(id, nombre, apellido, sexo, discapacidad, curso, seccion, area);
                 if (formEditar.ShowDialog() == DialogResult.OK)
                 {
                     // Actualiza el DataGridView después de la edición
                     Buscar();
-                }
+                }*/
             }
         }
 
@@ -131,10 +133,13 @@ namespace ContAlumnos
             {
                 if (MessageBox.Show("Esta seguro que desea eliminar el estudiante actual??", "Esta Seguro?!", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    DataGridViewRow row = dataGridView1.SelectedRows[0];
-                    Int64 numero = Convert.ToInt64(row.Cells[0].Value);
+                    int rowIndex = dataGridView1.SelectedRows[0].Index;
+                    int id = Convert.ToInt32(dataGridView1.Rows[rowIndex].Cells[0].Value); // Suponiendo que el nombre de la columna que contiene el ID es "Numero"
+                    string curso = dataGridView1.Rows[rowIndex].Cells[5].Value.ToString();
+                    string seccion = dataGridView1.Rows[rowIndex].Cells[6].Value.ToString();
+                    string area = dataGridView1.Rows[rowIndex].Cells[7].Value.ToString();
 
-                    Int64 resultado = DatosbaseMaterias.Eliminar(numero);
+                    Int64 resultado = DatosbaseInventario.Eliminar(id, curso, seccion, area);
                     if (resultado > 0)
                     {
                         MessageBox.Show("Estudiante eliminado", "Estudiante Eliminado", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -159,11 +164,10 @@ namespace ContAlumnos
 
         private void btnestudiantes_Click(object sender, EventArgs e)
         {
-            AgregarModificarMaterias formAgregar = new AgregarModificarMaterias();
+            AgregarModificarMateriaPrima formAgregar = new AgregarModificarMateriaPrima();
             formAgregar.EditMode = false;
             if (formAgregar.ShowDialog() == DialogResult.OK)
             {
-                Refresh();
                 Buscar();
             }
         }
@@ -186,7 +190,7 @@ namespace ContAlumnos
                 pf.CurrentValues.Add(pdv);
                 pfs.Add(pf);
                 form.crystalReportViewer1.ParameterFieldInfo = pfs;
-                oRep.Load(@"C:\Users\User\source\repos\ContAlumnos\ContAlumnos\CrystalReport1.rpt");
+                oRep.Load(@"C:\Users\User\source\repos\ContAlumnos\ContAlumnos\Reportes de cursos.rpt");
                 form.crystalReportViewer1.ReportSource = oRep;
                 form.Show();
             }

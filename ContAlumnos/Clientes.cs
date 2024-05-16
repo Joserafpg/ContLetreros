@@ -12,24 +12,24 @@ using System.Windows.Forms;
 
 namespace ContAlumnos
 {
-    public partial class Maestros : Form
+    public partial class Clientes : Form
     {
-        public Maestros()
+        public Clientes()
         {
             InitializeComponent();
         }
 
         public static string computerName = Environment.MachineName;
-        public static SqlConnection Conn = new SqlConnection($"Server = {computerName}; database=ContAlumnos; Integrated Security=True");
+        public static SqlConnection Conn = new SqlConnection($"Server = {computerName}; database=ContLetreros; Integrated Security=True");
 
         void Buscar()
         {
-            dataGridView1.DataSource = DatosbaseMaestros.BuscarAlumnos(txtcurso.Text, txtseccion.Text, txtarea.Text, bunifuTextBox1.Text);
+            dataGridView1.DataSource = DatosbaseMaestros.BuscarAlumnos(bunifuTextBox1.Text);
         }
 
         void CargarComboBox()
         {
-            Conn.Open();
+            /*Conn.Open();
             string consulta = "SELECT DISTINCT Curso FROM Maestros";
             SqlCommand comando = new SqlCommand(consulta, Conn);
             SqlDataReader lector = comando.ExecuteReader();
@@ -63,7 +63,7 @@ namespace ContAlumnos
                 txtarea.Items.Add(lector3.GetString(0));
             }
 
-            Conn.Close();
+            Conn.Close();*/
         }
 
         private void bunifuButton22_Click(object sender, EventArgs e)
@@ -85,8 +85,7 @@ namespace ContAlumnos
                     string seccion = row.Cells[3].Value.ToString();
                     string area = row.Cells[4].Value.ToString();
 
-                    Int64 resultado = DatosbaseMaestros.Eliminar(id);
-                    DatosbaseMaestros.Eliminar2(curso, seccion, area);
+                    /*Int64 resultado = DatosbaseMaestros.Eliminar(id);
                     if (resultado > 0)
                     {
                         MessageBox.Show("Estudiante eliminado", "Estudiante Eliminado", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -97,7 +96,7 @@ namespace ContAlumnos
                     else
                     {
                         MessageBox.Show("No se pudo eliminar al estudiante", "estudiante eliminado", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    }
+                    }*/
                 }
 
                 else
@@ -128,25 +127,25 @@ namespace ContAlumnos
                 string area = row.Cells[4].Value.ToString();
 
                 // Abre el formulario para editar el producto
-                AgregarModificarMaestros formEditar = new AgregarModificarMaestros();
+               /* AgregarModificarMaestros formEditar = new AgregarModificarMaestros();
                 formEditar.EditMode = true; // Estás en modo editar
                 formEditar.InitializeData(id, nombre, curso, seccion, area);
                 if (formEditar.ShowDialog() == DialogResult.OK)
                 {
                     // Actualiza el DataGridView después de la edición
                     Buscar();
-                }
+                }*/
             }
         }
 
         private void btnestudiantes_Click(object sender, EventArgs e)
         {
-            AgregarModificarMaestros formAgregar = new AgregarModificarMaestros();
+            /*AgregarModificarMaestros formAgregar = new AgregarModificarMaestros();
             formAgregar.EditMode = false;
             if (formAgregar.ShowDialog() == DialogResult.OK)
             {
                 Buscar();
-            }
+            }*/
         }
 
         private void Maestros_Load(object sender, EventArgs e)

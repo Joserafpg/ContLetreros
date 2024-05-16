@@ -165,9 +165,9 @@
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(60, 15);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(130, 19);
+            this.label1.Size = new System.Drawing.Size(148, 19);
             this.label1.TabIndex = 7;
-            this.label1.Text = "Estudiantes total";
+            this.label1.Text = "Ventas mensuales";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label6
@@ -178,7 +178,7 @@
             this.label6.ForeColor = System.Drawing.Color.DarkGray;
             this.label6.Location = new System.Drawing.Point(97, 260);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(61, 16);
+            this.label6.Size = new System.Drawing.Size(60, 16);
             this.label6.TabIndex = 12;
             this.label6.Text = "General";
             // 

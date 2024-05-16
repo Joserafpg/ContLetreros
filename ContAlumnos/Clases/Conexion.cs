@@ -13,7 +13,7 @@ namespace ContAlumnos.Clases
 
         public static string computerName = Environment.MachineName;
 
-        private static SqlConnection Conn = new SqlConnection($"Data source = {computerName}; Initial Catalog=ContAlumnos; Integrated Security=True");
+        private static SqlConnection Conn = new SqlConnection($"Data source = {computerName}; Initial Catalog=ContLetreros; Integrated Security=True");
 
         public static SqlConnection ObtenerConexion()
         {

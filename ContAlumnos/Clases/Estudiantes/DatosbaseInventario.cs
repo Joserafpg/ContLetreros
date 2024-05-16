@@ -7,17 +7,17 @@ using System.Threading.Tasks;
 
 namespace ContAlumnos.Clases.Estudiantes
 {
-    public class DatosbaseEstudiantes
+    public class DatosbaseInventario
     {
-        public static int Agregar(DatosgetEstudiantes pget)
+        public static int Agregar(DatosgetInventario pget)
         {
 
             int retorno = 0;
 
             Conexion.opencon();
 
-            SqlCommand Comando = new SqlCommand(string.Format("Insert into Estudiantes (Numero, Nombre, Apellido, Sexo, Discapacidad, Curso, Seccion, Area) values ('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}')",
-                    pget.Numero, pget.Nombre, pget.Apellido, pget.Sexo, pget.Discapacidad, pget.Curso, pget.Seccion, pget.Area), Conexion.ObtenerConexion());
+            SqlCommand Comando = new SqlCommand(string.Format("Insert into Inventario (Nombre, Descripción, Categoría, Cantidad, UnidadMedida, CostoUnitario, FechaCompra, FechaCaducidad) values ('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}')",
+                    pget.Nombre, pget.Descripción, pget.Categoria, pget.Cantidad, pget.UnidadMedida, pget.CostoUnitario, pget.FechaCompra.ToString("yyyy-MM-dd"), pget.FechaCaducidad.ToString("yyyy-MM-dd")), Conexion.ObtenerConexion());
 
             retorno = Comando.ExecuteNonQuery();
             Conexion.cerrarcon();
@@ -25,13 +25,13 @@ namespace ContAlumnos.Clases.Estudiantes
 
         }
 
-        public static int Modificar(DatosgetEstudiantes pget)
+        public static int Modificar(DatosgetInventario pget)
         {
             int retorno = 0;
             Conexion.opencon();
             {
-                SqlCommand comando = new SqlCommand(string.Format("update Estudiantes set Nombre = '{0}', Apellido = '{1}', Sexo = '{2}', Discapacidad = '{3}' WHERE Numero = {4} AND Curso = '{5}' AND Seccion = '{6}' AND Area = '{7}'",
-                    pget.Nombre, pget.Apellido, pget.Sexo, pget.Discapacidad, pget.Numero, pget.Curso, pget.Seccion, pget.Area), Conexion.ObtenerConexion());
+                SqlCommand comando = new SqlCommand(string.Format("update Inventario set Nombre = '{0}', Descripción = '{1}', Cantidad = '{2}', UnidadMedida = '{3}', CostoUnitario = '{4}', FechaCompra = '{5}', FechaCaducidad = '{6}' WHERE ID_MateriaPrima = {7}",
+                    pget.Nombre, pget.Descripción, pget.Cantidad, pget.UnidadMedida, pget.CostoUnitario, pget.FechaCompra, pget.FechaCaducidad, pget.Numero), Conexion.ObtenerConexion());
                 retorno = comando.ExecuteNonQuery();
             }
             Conexion.cerrarcon();
@@ -42,34 +42,35 @@ namespace ContAlumnos.Clases.Estudiantes
         {
             int retorno = 0;
             Conexion.opencon();
-            SqlCommand Comando = new SqlCommand(string.Format("DELETE FROM Estudiantes WHERE Numero = {0} AND Curso = '{1}' AND Seccion = '{2}' AND Area = '{3}'", pID, curso, seccion, area), Conexion.ObtenerConexion());
+            SqlCommand Comando = new SqlCommand(string.Format("DELETE FROM Inventario WHERE Numero = {0} AND Curso = '{1}' AND Seccion = '{2}' AND Area = '{3}'", pID, curso, seccion, area), Conexion.ObtenerConexion());
 
             retorno = Comando.ExecuteNonQuery();
             Conexion.cerrarcon();
             return retorno;
         }
 
-        public static List<DatosgetEstudiantes> BuscarAlumnos(string pCurso, string pSeccion, string pArea, string nombre)
+        public static List<DatosgetInventario> BuscarAlumnos(string pCurso, string pSeccion, string pArea, string nombre)
         {
-            List<DatosgetEstudiantes> lista = new List<DatosgetEstudiantes>();
+            List<DatosgetInventario> lista = new List<DatosgetInventario>();
             Conexion.opencon();
             {
 
-                SqlCommand comando = new SqlCommand(String.Format("SELECT Numero, Nombre, Apellido, Sexo, Discapacidad, Curso, Seccion, Area FROM Estudiantes where Curso like '%{0}%' and Seccion like '%{1}%' and Area like '%{2}%' and Nombre like '%{3}%' ", pCurso, pSeccion, pArea, nombre),
+                SqlCommand comando = new SqlCommand(String.Format("SELECT ID_MateriaPrima, Nombre, Descripción, Categoría, Cantidad, UnidadMedida, CostoUnitario, FechaCompra, FechaCaducidad FROM Inventario where Categoría like '%{0}%' and UnidadMedida like '%{1}%' and Nombre like '%{2}%' and ID_MateriaPrima like '%{3}%' ", pCurso, pSeccion, pArea, nombre),
                     Conexion.ObtenerConexion());
 
                 SqlDataReader reader = comando.ExecuteReader();
                 while (reader.Read())
                 {
-                    DatosgetEstudiantes pAlumnos = new DatosgetEstudiantes();
+                    DatosgetInventario pAlumnos = new DatosgetInventario();
                     pAlumnos.Numero = Convert.ToInt64(reader.GetValue(0));
                     pAlumnos.Nombre = reader.GetString(1);
-                    pAlumnos.Apellido = reader.GetString(2);
-                    pAlumnos.Sexo = reader.GetString(3);
-                    pAlumnos.Discapacidad = reader.GetBoolean(4);
-                    pAlumnos.Curso = reader.GetString(5);
-                    pAlumnos.Seccion = reader.GetString(6);
-                    pAlumnos.Area = reader.GetString(7);
+                    pAlumnos.Descripción = reader.GetString(2);
+                    pAlumnos.Categoria = reader.GetString(3);
+                    pAlumnos.Cantidad = reader.GetDecimal(4);
+                    pAlumnos.UnidadMedida = reader.GetString(5);
+                    pAlumnos.CostoUnitario = reader.GetDecimal(6);
+                    pAlumnos.FechaCompra = reader.GetDateTime(7);
+                    pAlumnos.FechaCaducidad = reader.GetDateTime(8);
 
                     lista.Add(pAlumnos);
                 }

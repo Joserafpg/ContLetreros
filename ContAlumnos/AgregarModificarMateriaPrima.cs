@@ -12,9 +12,9 @@ using static System.Net.WebRequestMethods;
 
 namespace ContAlumnos.Clases.Estudiantes
 {
-    public partial class AgregarModificarEstudiantes : Form
+    public partial class AgregarModificarMateriaPrima : Form
     {
-        public AgregarModificarEstudiantes()
+        public AgregarModificarMateriaPrima()
         {
             InitializeComponent();
         }
@@ -34,11 +34,8 @@ namespace ContAlumnos.Clases.Estudiantes
             txtnumero.Text = id.ToString();
             txtnombre.Text = nombre;
             txtapellido.Text = apellido;
-            csexo.Text = sexo;
-            chdiscapacidad.Checked = discapacidad;
-            cCurso.Text = curso;
-            cSeccion.Text = seccion;
-            cArea.Text = area;
+            cCategoria.Text = sexo;
+            cUnidadMedida.Text = curso;
         }
 
         private int Buscar(string curso, string seccion, string area)
@@ -76,17 +73,18 @@ namespace ContAlumnos.Clases.Estudiantes
         {
             if (EditMode)
             {
-                DatosgetEstudiantes pEstudiantes = new DatosgetEstudiantes();
+                DatosgetInventario pEstudiantes = new DatosgetInventario();
                 pEstudiantes.Numero = Convert.ToInt64(txtnumero.Text);
                 pEstudiantes.Nombre = txtnombre.Text;
-                pEstudiantes.Apellido = txtapellido.Text;
-                pEstudiantes.Sexo = csexo.Text;
-                pEstudiantes.Discapacidad = chdiscapacidad.Checked;
-                pEstudiantes.Curso = cCurso.Text;
-                pEstudiantes.Seccion = cSeccion.Text;
-                pEstudiantes.Area = cArea.Text;
+                pEstudiantes.Descripción = txtapellido.Text;
+                pEstudiantes.Categoria = cCategoria.Text;
+                pEstudiantes.Cantidad = 100m;
+                pEstudiantes.UnidadMedida = cUnidadMedida.Text;
+                pEstudiantes.CostoUnitario = 100m;
+                pEstudiantes.FechaCaducidad = caducidad.Value;
+                pEstudiantes.FechaCompra = compra.Value;
 
-                int Resultado = DatosbaseEstudiantes.Modificar(pEstudiantes);
+                int Resultado = DatosbaseInventario.Modificar(pEstudiantes);
 
                 if (Resultado > 0)
                 {
@@ -106,19 +104,19 @@ namespace ContAlumnos.Clases.Estudiantes
 
             else
             {               
-                if (!string.IsNullOrEmpty(txtnumero.Text) && !string.IsNullOrEmpty(txtnombre.Text) && !string.IsNullOrEmpty(txtapellido.Text) && !string.IsNullOrEmpty(cCurso.Text) && !string.IsNullOrEmpty(cSeccion.Text) && !string.IsNullOrEmpty(cArea.Text))
+                if (/*!string.IsNullOrEmpty(txtnumero.Text) && !string.IsNullOrEmpty(txtnombre.Text) && !string.IsNullOrEmpty(txtapellido.Text) &&*/ !string.IsNullOrEmpty(cUnidadMedida.Text))
                 {
-                    DatosgetEstudiantes pEstudiantes = new DatosgetEstudiantes();
-                    pEstudiantes.Numero = Convert.ToInt64(txtnumero.Text);
+                    DatosgetInventario pEstudiantes = new DatosgetInventario();
                     pEstudiantes.Nombre = txtnombre.Text;
-                    pEstudiantes.Apellido = txtapellido.Text;
-                    pEstudiantes.Sexo = csexo.Text;
-                    pEstudiantes.Discapacidad = chdiscapacidad.Checked;
-                    pEstudiantes.Curso = cCurso.Text;
-                    pEstudiantes.Seccion = cSeccion.Text;
-                    pEstudiantes.Area = cArea.Text;
+                    pEstudiantes.Descripción = txtapellido.Text;
+                    pEstudiantes.Categoria = cCategoria.Text;
+                    pEstudiantes.Cantidad = 100m;
+                    pEstudiantes.UnidadMedida = cUnidadMedida.Text;
+                    pEstudiantes.CostoUnitario = 100m;
+                    pEstudiantes.FechaCaducidad = caducidad.Value;
+                    pEstudiantes.FechaCompra = compra.Value;
 
-                    int Resultado = DatosbaseEstudiantes.Agregar(pEstudiantes);
+                    int Resultado = DatosbaseInventario.Agregar(pEstudiantes);
 
                     if (Resultado > 0)
                     {
@@ -144,9 +142,7 @@ namespace ContAlumnos.Clases.Estudiantes
 
         private void cCurso_SelectedIndexChanged(object sender, EventArgs e)
         {
-            curso = cCurso.Text;
-            seccion = cSeccion.Text;
-            area = cArea.Text;
+            curso = cUnidadMedida.Text;
 
             if (!string.IsNullOrEmpty(curso) && !string.IsNullOrEmpty(seccion) && !string.IsNullOrEmpty(area))
             {
@@ -173,9 +169,14 @@ namespace ContAlumnos.Clases.Estudiantes
 
         }
 
-        private void bunifuButton21_Click(object sender, EventArgs e)
+        private void bunifuButton1_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

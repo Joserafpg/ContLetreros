@@ -1,6 +1,6 @@
 ﻿namespace ContAlumnos
 {
-    partial class Materias
+    partial class Inventario
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Materias));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Inventario));
             Bunifu.UI.WinForms.BunifuButton.BunifuButton2.BorderEdges borderEdges1 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton2.BorderEdges();
             Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties1 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
             Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties2 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
@@ -72,7 +72,7 @@
             this.bunifuPanel1.Controls.Add(this.txtcurso);
             this.bunifuPanel1.Controls.Add(this.bunifuButton24);
             this.bunifuPanel1.Controls.Add(this.bunifuTextBox1);
-            this.bunifuPanel1.Location = new System.Drawing.Point(79, 65);
+            this.bunifuPanel1.Location = new System.Drawing.Point(79, 31);
             this.bunifuPanel1.Name = "bunifuPanel1";
             this.bunifuPanel1.ShowBorders = true;
             this.bunifuPanel1.Size = new System.Drawing.Size(783, 84);
@@ -86,7 +86,7 @@
             this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.Location = new System.Drawing.Point(674, 52);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(37, 16);
+            this.label3.Size = new System.Drawing.Size(36, 16);
             this.label3.TabIndex = 24;
             this.label3.Text = "Area";
             // 
@@ -98,7 +98,7 @@
             this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(555, 52);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(56, 16);
+            this.label2.Size = new System.Drawing.Size(55, 16);
             this.label2.TabIndex = 23;
             this.label2.Text = "Seccion";
             // 
@@ -108,11 +108,11 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(451, 52);
+            this.label1.Location = new System.Drawing.Point(440, 52);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(41, 16);
+            this.label1.Size = new System.Drawing.Size(66, 16);
             this.label1.TabIndex = 22;
-            this.label1.Text = "Curso";
+            this.label1.Text = "Categoria";
             // 
             // txtarea
             // 
@@ -426,7 +426,7 @@
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(79, 179);
+            this.dataGridView1.Location = new System.Drawing.Point(79, 145);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(506, 260);
@@ -479,7 +479,7 @@
             this.btnestudiantes.IdleIconLeftImage = null;
             this.btnestudiantes.IdleIconRightImage = null;
             this.btnestudiantes.IndicateFocus = false;
-            this.btnestudiantes.Location = new System.Drawing.Point(621, 181);
+            this.btnestudiantes.Location = new System.Drawing.Point(621, 147);
             this.btnestudiantes.Name = "btnestudiantes";
             this.btnestudiantes.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.btnestudiantes.OnDisabledState.BorderRadius = 35;
@@ -569,7 +569,7 @@
             this.bunifuButton21.IdleIconLeftImage = null;
             this.bunifuButton21.IdleIconRightImage = null;
             this.bunifuButton21.IndicateFocus = false;
-            this.bunifuButton21.Location = new System.Drawing.Point(621, 247);
+            this.bunifuButton21.Location = new System.Drawing.Point(621, 213);
             this.bunifuButton21.Name = "bunifuButton21";
             this.bunifuButton21.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.bunifuButton21.OnDisabledState.BorderRadius = 35;
@@ -659,7 +659,7 @@
             this.bunifuButton22.IdleIconLeftImage = null;
             this.bunifuButton22.IdleIconRightImage = null;
             this.bunifuButton22.IndicateFocus = false;
-            this.bunifuButton22.Location = new System.Drawing.Point(621, 313);
+            this.bunifuButton22.Location = new System.Drawing.Point(621, 279);
             this.bunifuButton22.Name = "bunifuButton22";
             this.bunifuButton22.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.bunifuButton22.OnDisabledState.BorderRadius = 35;
@@ -749,7 +749,7 @@
             this.bunifuButton23.IdleIconLeftImage = null;
             this.bunifuButton23.IdleIconRightImage = null;
             this.bunifuButton23.IndicateFocus = false;
-            this.bunifuButton23.Location = new System.Drawing.Point(621, 379);
+            this.bunifuButton23.Location = new System.Drawing.Point(621, 345);
             this.bunifuButton23.Name = "bunifuButton23";
             this.bunifuButton23.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.bunifuButton23.OnDisabledState.BorderRadius = 35;
@@ -792,20 +792,21 @@
             this.bunifuButton23.UseDefaultRadiusAndThickness = true;
             this.bunifuButton23.Click += new System.EventHandler(this.bunifuButton23_Click);
             // 
-            // Materias
+            // Inventario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(915, 476);
+            this.ClientSize = new System.Drawing.Size(915, 450);
             this.Controls.Add(this.bunifuButton23);
             this.Controls.Add(this.bunifuButton22);
             this.Controls.Add(this.bunifuButton21);
             this.Controls.Add(this.btnestudiantes);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.bunifuPanel1);
-            this.Name = "Materias";
-            this.Text = "Manejo de materias";
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Name = "Inventario";
+            this.Text = "Estudiantes";
             this.Load += new System.EventHandler(this.Estudiantes_Load);
             this.bunifuPanel1.ResumeLayout(false);
             this.bunifuPanel1.PerformLayout();

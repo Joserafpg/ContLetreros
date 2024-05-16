@@ -19,14 +19,14 @@ namespace ContAlumnos
 
         private void bunifuButton22_Click(object sender, EventArgs e)
         {
-            Materias form = new Materias();
+            /*Materias form = new Materias();
             form.ShowDialog();
         }
 
         private void bunifuButton21_Click(object sender, EventArgs e)
         {
             Usuarios form = new Usuarios();
-            form.ShowDialog();
+            form.ShowDialog();*/
         }
     }
 }

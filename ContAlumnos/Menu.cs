@@ -30,6 +30,7 @@ namespace ContAlumnos
                 btnInicio.Visible = false;
                 btnestudiantes.Visible = false;
                 btnmaestros.Visible = false;
+                btnventas.Visible = false;
                 btnconfiguracion.Visible = false;
                 btnSalir.Visible = false;
 
@@ -58,6 +59,7 @@ namespace ContAlumnos
                 btnInicio.Visible = true;
                 btnestudiantes.Visible = true;
                 btnmaestros.Visible = true;
+                btnventas.Visible = true;
                 btnconfiguracion.Visible = true;
                 btnSalir.Visible = true;
 
@@ -145,30 +147,20 @@ namespace ContAlumnos
 
         private void btnestudiantes_Click(object sender, EventArgs e)
         {
-            text("Manejo Estudiantes");
-            AbrirFormEnPanel(new Estudiantes());
+            text("Inventario");
+            AbrirFormEnPanel(new InventarioSelect());
         }
 
         private void btnmaestros_Click(object sender, EventArgs e)
         {
-            text("Manejo Maestros");
-            AbrirFormEnPanel(new Maestros());
+            text("Clientes");
+            AbrirFormEnPanel(new Clientes());
         }
 
         private void btnconfiguracion_Click(object sender, EventArgs e)
         {
-            text("Configuracion");
-            AbrirFormEnPanel(new Configuracion());
-        }
-
-        private void bunifuFormControlBox1_HelpClicked(object sender, EventArgs e)
-        {
-
-        }
-
-        private void bunifuFormControlBox1_CloseClicked(object sender, EventArgs e)
-        {
-
+            text("Ventas");
+            //AbrirFormEnPanel(new Configuracion());
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
@@ -193,6 +185,12 @@ namespace ContAlumnos
                 pUser.Visible = false;
                 encender = false;
             }
+        }
+
+        private void bunifuButton21_Click(object sender, EventArgs e)
+        {
+            text("Configuracion");
+            AbrirFormEnPanel(new Configuracion());
         }
     }
 }

@@ -10,19 +10,21 @@ namespace ContAlumnos.Clases.Estudiantes
     {
         public Int64 Numero { get; set; }
         public string Nombre { get; set; }
-        public string Curso { get; set; }
-        public string Seccion { get; set; }
-        public string Area { get; set; }
+        public string Apellido { get; set; }
+        public string Cedula { get; set; }
+        public string Sexo { get; set; }
+        public DateTime Fecha_Ingreso { get; set; }
 
         public DatosgetMaestros() { }
 
-        public DatosgetMaestros(Int64 pNumero, string pNombre, string pCurso, string pSeccion, string pArea)
+        public DatosgetMaestros(Int64 pNumero, string pNombre, string pApellido, string pCedula, string pSexo, DateTime pFecha)
         {
             this.Numero = pNumero;
             this.Nombre = pNombre;
-            this.Curso = pCurso;
-            this.Seccion = pSeccion;
-            this.Area = pArea;
+            this.Apellido = pApellido;
+            this.Cedula = pCedula;
+            this.Sexo = pSexo;
+            this.Fecha_Ingreso = pFecha;
         }
     }
 }
