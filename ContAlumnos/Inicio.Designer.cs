@@ -221,6 +221,7 @@
             this.lname.Size = new System.Drawing.Size(381, 38);
             this.lname.TabIndex = 5;
             this.lname.Text = "...";
+            this.lname.Click += new System.EventHandler(this.lname_Click);
             // 
             // label3
             // 

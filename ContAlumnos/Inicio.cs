@@ -54,5 +54,10 @@ namespace ContAlumnos
         {
 
         }
+
+        private void lname_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
