@@ -182,5 +182,10 @@ namespace ContAlumnos.Clases.Estudiantes
         {
 
         }
+
+        private void bunifuButton21_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

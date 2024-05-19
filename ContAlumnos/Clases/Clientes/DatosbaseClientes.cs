@@ -10,22 +10,14 @@ namespace ContAlumnos.Clases.Estudiantes
 {
     public class DatosbaseClientes
     {
-        /*public static int Agregar(DatosgetMaestros pget)
+        public static int Agregar(DatosgetClientes pget)
         {
             int retorno = 0;
 
-            // Verificar si el maestro ya existe
-            if (MaestroExiste(pget.Nombre, pget.Curso, pget.Seccion, pget.Area))
-            {
-                // Si el maestro ya existe, mostrar un mensaje y retornar sin agregar
-                MessageBox.Show("El maestro ya existe.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return retorno;
-            }
-
             Conexion.opencon();
 
-            SqlCommand Comando = new SqlCommand(string.Format("Insert into Maestros (Nombre, Curso, Seccion, Area) values ('{0}','{1}','{2}','{3}')",
-                    pget.Nombre, pget.Curso, pget.Seccion, pget.Area), Conexion.ObtenerConexion());
+            SqlCommand Comando = new SqlCommand(string.Format("Insert into Clientes (Nombre, Apellido, Cedula, Sexo, Fecha_Ingreso) values ('{0}','{1}','{2}','{3}','{4}')",
+                    pget.Nombre, pget.Apellido, pget.Cedula, pget.Sexo, pget.Fecha_Ingreso.ToString("yyyy-MM-dd")), Conexion.ObtenerConexion());
 
             retorno = Comando.ExecuteNonQuery();
 
@@ -34,7 +26,7 @@ namespace ContAlumnos.Clases.Estudiantes
             return retorno;
         }
 
-        public static bool MaestroExiste(string nombre, string curso, string seccion, string area)
+        /*public static bool MaestroExiste(string nombre, string curso, string seccion, string area)
         {
             Conexion.opencon();
 
@@ -65,15 +57,15 @@ namespace ContAlumnos.Clases.Estudiantes
             Conexion.cerrarcon();
 
             return count > 0;
-        }
+        }*/
 
-        public static int Modificar(DatosgetMaestros pget)
+        public static int Modificar(DatosgetClientes pget)
         {
             int retorno = 0;
             Conexion.opencon();
             {
-                SqlCommand comando = new SqlCommand(string.Format("update Curso set Maestro_Titular = '{0}' WHERE Curso = '{1}' AND Seccion = '{2}' AND Area = '{3}'",
-                   pget.Nombre,  pget.Curso, pget.Seccion, pget.Area), Conexion.ObtenerConexion());
+                SqlCommand comando = new SqlCommand(string.Format("update Clientes set Nombre = '{0}' , Apellido = '{1}' , Cedula = '{2}' , Sexo = '{3}' , Fecha_Ingreso = '{4}' WHERE ID_Cliente = '{5}'",
+                   pget.Nombre,  pget.Apellido, pget.Cedula, pget.Sexo, pget.Fecha_Ingreso.ToString("yyyy-MM-dd"), pget.Numero), Conexion.ObtenerConexion());
                 retorno = comando.ExecuteNonQuery();
             }
             Conexion.cerrarcon();
@@ -89,7 +81,7 @@ namespace ContAlumnos.Clases.Estudiantes
             retorno = Comando.ExecuteNonQuery();
             Conexion.cerrarcon();
             return retorno;
-        }*/
+        }
 
         public static List<DatosgetClientes> BuscarAlumnos(string cedula)
         {

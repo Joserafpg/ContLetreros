@@ -122,19 +122,20 @@ namespace ContAlumnos
                 // Obtén los datos de la fila seleccionada
                 Int64 id = Convert.ToInt64(row.Cells[0].Value);
                 string nombre = row.Cells[1].Value.ToString();
-                string curso = row.Cells[2].Value.ToString();
-                string seccion = row.Cells[3].Value.ToString();
-                string area = row.Cells[4].Value.ToString();
+                string apellido = row.Cells[2].Value.ToString();
+                string cedula = row.Cells[3].Value.ToString();
+                string sexo = row.Cells[4].Value.ToString();
+                DateTime fecha = Convert.ToDateTime(row.Cells[5].Value);
 
                 // Abre el formulario para editar el producto
-               /* AgregarModificarMaestros formEditar = new AgregarModificarMaestros();
+                AgregarModificarClientes formEditar = new AgregarModificarClientes();
                 formEditar.EditMode = true; // Estás en modo editar
-                formEditar.InitializeData(id, nombre, curso, seccion, area);
+                formEditar.InitializeData(id, nombre, apellido, cedula, sexo, fecha);
                 if (formEditar.ShowDialog() == DialogResult.OK)
                 {
                     // Actualiza el DataGridView después de la edición
                     Buscar();
-                }*/
+                }
             }
         }
 
