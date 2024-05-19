@@ -26,7 +26,7 @@ namespace ContAlumnos.Clases.Estudiantes
 
         public void InitializeData(Int64 id, string nombre, string descripcion, string categoria, int cantidad, decimal unidadmedida, decimal costo, DateTime vcompra, DateTime vcaducidad)
         {
-            txtnumero.Text = id.ToString();
+            txtcodigo.Text = id.ToString();
             txtnombre.Text = nombre;
             txtdescripcion.Text = descripcion;
             cCategoria.Text = categoria;
@@ -67,7 +67,7 @@ namespace ContAlumnos.Clases.Estudiantes
             DatosgetInventario producto = null;
 
             // Cadena de conexión a la base de datos
-            string connectionString = $"Data Source={computerName}; Initial Catalog=Proyecto_Grupal; Integrated Security=True";
+            string connectionString = $"Data Source={computerName}; Initial Catalog=ContLetreros; Integrated Security=True";
 
             // Consulta SQL para obtener el producto según su ID
             string query = "SELECT ID_MateriaPrima, Nombre, Descripción, Categoría, UnidadMedida, CostoUnitario FROM Inventario WHERE ID_MateriaPrima = @Id";
@@ -90,7 +90,7 @@ namespace ContAlumnos.Clases.Estudiantes
                             string descripcion = reader.GetString(2);
                             string categoria = reader.GetString(3);
                             string unidad = reader.GetString(4);
-                            decimal costo = reader.GetDecimal(6);
+                            decimal costo = reader.GetDecimal(5);
 
                             // Crear un objeto Producto con los valores obtenidos
                             producto = new DatosgetInventario
@@ -112,6 +112,47 @@ namespace ContAlumnos.Clases.Estudiantes
 
         }
 
+        private void VerificarAgregarModificarProducto(DatosgetInventario producto)
+        {
+            bool encontrado = false;
+
+            // Recorrer las filas del DataGridView para buscar el producto
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                // Obtener el ID del producto en la fila actual
+                Int64 id = Convert.ToInt64(row.Cells["codigos"].Value);
+
+                if (id == producto.Numero)
+                {
+                    // El producto ya está en el DataGridView, modificar la cantidad
+                    Int64 cantidadExistente = Convert.ToInt64(row.Cells["cantidad"].Value);
+                    Int64 cantidadNueva = 1 + cantidadExistente + producto.Cantidad;
+                    row.Cells["cantidad"].Value = cantidadNueva;
+
+                    encontrado = true;
+                    break;
+                }
+            }
+
+            if (!encontrado)
+            {
+                // El producto no está en el DataGridView, agregar una nueva fila
+                dataGridView1.Rows.Add(producto.Numero, producto.Nombre, producto.Descripción, producto.Categoria, producto.Cantidad, producto.UnidadMedida, producto.CostoUnitario);
+            }
+        }
+
+        public void SumarColumna()
+        {
+            double Total = 0;
+
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                Total += Convert.ToDouble(row.Cells["Total"].Value);
+            }
+            txttotal.Text = Total.ToString();
+
+        }
+
 
         private void label1_Click(object sender, EventArgs e)
         {
@@ -123,11 +164,11 @@ namespace ContAlumnos.Clases.Estudiantes
             if (EditMode)
             {
                 DatosgetInventario pEstudiantes = new DatosgetInventario();
-                pEstudiantes.Numero = Convert.ToInt64(txtnumero.Text);
+                pEstudiantes.Numero = Convert.ToInt64(txtcodigo.Text);
                 pEstudiantes.Nombre = txtnombre.Text;
                 pEstudiantes.Descripción = txtdescripcion.Text;
                 pEstudiantes.Categoria = cCategoria.Text;
-                pEstudiantes.Cantidad = Convert.ToDecimal(txtcantidad.Text);
+                pEstudiantes.Cantidad = Convert.ToInt64(txtcantidad.Text);
                 pEstudiantes.UnidadMedida = cUnidadMedida.Text;
                 pEstudiantes.CostoUnitario = Convert.ToDecimal(txtcosto.Text);
                 pEstudiantes.FechaCaducidad = caducidad.Value;
@@ -149,17 +190,17 @@ namespace ContAlumnos.Clases.Estudiantes
                 this.DialogResult = DialogResult.OK;
                 this.Close();
             }
-                        
+
 
             else
-            {               
+            {
                 if (/*!string.IsNullOrEmpty(txtnumero.Text) && !string.IsNullOrEmpty(txtnombre.Text) && !string.IsNullOrEmpty(txtapellido.Text) &&*/ !string.IsNullOrEmpty(cUnidadMedida.Text))
                 {
                     DatosgetInventario pEstudiantes = new DatosgetInventario();
                     pEstudiantes.Nombre = txtnombre.Text;
                     pEstudiantes.Descripción = txtdescripcion.Text;
                     pEstudiantes.Categoria = cCategoria.Text;
-                    pEstudiantes.Cantidad = 100m;
+                    pEstudiantes.Cantidad = 100;
                     pEstudiantes.UnidadMedida = cUnidadMedida.Text;
                     pEstudiantes.CostoUnitario = 100m;
                     pEstudiantes.FechaCaducidad = caducidad.Value;
@@ -185,13 +226,54 @@ namespace ContAlumnos.Clases.Estudiantes
                 else
                 {
                     MessageBox.Show("Por favor llena todo los campos", "Llenar campos", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                }               
-            }            
+                }
+            }
         }
 
         private void bunifuButton1_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void bunifuButton22_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtcodigo.Text))
+            {
+                MessageBox.Show("Debe colocar el ID del producto");
+                return;
+            }
+
+            Int64 idProducto = Convert.ToInt64(txtcodigo.Text);
+
+            // Llamar a un método para obtener el producto completo según su ID
+            DatosgetInventario producto = ObtenerProducto(idProducto);
+
+            if (producto != null)
+            {
+                // Verificar si el producto ya está en el DataGridView y realizar la acción correspondiente
+                VerificarAgregarModificarProducto(producto);
+
+                foreach (DataGridViewRow row in dataGridView1.Rows)
+                {
+                    // Obtener los valores de las columnas "Columna1" y "Columna2"
+                    double valor1 = Convert.ToDouble(row.Cells["costounitario"].Value);
+                    int valor2 = Convert.ToInt32(row.Cells["cantidad"].Value);
+                    // Realizar la multiplicación
+                    double resultado = valor1 * valor2;
+
+                    // Asignar el resultado a la columna "Resultado" de la fila actual
+                    row.Cells["Total"].Value = resultado;
+                    SumarColumna();
+                }
+            }
+            else
+            {
+                // No se encontró un producto con el ID especificado, mostrar un mensaje de error o realizar alguna otra acción apropiada
+                MessageBox.Show("No se encontró ningún producto con el ID especificado.");
+            }
+
+
+            txtcodigo.Clear();
         }
     }
 }

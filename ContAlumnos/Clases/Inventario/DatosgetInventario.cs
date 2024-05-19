@@ -12,7 +12,7 @@ namespace ContAlumnos.Clases.Estudiantes
         public string Nombre { get; set; }
         public string Descripción { get; set; }
         public string Categoria { get; set; }
-        public decimal Cantidad { get; set; }
+        public Int64 Cantidad { get; set; }
         public string UnidadMedida { get; set; }
         public decimal CostoUnitario { get; set; }
         public DateTime FechaCompra { get; set; }
@@ -20,7 +20,7 @@ namespace ContAlumnos.Clases.Estudiantes
 
         public DatosgetInventario() { }
 
-        public DatosgetInventario(Int64 pNumero, string pNombre, string pDescripcion, string pCategoria, decimal pCantidad, string pUnidadMedida, decimal pCostoUnitario, DateTime pFechaCompra, DateTime pFechaCaducidad
+        public DatosgetInventario(Int64 pNumero, string pNombre, string pDescripcion, string pCategoria, Int64 pCantidad, string pUnidadMedida, decimal pCostoUnitario, DateTime pFechaCompra, DateTime pFechaCaducidad
             )
         {
             this.Numero = pNumero;

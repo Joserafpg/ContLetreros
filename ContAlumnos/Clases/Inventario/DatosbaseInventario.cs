@@ -66,7 +66,7 @@ namespace ContAlumnos.Clases.Estudiantes
                     pAlumnos.Nombre = reader.GetString(1);
                     pAlumnos.Descripción = reader.GetString(2);
                     pAlumnos.Categoria = reader.GetString(3);
-                    pAlumnos.Cantidad = reader.GetDecimal(4);
+                    pAlumnos.Cantidad = Convert.ToInt64(reader.GetValue(4));
                     pAlumnos.UnidadMedida = reader.GetString(5);
                     pAlumnos.CostoUnitario = reader.GetDecimal(6);
                     pAlumnos.FechaCompra = reader.GetDateTime(7);
