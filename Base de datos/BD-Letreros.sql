@@ -33,6 +33,30 @@ FechaCompra	DATE, -- Fecha en que se compró el material
 FechaCaducidad DATE
 )
 
-drop table Inventario
+CREATE TABLE Pedidos (
+    PedidoID INT IDENTITY (1,1) PRIMARY KEY,
+    ClienteID INT,
+    NombreCliente VARCHAR(255),
+    Empleado VARCHAR(50),
+    FechaPedido DATE,
+    FechaEntrega DATE,
+    Total DECIMAL(10,2),
+    Pagado BIT,
+);
+
+CREATE TABLE DetallePedido (
+    DetallePedidoID INT IDENTITY (1,1) PRIMARY KEY,
+    PedidoID INT,
+    ProductoID INT,
+    DescripciónProducto VARCHAR(255),
+    Cantidad INT,
+    PrecioUnitario DECIMAL(10,2),
+    Subtotal DECIMAL(10,2),
+);
+
+
+drop table Pedidos
 
 select * from Inventario
+
+drop database ContAlumnos

@@ -75,6 +75,8 @@
     <Compile Include="Clases\Conexion.cs" />
     <Compile Include="Clases\Usuarios\DTUsuarios.cs" />
     <Compile Include="Clases\Usuarios\UsuariosGET.cs" />
+    <Compile Include="Clases\Ventas\DatosbaseVentas.cs" />
+    <Compile Include="Clases\Ventas\DatosgetVentas.cs" />
     <Compile Include="CrystalReport1.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -139,6 +141,12 @@
     <Compile Include="Usuarios.Designer.cs">
       <DependentUpon>Usuarios.cs</DependentUpon>
     </Compile>
+    <Compile Include="Ventas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ventas.Designer.cs">
+      <DependentUpon>Ventas.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AgregarModificarClientes.resx">
       <DependentUpon>AgregarModificarClientes.cs</DependentUpon>
     </EmbeddedResource>
@@ -182,6 +190,9 @@
     </Compile>
     <EmbeddedResource Include="Usuarios.resx">
       <DependentUpon>Usuarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ventas.resx">
+      <DependentUpon>Ventas.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

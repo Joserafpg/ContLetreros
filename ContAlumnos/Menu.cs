@@ -160,7 +160,7 @@ namespace ContAlumnos
         private void btnconfiguracion_Click(object sender, EventArgs e)
         {
             text("Ventas");
-            //AbrirFormEnPanel(new Configuracion());
+            AbrirFormEnPanel(new Ventas());
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
