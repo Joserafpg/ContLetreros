@@ -384,7 +384,7 @@
             this.bunifuPanel2.BorderColor = System.Drawing.Color.Transparent;
             this.bunifuPanel2.BorderRadius = 35;
             this.bunifuPanel2.BorderThickness = 1;
-            this.bunifuPanel2.Location = new System.Drawing.Point(48, -17);
+            this.bunifuPanel2.Location = new System.Drawing.Point(50, -17);
             this.bunifuPanel2.Name = "bunifuPanel2";
             this.bunifuPanel2.ShowBorders = true;
             this.bunifuPanel2.Size = new System.Drawing.Size(83, 142);
