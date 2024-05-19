@@ -13,6 +13,7 @@ namespace ContAlumnos.Clases.Estudiantes
         public string Descripción { get; set; }
         public string Categoria { get; set; }
         public Int64 Cantidad { get; set; }
+        public Int64 Cantidad2 = 1;
         public string UnidadMedida { get; set; }
         public decimal CostoUnitario { get; set; }
         public DateTime FechaCompra { get; set; }

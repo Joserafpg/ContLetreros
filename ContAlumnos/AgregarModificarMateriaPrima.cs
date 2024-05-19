@@ -120,13 +120,13 @@ namespace ContAlumnos.Clases.Estudiantes
             foreach (DataGridViewRow row in dataGridView1.Rows)
             {
                 // Obtener el ID del producto en la fila actual
-                Int64 id = Convert.ToInt64(row.Cells["codigos"].Value);
+                Int64 id = Convert.ToInt64(row.Cells["codigo"].Value);
 
                 if (id == producto.Numero)
                 {
                     // El producto ya está en el DataGridView, modificar la cantidad
                     Int64 cantidadExistente = Convert.ToInt64(row.Cells["cantidad"].Value);
-                    Int64 cantidadNueva = 1 + cantidadExistente + producto.Cantidad;
+                    Int64 cantidadNueva = cantidadExistente + producto.Cantidad2;
                     row.Cells["cantidad"].Value = cantidadNueva;
 
                     encontrado = true;
@@ -137,7 +137,7 @@ namespace ContAlumnos.Clases.Estudiantes
             if (!encontrado)
             {
                 // El producto no está en el DataGridView, agregar una nueva fila
-                dataGridView1.Rows.Add(producto.Numero, producto.Nombre, producto.Descripción, producto.Categoria, producto.Cantidad, producto.UnidadMedida, producto.CostoUnitario);
+                dataGridView1.Rows.Add(producto.Numero, producto.Nombre, producto.Descripción, producto.Categoria, producto.Cantidad2, producto.UnidadMedida, producto.CostoUnitario, producto.FechaCaducidad);
             }
         }
 
