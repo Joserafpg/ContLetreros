@@ -76,7 +76,7 @@ namespace ContAlumnos.Clases.Estudiantes
         {
             int retorno = 0;
             Conexion.opencon();
-            SqlCommand Comando = new SqlCommand(string.Format("DELETE FROM Maestros WHERE Id_Maestro = {0} ", pID), Conexion.ObtenerConexion());
+            SqlCommand Comando = new SqlCommand(string.Format("DELETE FROM Clientes WHERE ID_Cliente = {0} ", pID), Conexion.ObtenerConexion());
 
             retorno = Comando.ExecuteNonQuery();
             Conexion.cerrarcon();

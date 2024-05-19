@@ -81,11 +81,7 @@ namespace ContAlumnos
                     int rowIndex = dataGridView1.SelectedRows[0].Index;
                     int id = Convert.ToInt32(dataGridView1.Rows[rowIndex].Cells[0].Value); // Suponiendo que el nombre de la columna que contiene el ID es "Numero"
 
-                    string curso = row.Cells[2].Value.ToString();
-                    string seccion = row.Cells[3].Value.ToString();
-                    string area = row.Cells[4].Value.ToString();
-
-                    /*Int64 resultado = DatosbaseMaestros.Eliminar(id);
+                    Int64 resultado = DatosbaseClientes.Eliminar(id);
                     if (resultado > 0)
                     {
                         MessageBox.Show("Estudiante eliminado", "Estudiante Eliminado", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -96,7 +92,7 @@ namespace ContAlumnos
                     else
                     {
                         MessageBox.Show("No se pudo eliminar al estudiante", "estudiante eliminado", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    }*/
+                    }
                 }
 
                 else
