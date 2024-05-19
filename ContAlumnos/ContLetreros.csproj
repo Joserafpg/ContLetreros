@@ -73,6 +73,7 @@
       <DependentUpon>AgregarModificarMateriaPrima.cs</DependentUpon>
     </Compile>
     <Compile Include="Clases\Conexion.cs" />
+    <Compile Include="Clases\Inventario\MateriaPrima.cs" />
     <Compile Include="Clases\Usuarios\DTUsuarios.cs" />
     <Compile Include="Clases\Usuarios\UsuariosGET.cs" />
     <Compile Include="Clases\Ventas\DatosbaseVentas.cs" />

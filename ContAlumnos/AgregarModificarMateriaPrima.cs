@@ -62,6 +62,56 @@ namespace ContAlumnos.Clases.Estudiantes
             return numeroMasAlto;
         }
 
+        private DatosgetInventario ObtenerProducto(Int64 idProducto)
+        {
+            DatosgetInventario producto = null;
+
+            // Cadena de conexión a la base de datos
+            string connectionString = $"Data Source={computerName}; Initial Catalog=Proyecto_Grupal; Integrated Security=True";
+
+            // Consulta SQL para obtener el producto según su ID
+            string query = "SELECT ID_MateriaPrima, Nombre, Descripción, Categoría, UnidadMedida, CostoUnitario FROM Inventario WHERE ID_MateriaPrima = @Id";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@Id", idProducto);
+
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            // Obtener los valores del producto desde el lector de datos
+                            Int32 id = reader.GetInt32(0);
+                            string nombre = reader.GetString(1);
+                            string descripcion = reader.GetString(2);
+                            string categoria = reader.GetString(3);
+                            string unidad = reader.GetString(4);
+                            decimal costo = reader.GetDecimal(6);
+
+                            // Crear un objeto Producto con los valores obtenidos
+                            producto = new DatosgetInventario
+                            {
+                                Numero = id,
+                                Nombre = nombre,
+                                Descripción = descripcion,
+                                Categoria = categoria,
+                                UnidadMedida = unidad,
+                                CostoUnitario = costo,
+                            };
+                        }
+                    }
+                }
+                Conn.Close();
+            }
+
+            return producto;
+
+        }
+
 
         private void label1_Click(object sender, EventArgs e)
         {
@@ -139,53 +189,9 @@ namespace ContAlumnos.Clases.Estudiantes
             }            
         }
 
-
-        private void AgregarModificarEstudiantes_Load(object sender, EventArgs e)
-        {
-            if (EditMode)
-            {
-                txtnumero.Enabled = true;
-            }
-
-            else
-            {
-                txtnumero.Enabled = false;
-            }
-        }
-
-        private void bunifuPanel1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void bunifuButton1_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void compra_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void caducidad_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void bunifuButton21_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

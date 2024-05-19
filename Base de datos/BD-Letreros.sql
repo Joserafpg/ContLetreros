@@ -55,6 +55,23 @@ CREATE TABLE DetallePedido (
 );
 
 
+CREATE TABLE Compras (
+    CompraID INT IDENTITY (1,1) PRIMARY KEY NOT NULL,
+    FechaCompra DATE, -- Fecha de la compra
+    TotalCompra DECIMAL(10,2), -- Total de la compra
+);
+
+
+CREATE TABLE DetalleCompras (
+    CompraID INT, -- Identificador de la compra
+    ID_MateriaPrima INT, -- Identificador de la materia prima
+    Cantidad DECIMAL, -- Cantidad comprada
+    CostoUnitario DECIMAL(10,2), -- Costo por unidad de medida del material
+    Total DECIMAL(10,2), -- Total por el material
+);
+
+
+
 drop table Pedidos
 
 select * from Inventario
