@@ -64,5 +64,10 @@ namespace ContAlumnos
         {
 
         }
+
+        private void bunifuPictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
