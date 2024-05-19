@@ -176,7 +176,7 @@ namespace ContAlumnos
         {
             if (!string.IsNullOrEmpty(txtcurso.Text) && !string.IsNullOrEmpty(txtseccion.Text) && !string.IsNullOrEmpty(txtarea.Text))
             {
-                PlantillaReporte form = new PlantillaReporte();
+                /*PlantillaReporte form = new PlantillaReporte();
                 ReportDocument oRep = new ReportDocument();
                 ParameterField pf = new ParameterField();
                 ParameterFields pfs = new ParameterFields();
@@ -197,7 +197,7 @@ namespace ContAlumnos
 
             else
             {
-                MessageBox.Show("Por favor selecciona un curso, una seccion y una area", "Seleccion");
+                MessageBox.Show("Por favor selecciona un curso, una seccion y una area", "Seleccion");*/
             }
         }
     }

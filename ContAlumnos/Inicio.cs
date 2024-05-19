@@ -24,9 +24,9 @@ namespace ContAlumnos
         private void Inicio_Load(object sender, EventArgs e)
         {
             lname.Text = Acceso.Nombre;
-            ExecuteProcedureAndDisplayResult("CalcularTotalEstudiantes", total);
-            ExecuteProcedureAndDisplayResult("CalcularTotalHembras", hembras);
-            ExecuteProcedureAndDisplayResult("CalcularTotalVarones", varones);
+            //ExecuteProcedureAndDisplayResult("CalcularTotalEstudiantes", total);
+            //ExecuteProcedureAndDisplayResult("CalcularTotalHembras", hembras);
+            //ExecuteProcedureAndDisplayResult("CalcularTotalVarones", varones);
         }
 
         private void ExecuteProcedureAndDisplayResult(string procedureName, Label textBox)
