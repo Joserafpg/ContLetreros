@@ -37,6 +37,7 @@ namespace ContAlumnos
         {
             if (EditMode)
             {
+                txtnumero.Visible = true;
                 DatosgetClientes pEstudiantes = new DatosgetClientes();
                 pEstudiantes.Numero = Convert.ToInt64(txtnumero.Text);
                 pEstudiantes.Nombre = txtnombre.Text;
@@ -96,6 +97,31 @@ namespace ContAlumnos
                     MessageBox.Show("Por favor llena todo los campos", "Llenar campos", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
             }           
+        }
+
+        private void bunifuButton21_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void bunifuButton1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void AgregarModificarClientes_Load(object sender, EventArgs e)
+        {
+            if (EditMode)
+            {
+                txtnumero.Visible = true;
+                label1.Visible = true;
+            }
+
+            else
+            {
+                txtnumero.Visible = false;
+                label1.Visible = false;
+            }
         }
     }
 }
