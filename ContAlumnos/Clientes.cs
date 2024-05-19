@@ -24,7 +24,7 @@ namespace ContAlumnos
 
         void Buscar()
         {
-            dataGridView1.DataSource = DatosbaseClientes.BuscarAlumnos(bunifuTextBox1.Text);
+            dataGridView1.DataSource = DatosbaseClientes.BuscarAlumnos(bunifuTextBox2.Text);
         }
 
         void CargarComboBox()
