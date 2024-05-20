@@ -157,6 +157,69 @@ namespace ContAlumnos.Clases.Estudiantes
 
         }
 
+        public string ConsultarPorNombre(string nombre)
+        {
+
+            string resultado = "";
+
+            using (SqlConnection conn = new SqlConnection(Conn.ConnectionString))
+            {
+                conn.Open();
+                string query = "SELECT ID_MateriaPrima FROM Inventario WHERE Nombre = @Nombre";
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@Nombre", nombre);
+                    var queryResult = cmd.ExecuteScalar();
+                    if (queryResult != null)
+                    {
+                        resultado = queryResult.ToString();
+                    }
+                }
+            }
+
+            return resultado;
+        }
+
+        void dtagregar()
+        {
+            if (string.IsNullOrEmpty(txtcodigo.Text))
+            {
+                MessageBox.Show("Debe colocar el ID del producto");
+                return;
+            }
+
+            Int64 idProducto = Convert.ToInt64(txtcodigo.Text);
+
+            // Llamar a un método para obtener el producto completo según su ID
+            DatosgetInventario producto = ObtenerProducto(idProducto);
+
+            if (producto != null)
+            {
+                // Verificar si el producto ya está en el DataGridView y realizar la acción correspondiente
+                VerificarAgregarModificarProducto(producto);
+
+                foreach (DataGridViewRow row in dataGridView1.Rows)
+                {
+                    // Obtener los valores de las columnas "Columna1" y "Columna2"
+                    double valor1 = Convert.ToDouble(row.Cells["costounitario"].Value);
+                    int valor2 = Convert.ToInt32(row.Cells["cantidad"].Value);
+                    // Realizar la multiplicación
+                    double resultado = valor1 * valor2;
+
+                    // Asignar el resultado a la columna "Resultado" de la fila actual
+                    row.Cells["Total"].Value = resultado;
+                    SumarColumna();
+                }
+            }
+            else
+            {
+                // No se encontró un producto con el ID especificado, mostrar un mensaje de error o realizar alguna otra acción apropiada
+                MessageBox.Show("No se encontró ningún producto con el ID especificado.");
+            }
+
+
+            txtcodigo.Clear();
+        }
 
         private void label1_Click(object sender, EventArgs e)
         {
@@ -320,43 +383,7 @@ namespace ContAlumnos.Clases.Estudiantes
 
         private void bunifuButton22_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(txtcodigo.Text))
-            {
-                MessageBox.Show("Debe colocar el ID del producto");
-                return;
-            }
-
-            Int64 idProducto = Convert.ToInt64(txtcodigo.Text);
-
-            // Llamar a un método para obtener el producto completo según su ID
-            DatosgetInventario producto = ObtenerProducto(idProducto);
-
-            if (producto != null)
-            {
-                // Verificar si el producto ya está en el DataGridView y realizar la acción correspondiente
-                VerificarAgregarModificarProducto(producto);
-
-                foreach (DataGridViewRow row in dataGridView1.Rows)
-                {
-                    // Obtener los valores de las columnas "Columna1" y "Columna2"
-                    double valor1 = Convert.ToDouble(row.Cells["costounitario"].Value);
-                    int valor2 = Convert.ToInt32(row.Cells["cantidad"].Value);
-                    // Realizar la multiplicación
-                    double resultado = valor1 * valor2;
-
-                    // Asignar el resultado a la columna "Resultado" de la fila actual
-                    row.Cells["Total"].Value = resultado;
-                    SumarColumna();
-                }
-            }
-            else
-            {
-                // No se encontró un producto con el ID especificado, mostrar un mensaje de error o realizar alguna otra acción apropiada
-                MessageBox.Show("No se encontró ningún producto con el ID especificado.");
-            }
-
-
-            txtcodigo.Clear();
+            dtagregar();
         }
 
         private void AgregarModificarMateriaPrima_Load(object sender, EventArgs e)
@@ -368,6 +395,48 @@ namespace ContAlumnos.Clases.Estudiantes
                 label10.Visible = false;
                 btnbuscar.Visible = false;
                 txtcodigo.Enabled = false;
+                btnagregar.Visible = false;
+            }
+        }
+
+        private void btnagregar_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(txtnombre.Text) && !string.IsNullOrEmpty(txtdescripcion.Text) && !string.IsNullOrEmpty(cCategoria.Text) && !string.IsNullOrEmpty(txtcantidad.Text) && !string.IsNullOrEmpty(cUnidadMedida.Text) && !string.IsNullOrEmpty(txtcosto.Text))
+            {
+
+                DatosgetInventario pEstudiantes = new DatosgetInventario();
+                pEstudiantes.Nombre = txtnombre.Text;
+                pEstudiantes.Descripción = txtdescripcion.Text;
+                pEstudiantes.Categoria = cCategoria.Text;
+                pEstudiantes.Cantidad = Convert.ToInt64(txtcantidad.Text);
+                pEstudiantes.UnidadMedida = cUnidadMedida.Text;
+                pEstudiantes.CostoUnitario = Convert.ToDecimal(txtcosto.Text);
+                pEstudiantes.FechaCaducidad = caducidad.Value;
+                pEstudiantes.FechaCompra = compra.Value;
+
+                int Resultado = DatosbaseInventario.Agregar(pEstudiantes);
+
+                if (Resultado > 0)
+                {
+                    MessageBox.Show("Alumno Agregado con éxito", "Alumno modificado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    // Realizar la consulta después de agregar el registro
+                    var resultadoConsulta = ConsultarPorNombre(txtnombre.Text);
+                    txtcodigo.Text = resultadoConsulta;
+                    dtagregar();
+                    txtcodigo.Clear();
+
+                    MessageBox.Show("Resultado de la consulta: " + resultadoConsulta, "Consulta realizada", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("No se pudo agregar el alumno", "¡Ocurrió un error!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+            }
+
+            else
+            {
+                MessageBox.Show("Todos los campos deben estar llenos", "¡Ocurrió un error!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
     }

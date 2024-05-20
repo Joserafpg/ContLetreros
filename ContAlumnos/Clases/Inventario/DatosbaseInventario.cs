@@ -47,8 +47,8 @@ namespace ContAlumnos.Clases.Estudiantes
             int retorno = 0;
             Conexion.opencon();
             {
-                SqlCommand comando = new SqlCommand(string.Format("update Inventario set Nombre = '{0}', Descripción = '{1}', Cantidad = '{2}', UnidadMedida = '{3}', CostoUnitario = '{4}', FechaCompra = '{5}', FechaCaducidad = '{6}' WHERE ID_MateriaPrima = {7}",
-                    pget.Nombre, pget.Descripción, pget.Cantidad, pget.UnidadMedida, pget.CostoUnitario, pget.FechaCompra.ToString("yyyy-MM-dd"), pget.FechaCaducidad.ToString("yyyy-MM-dd"), pget.Numero), Conexion.ObtenerConexion());
+                SqlCommand comando = new SqlCommand(string.Format("update Inventario set Nombre = '{0}', Descripción = '{1}', Cantidad = '{2}', UnidadMedida = '{3}', CostoUnitario = '{4}', FechaCompra = '{5}', FechaCaducidad = '{6}', Categoría = '{7}' WHERE ID_MateriaPrima = {8}",
+                    pget.Nombre, pget.Descripción, pget.Cantidad, pget.UnidadMedida, pget.CostoUnitario, pget.FechaCompra.ToString("yyyy-MM-dd"), pget.FechaCaducidad.ToString("yyyy-MM-dd"), pget.Categoria, pget.Numero), Conexion.ObtenerConexion());
                 retorno = comando.ExecuteNonQuery();
             }
             Conexion.cerrarcon();

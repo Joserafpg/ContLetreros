@@ -40,6 +40,7 @@
             Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties7 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
             Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties8 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
             Bunifu.UI.WinForms.BunifuButton.BunifuButton2.BorderEdges borderEdges3 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton2.BorderEdges();
+            Bunifu.UI.WinForms.BunifuButton.BunifuButton2.BorderEdges borderEdges4 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton2.BorderEdges();
             Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties9 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
             Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties10 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
             Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties11 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
@@ -52,13 +53,14 @@
             Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties18 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
             Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties19 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
             Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties20 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges4 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
+            Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges5 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
             this.bunifuButton21 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton2();
             this.btnestudiantes = new Bunifu.UI.WinForms.BunifuButton.BunifuButton2();
             this.txtnombre = new Bunifu.UI.WinForms.BunifuTextBox();
             this.txtdescripcion = new Bunifu.UI.WinForms.BunifuTextBox();
             this.cUnidadMedida = new Bunifu.UI.WinForms.BunifuDropdown();
             this.bunifuPanel1 = new Bunifu.UI.WinForms.BunifuPanel();
+            this.btnagregar = new Bunifu.UI.WinForms.BunifuButton.BunifuButton2();
             this.btnbuscar = new Bunifu.UI.WinForms.BunifuButton.BunifuButton2();
             this.txtcosto = new Bunifu.UI.WinForms.BunifuTextBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -459,9 +461,11 @@
             this.cUnidadMedida.ItemHighLightColor = System.Drawing.Color.DodgerBlue;
             this.cUnidadMedida.ItemHighLightForeColor = System.Drawing.Color.White;
             this.cUnidadMedida.Items.AddRange(new object[] {
-            "Sexto",
-            "Quinto",
-            "Cuarto"});
+            "Unidad",
+            "Centimetro",
+            "Pulgadas",
+            "Yardas",
+            "Metros"});
             this.cUnidadMedida.ItemTopMargin = 3;
             this.cUnidadMedida.Location = new System.Drawing.Point(130, 231);
             this.cUnidadMedida.Name = "cUnidadMedida";
@@ -479,6 +483,7 @@
             this.bunifuPanel1.BorderColor = System.Drawing.Color.LightSkyBlue;
             this.bunifuPanel1.BorderRadius = 35;
             this.bunifuPanel1.BorderThickness = 1;
+            this.bunifuPanel1.Controls.Add(this.btnagregar);
             this.bunifuPanel1.Controls.Add(this.btnbuscar);
             this.bunifuPanel1.Controls.Add(this.txtcosto);
             this.bunifuPanel1.Controls.Add(this.label9);
@@ -502,6 +507,96 @@
             this.bunifuPanel1.Size = new System.Drawing.Size(510, 388);
             this.bunifuPanel1.TabIndex = 24;
             // 
+            // btnagregar
+            // 
+            this.btnagregar.AllowAnimations = true;
+            this.btnagregar.AllowMouseEffects = true;
+            this.btnagregar.AllowToggling = false;
+            this.btnagregar.AnimationSpeed = 200;
+            this.btnagregar.AutoGenerateColors = false;
+            this.btnagregar.AutoRoundBorders = false;
+            this.btnagregar.AutoSizeLeftIcon = false;
+            this.btnagregar.AutoSizeRightIcon = true;
+            this.btnagregar.BackColor = System.Drawing.Color.Transparent;
+            this.btnagregar.BackColor1 = System.Drawing.Color.Orange;
+            this.btnagregar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnagregar.BackgroundImage")));
+            this.btnagregar.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton2.BorderStyles.Solid;
+            this.btnagregar.ButtonText = "Agregar";
+            this.btnagregar.ButtonTextMarginLeft = 0;
+            this.btnagregar.ColorContrastOnClick = 45;
+            this.btnagregar.ColorContrastOnHover = 45;
+            this.btnagregar.Cursor = System.Windows.Forms.Cursors.Default;
+            borderEdges3.BottomLeft = true;
+            borderEdges3.BottomRight = true;
+            borderEdges3.TopLeft = true;
+            borderEdges3.TopRight = true;
+            this.btnagregar.CustomizableEdges = borderEdges3;
+            this.btnagregar.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btnagregar.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
+            this.btnagregar.DisabledFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.btnagregar.DisabledForecolor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(160)))), ((int)(((byte)(168)))));
+            this.btnagregar.FocusState = Bunifu.UI.WinForms.BunifuButton.BunifuButton2.ButtonStates.Pressed;
+            this.btnagregar.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnagregar.ForeColor = System.Drawing.Color.White;
+            this.btnagregar.IconLeftAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnagregar.IconLeftCursor = System.Windows.Forms.Cursors.Default;
+            this.btnagregar.IconLeftPadding = new System.Windows.Forms.Padding(25, 3, 3, 3);
+            this.btnagregar.IconMarginLeft = 11;
+            this.btnagregar.IconPadding = 10;
+            this.btnagregar.IconRightAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnagregar.IconRightCursor = System.Windows.Forms.Cursors.Default;
+            this.btnagregar.IconRightPadding = new System.Windows.Forms.Padding(3, 3, 7, 3);
+            this.btnagregar.IconSize = 25;
+            this.btnagregar.IdleBorderColor = System.Drawing.Color.DeepSkyBlue;
+            this.btnagregar.IdleBorderRadius = 35;
+            this.btnagregar.IdleBorderThickness = 1;
+            this.btnagregar.IdleFillColor = System.Drawing.Color.Orange;
+            this.btnagregar.IdleIconLeftImage = null;
+            this.btnagregar.IdleIconRightImage = null;
+            this.btnagregar.IndicateFocus = false;
+            this.btnagregar.Location = new System.Drawing.Point(396, 328);
+            this.btnagregar.Name = "btnagregar";
+            this.btnagregar.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
+            this.btnagregar.OnDisabledState.BorderRadius = 35;
+            this.btnagregar.OnDisabledState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton2.BorderStyles.Solid;
+            this.btnagregar.OnDisabledState.BorderThickness = 1;
+            this.btnagregar.OnDisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.btnagregar.OnDisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(160)))), ((int)(((byte)(168)))));
+            this.btnagregar.OnDisabledState.IconLeftImage = null;
+            this.btnagregar.OnDisabledState.IconRightImage = null;
+            this.btnagregar.onHoverState.BorderColor = System.Drawing.Color.DeepSkyBlue;
+            this.btnagregar.onHoverState.BorderRadius = 35;
+            this.btnagregar.onHoverState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton2.BorderStyles.Solid;
+            this.btnagregar.onHoverState.BorderThickness = 1;
+            this.btnagregar.onHoverState.FillColor = System.Drawing.Color.DeepSkyBlue;
+            this.btnagregar.onHoverState.ForeColor = System.Drawing.Color.White;
+            this.btnagregar.onHoverState.IconLeftImage = null;
+            this.btnagregar.onHoverState.IconRightImage = null;
+            this.btnagregar.OnIdleState.BorderColor = System.Drawing.Color.DeepSkyBlue;
+            this.btnagregar.OnIdleState.BorderRadius = 35;
+            this.btnagregar.OnIdleState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton2.BorderStyles.Solid;
+            this.btnagregar.OnIdleState.BorderThickness = 1;
+            this.btnagregar.OnIdleState.FillColor = System.Drawing.Color.Orange;
+            this.btnagregar.OnIdleState.ForeColor = System.Drawing.Color.White;
+            this.btnagregar.OnIdleState.IconLeftImage = null;
+            this.btnagregar.OnIdleState.IconRightImage = null;
+            this.btnagregar.OnPressedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
+            this.btnagregar.OnPressedState.BorderRadius = 35;
+            this.btnagregar.OnPressedState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton2.BorderStyles.Solid;
+            this.btnagregar.OnPressedState.BorderThickness = 1;
+            this.btnagregar.OnPressedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
+            this.btnagregar.OnPressedState.ForeColor = System.Drawing.Color.White;
+            this.btnagregar.OnPressedState.IconLeftImage = null;
+            this.btnagregar.OnPressedState.IconRightImage = null;
+            this.btnagregar.Size = new System.Drawing.Size(83, 39);
+            this.btnagregar.TabIndex = 38;
+            this.btnagregar.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnagregar.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
+            this.btnagregar.TextMarginLeft = 0;
+            this.btnagregar.TextPadding = new System.Windows.Forms.Padding(0);
+            this.btnagregar.UseDefaultRadiusAndThickness = true;
+            this.btnagregar.Click += new System.EventHandler(this.btnagregar_Click);
+            // 
             // btnbuscar
             // 
             this.btnbuscar.AllowAnimations = true;
@@ -521,11 +616,11 @@
             this.btnbuscar.ColorContrastOnClick = 45;
             this.btnbuscar.ColorContrastOnHover = 45;
             this.btnbuscar.Cursor = System.Windows.Forms.Cursors.Default;
-            borderEdges3.BottomLeft = true;
-            borderEdges3.BottomRight = true;
-            borderEdges3.TopLeft = true;
-            borderEdges3.TopRight = true;
-            this.btnbuscar.CustomizableEdges = borderEdges3;
+            borderEdges4.BottomLeft = true;
+            borderEdges4.BottomRight = true;
+            borderEdges4.TopLeft = true;
+            borderEdges4.TopRight = true;
+            this.btnbuscar.CustomizableEdges = borderEdges4;
             this.btnbuscar.DialogResult = System.Windows.Forms.DialogResult.None;
             this.btnbuscar.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.btnbuscar.DisabledFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
@@ -819,6 +914,9 @@
             this.cCategoria.ItemHeight = 26;
             this.cCategoria.ItemHighLightColor = System.Drawing.Color.DodgerBlue;
             this.cCategoria.ItemHighLightForeColor = System.Drawing.Color.White;
+            this.cCategoria.Items.AddRange(new object[] {
+            "Planchas",
+            "Pinturas"});
             this.cCategoria.ItemTopMargin = 3;
             this.cCategoria.Location = new System.Drawing.Point(130, 183);
             this.cCategoria.Name = "cCategoria";
@@ -979,11 +1077,11 @@
             this.bunifuButton1.ColorContrastOnClick = 45;
             this.bunifuButton1.ColorContrastOnHover = 45;
             this.bunifuButton1.Cursor = System.Windows.Forms.Cursors.Default;
-            borderEdges4.BottomLeft = true;
-            borderEdges4.BottomRight = true;
-            borderEdges4.TopLeft = true;
-            borderEdges4.TopRight = true;
-            this.bunifuButton1.CustomizableEdges = borderEdges4;
+            borderEdges5.BottomLeft = true;
+            borderEdges5.BottomRight = true;
+            borderEdges5.TopLeft = true;
+            borderEdges5.TopRight = true;
+            this.bunifuButton1.CustomizableEdges = borderEdges5;
             this.bunifuButton1.DialogResult = System.Windows.Forms.DialogResult.None;
             this.bunifuButton1.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.bunifuButton1.DisabledFillColor = System.Drawing.Color.Empty;
@@ -1235,5 +1333,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn costounitario;
         private System.Windows.Forms.DataGridViewTextBoxColumn fechacaducidad;
         private System.Windows.Forms.DataGridViewTextBoxColumn Total;
+        private Bunifu.UI.WinForms.BunifuButton.BunifuButton2 btnagregar;
     }
 }

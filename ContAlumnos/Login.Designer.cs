@@ -190,7 +190,7 @@
             this.txtpass.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
             this.txtpass.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
             this.txtpass.AutoSizeHeight = true;
-            this.txtpass.BackColor = System.Drawing.Color.White;
+            this.txtpass.BackColor = System.Drawing.Color.WhiteSmoke;
             this.txtpass.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("txtpass.BackgroundImage")));
             this.txtpass.BorderColorActive = System.Drawing.Color.DodgerBlue;
             this.txtpass.BorderColorDisabled = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
@@ -203,7 +203,7 @@
             this.txtpass.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtpass.DefaultFont = new System.Drawing.Font("Segoe UI", 9.25F);
             this.txtpass.DefaultText = "";
-            this.txtpass.FillColor = System.Drawing.Color.White;
+            this.txtpass.FillColor = System.Drawing.Color.WhiteSmoke;
             this.txtpass.HideSelection = true;
             this.txtpass.IconLeft = null;
             this.txtpass.IconLeftCursor = System.Windows.Forms.Cursors.IBeam;
@@ -233,7 +233,7 @@
             stateProperties3.PlaceholderForeColor = System.Drawing.Color.Empty;
             this.txtpass.OnHoverState = stateProperties3;
             stateProperties4.BorderColor = System.Drawing.Color.Silver;
-            stateProperties4.FillColor = System.Drawing.Color.White;
+            stateProperties4.FillColor = System.Drawing.Color.WhiteSmoke;
             stateProperties4.ForeColor = System.Drawing.Color.Empty;
             stateProperties4.PlaceholderForeColor = System.Drawing.Color.Empty;
             this.txtpass.OnIdleState = stateProperties4;
@@ -266,7 +266,7 @@
             this.txtuser.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
             this.txtuser.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
             this.txtuser.AutoSizeHeight = true;
-            this.txtuser.BackColor = System.Drawing.Color.White;
+            this.txtuser.BackColor = System.Drawing.Color.WhiteSmoke;
             this.txtuser.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("txtuser.BackgroundImage")));
             this.txtuser.BorderColorActive = System.Drawing.Color.DodgerBlue;
             this.txtuser.BorderColorDisabled = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
@@ -279,7 +279,7 @@
             this.txtuser.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtuser.DefaultFont = new System.Drawing.Font("Segoe UI", 9.25F);
             this.txtuser.DefaultText = "";
-            this.txtuser.FillColor = System.Drawing.Color.White;
+            this.txtuser.FillColor = System.Drawing.Color.WhiteSmoke;
             this.txtuser.HideSelection = true;
             this.txtuser.IconLeft = null;
             this.txtuser.IconLeftCursor = System.Windows.Forms.Cursors.IBeam;
@@ -309,7 +309,7 @@
             stateProperties7.PlaceholderForeColor = System.Drawing.Color.Empty;
             this.txtuser.OnHoverState = stateProperties7;
             stateProperties8.BorderColor = System.Drawing.Color.Silver;
-            stateProperties8.FillColor = System.Drawing.Color.White;
+            stateProperties8.FillColor = System.Drawing.Color.WhiteSmoke;
             stateProperties8.ForeColor = System.Drawing.Color.Empty;
             stateProperties8.PlaceholderForeColor = System.Drawing.Color.Empty;
             this.txtuser.OnIdleState = stateProperties8;
