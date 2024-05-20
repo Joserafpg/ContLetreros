@@ -48,18 +48,18 @@ namespace ContAlumnos.Clases.Estudiantes
             Conexion.opencon();
             {
                 SqlCommand comando = new SqlCommand(string.Format("update Inventario set Nombre = '{0}', Descripción = '{1}', Cantidad = '{2}', UnidadMedida = '{3}', CostoUnitario = '{4}', FechaCompra = '{5}', FechaCaducidad = '{6}' WHERE ID_MateriaPrima = {7}",
-                    pget.Nombre, pget.Descripción, pget.Cantidad, pget.UnidadMedida, pget.CostoUnitario, pget.FechaCompra, pget.FechaCaducidad, pget.Numero), Conexion.ObtenerConexion());
+                    pget.Nombre, pget.Descripción, pget.Cantidad, pget.UnidadMedida, pget.CostoUnitario, pget.FechaCompra.ToString("yyyy-MM-dd"), pget.FechaCaducidad.ToString("yyyy-MM-dd"), pget.Numero), Conexion.ObtenerConexion());
                 retorno = comando.ExecuteNonQuery();
             }
             Conexion.cerrarcon();
             return retorno;
         }
 
-        public static int Eliminar(int pID, string curso, string seccion, string area)
+        public static int Eliminar(int pID)
         {
             int retorno = 0;
             Conexion.opencon();
-            SqlCommand Comando = new SqlCommand(string.Format("DELETE FROM Inventario WHERE Numero = {0} AND Curso = '{1}' AND Seccion = '{2}' AND Area = '{3}'", pID, curso, seccion, area), Conexion.ObtenerConexion());
+            SqlCommand Comando = new SqlCommand(string.Format("DELETE FROM Inventario WHERE ID_MateriaPrima = {0}", pID), Conexion.ObtenerConexion());
 
             retorno = Comando.ExecuteNonQuery();
             Conexion.cerrarcon();

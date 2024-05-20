@@ -11,6 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static Bunifu.UI.WinForms.BunifuSnackbar;
 
 namespace ContAlumnos
 {
@@ -103,22 +104,23 @@ namespace ContAlumnos
                 // Obtén los datos de la fila seleccionada
                 Int64 id = Convert.ToInt64(row.Cells[0].Value);
                 string nombre = row.Cells[1].Value.ToString();
-                string apellido = row.Cells[2].Value.ToString();
-                string sexo = row.Cells[3].Value.ToString();
-                bool discapacidad = Convert.ToBoolean(row.Cells[4].Value);
-                string curso = row.Cells[5].Value.ToString();
-                string seccion = row.Cells[6].Value.ToString();
-                string area = row.Cells[7].Value.ToString();
+                string descripcion = row.Cells[2].Value.ToString();
+                string categoria = row.Cells[3].Value.ToString();
+                int cantidad = Convert.ToInt32(row.Cells[4].Value);
+                string unidadmedida = row.Cells[5].Value.ToString();
+                decimal costounitario = Convert.ToDecimal(row.Cells[6].Value.ToString());
+                DateTime fechacompra = Convert.ToDateTime(row.Cells[7].Value.ToString());
+                DateTime fechacaducidad = Convert.ToDateTime(row.Cells[8].Value.ToString());
 
                 // Abre el formulario para editar el producto
-                /*AgregarModificarEstudiantes formEditar = new AgregarModificarEstudiantes();
+                AgregarModificarMateriaPrima formEditar = new AgregarModificarMateriaPrima();
                 formEditar.EditMode = true; // Estás en modo editar
-                formEditar.InitializeData(id, nombre, apellido, sexo, discapacidad, curso, seccion, area);
+                formEditar.InitializeData(id, nombre, descripcion, categoria, cantidad, unidadmedida, costounitario, fechacompra, fechacaducidad);
                 if (formEditar.ShowDialog() == DialogResult.OK)
                 {
                     // Actualiza el DataGridView después de la edición
                     Buscar();
-                }*/
+                }
             }
         }
 
@@ -135,11 +137,8 @@ namespace ContAlumnos
                 {
                     int rowIndex = dataGridView1.SelectedRows[0].Index;
                     int id = Convert.ToInt32(dataGridView1.Rows[rowIndex].Cells[0].Value); // Suponiendo que el nombre de la columna que contiene el ID es "Numero"
-                    string curso = dataGridView1.Rows[rowIndex].Cells[5].Value.ToString();
-                    string seccion = dataGridView1.Rows[rowIndex].Cells[6].Value.ToString();
-                    string area = dataGridView1.Rows[rowIndex].Cells[7].Value.ToString();
-
-                    Int64 resultado = DatosbaseInventario.Eliminar(id, curso, seccion, area);
+                    
+                    Int64 resultado = DatosbaseInventario.Eliminar(id);
                     if (resultado > 0)
                     {
                         MessageBox.Show("Estudiante eliminado", "Estudiante Eliminado", MessageBoxButtons.OK, MessageBoxIcon.Information);

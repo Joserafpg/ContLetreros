@@ -26,14 +26,14 @@ namespace ContAlumnos.Clases.Estudiantes
         public static string computerName = Environment.MachineName;
         public static SqlConnection Conn = new SqlConnection($"Server = {computerName}; database=ContLetreros; Integrated Security=True");
 
-        public void InitializeData(Int64 id, string nombre, string descripcion, string categoria, int cantidad, decimal unidadmedida, decimal costo, DateTime vcompra, DateTime vcaducidad)
+        public void InitializeData(Int64 id, string nombre, string descripcion, string categoria, int cantidad, string unidadmedida, decimal costo, DateTime vcompra, DateTime vcaducidad)
         {
             txtcodigo.Text = id.ToString();
             txtnombre.Text = nombre;
             txtdescripcion.Text = descripcion;
             cCategoria.Text = categoria;
             txtcantidad.Text = Convert.ToString(cantidad);
-            cUnidadMedida.Text = Convert.ToString(unidadmedida);
+            cUnidadMedida.Text = unidadmedida;
             txtcosto.Text = Convert.ToString(costo);
             caducidad.Value = vcaducidad;
             compra.Value = vcompra;
@@ -357,6 +357,18 @@ namespace ContAlumnos.Clases.Estudiantes
 
 
             txtcodigo.Clear();
+        }
+
+        private void AgregarModificarMateriaPrima_Load(object sender, EventArgs e)
+        {
+            if (EditMode)
+            {
+                dataGridView1.Visible = false;
+                txttotal.Visible = false;
+                label10.Visible = false;
+                btnbuscar.Visible = false;
+                txtcodigo.Enabled = false;
+            }
         }
     }
 }
