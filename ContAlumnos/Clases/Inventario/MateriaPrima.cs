@@ -8,5 +8,7 @@ namespace ContAlumnos.Clases.Inventario
 {
     public class MateriaPrima
     {
+        public DateTime FechaCompra { get; set; }
+        public decimal TotalCompra { get; set; }
     }
 }

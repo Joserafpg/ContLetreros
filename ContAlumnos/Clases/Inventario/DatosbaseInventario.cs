@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ContAlumnos.Clases.Inventario;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
@@ -18,6 +19,22 @@ namespace ContAlumnos.Clases.Estudiantes
 
             SqlCommand Comando = new SqlCommand(string.Format("Insert into Inventario (Nombre, Descripción, Categoría, Cantidad, UnidadMedida, CostoUnitario, FechaCompra, FechaCaducidad) values ('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}')",
                     pget.Nombre, pget.Descripción, pget.Categoria, pget.Cantidad, pget.UnidadMedida, pget.CostoUnitario, pget.FechaCompra.ToString("yyyy-MM-dd"), pget.FechaCaducidad.ToString("yyyy-MM-dd")), Conexion.ObtenerConexion());
+
+            retorno = Comando.ExecuteNonQuery();
+            Conexion.cerrarcon();
+            return retorno;
+
+        }
+
+        public static int Agregar2(MateriaPrima pget)
+        {
+
+            int retorno = 0;
+
+            Conexion.opencon();
+
+            SqlCommand Comando = new SqlCommand(string.Format("Insert into Compras (FechaCompra, TotalCompra) values ('{0}','{1}')",
+                    pget.FechaCompra.ToString("yyyy-MM-dd"), pget.TotalCompra), Conexion.ObtenerConexion());
 
             retorno = Comando.ExecuteNonQuery();
             Conexion.cerrarcon();

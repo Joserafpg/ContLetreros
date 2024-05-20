@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ContAlumnos.Clases.Inventario;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -20,6 +21,7 @@ namespace ContAlumnos.Clases.Estudiantes
         }
 
         public bool EditMode { get; set; }
+        public string ULTFactura;
 
         public static string computerName = Environment.MachineName;
         public static SqlConnection Conn = new SqlConnection($"Server = {computerName}; database=ContLetreros; Integrated Security=True");
@@ -70,7 +72,7 @@ namespace ContAlumnos.Clases.Estudiantes
             string connectionString = $"Data Source={computerName}; Initial Catalog=ContLetreros; Integrated Security=True";
 
             // Consulta SQL para obtener el producto según su ID
-            string query = "SELECT ID_MateriaPrima, Nombre, Descripción, Categoría, UnidadMedida, CostoUnitario FROM Inventario WHERE ID_MateriaPrima = @Id";
+            string query = "SELECT ID_MateriaPrima, Nombre, Descripción, Categoría, UnidadMedida, CostoUnitario, FechaCaducidad FROM Inventario WHERE ID_MateriaPrima = @Id";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -91,6 +93,7 @@ namespace ContAlumnos.Clases.Estudiantes
                             string categoria = reader.GetString(3);
                             string unidad = reader.GetString(4);
                             decimal costo = reader.GetDecimal(5);
+                            DateTime fecha = reader.GetDateTime(6);
 
                             // Crear un objeto Producto con los valores obtenidos
                             producto = new DatosgetInventario
@@ -101,6 +104,7 @@ namespace ContAlumnos.Clases.Estudiantes
                                 Categoria = categoria,
                                 UnidadMedida = unidad,
                                 CostoUnitario = costo,
+                                FechaCaducidad = fecha,
                             };
                         }
                     }
@@ -196,26 +200,105 @@ namespace ContAlumnos.Clases.Estudiantes
             {
                 if (/*!string.IsNullOrEmpty(txtnumero.Text) && !string.IsNullOrEmpty(txtnombre.Text) && !string.IsNullOrEmpty(txtapellido.Text) &&*/ !string.IsNullOrEmpty(cUnidadMedida.Text))
                 {
-                    DatosgetInventario pEstudiantes = new DatosgetInventario();
-                    pEstudiantes.Nombre = txtnombre.Text;
-                    pEstudiantes.Descripción = txtdescripcion.Text;
-                    pEstudiantes.Categoria = cCategoria.Text;
-                    pEstudiantes.Cantidad = 100;
-                    pEstudiantes.UnidadMedida = cUnidadMedida.Text;
-                    pEstudiantes.CostoUnitario = 100m;
-                    pEstudiantes.FechaCaducidad = caducidad.Value;
+                    MateriaPrima pEstudiantes = new MateriaPrima();
                     pEstudiantes.FechaCompra = compra.Value;
+                    pEstudiantes.TotalCompra = Convert.ToDecimal(txttotal.Text);
 
-                    int Resultado = DatosbaseInventario.Agregar(pEstudiantes);
+                    int Resultado = DatosbaseInventario.Agregar2(pEstudiantes);
+                    Conn.Open();
 
-                    if (Resultado > 0)
+                    string query = "SELECT TOP 1 CompraID FROM Compras ORDER BY CompraID DESC";
+                    using (SqlCommand command = new SqlCommand(query, Conn))
                     {
-                        MessageBox.Show("Alumno Agregado con exito", "Alumno agregado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        // Obtener el resultado de la consulta
+                        object result = command.ExecuteScalar();
 
+                        // Verificar si se obtuvo un resultado válido
+                        if (result != null && result != DBNull.Value)
+                        {
+                            // Convertir el resultado en un entero
+                            int ultimoIdFactura = Convert.ToInt32(result);
+
+                            // Mostrar el último Id_Factura en un TextBox
+                            ULTFactura = ultimoIdFactura.ToString();
+                        }
+
+                        else
+                        {
+                            // No se encontraron registros en la tabla FacturaTittle
+                            // Puedes mostrar un valor predeterminado o dejar el TextBox vacío
+                            ULTFactura = "No hay registros";
+                        }
                     }
-                    else
+
+                    Conn.Close();
+
+                    SqlCommand agregar = new SqlCommand("INSERT INTO DetalleCompras VALUES (@CompraID , @ID_MateriaPrima, @MateriaPrima, @Cantidad, @CostoUnitario, @Total)", Conn);
+                    string verificarQuery = "SELECT Cantidad FROM Inventario WHERE Nombre = @MateriaPrima";
+                    string actualizarQuery = "UPDATE Inventario SET Cantidad = Cantidad + @Cantidad WHERE Nombre = @MateriaPrima";
+
+                    Conn.Open();
+
+                    try
                     {
-                        MessageBox.Show("No se pudo agregar el alumno", "Ocurrio un error!!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        foreach (DataGridViewRow row in dataGridView1.Rows)
+                        {
+                            // Obtener los valores de la fila actual del DataGridView
+                            Int64 idfactura = Convert.ToInt64(ULTFactura);
+                            int id_producto = Convert.ToInt32(row.Cells["codigo"].Value);
+                            string producto = Convert.ToString(row.Cells["nombre"].Value);
+                            string descripcion = Convert.ToString(row.Cells["descripcion"].Value);
+                            int cantidad = Convert.ToInt32(row.Cells["cantidad"].Value);
+                            decimal precio = Convert.ToDecimal(row.Cells["costounitario"].Value);
+                            decimal total = Convert.ToDecimal(row.Cells["Total"].Value);
+
+                            // Verificar si el Stock es menor que la Cantidad
+                            using (SqlCommand verificarCmd = new SqlCommand(verificarQuery, Conn))
+                            {
+                                verificarCmd.Parameters.AddWithValue("@MateriaPrima", producto);
+                                int stock = Convert.ToInt32(verificarCmd.ExecuteScalar());
+
+                                if (stock < cantidad)
+                                {
+                                    MessageBox.Show("No hay suficiente stock para el producto " + producto);
+                                    return; // Salta a la siguiente iteración del bucle sin ejecutar el código restante
+                                }
+                            }
+
+                            // Agregar los parámetros al comando
+                            agregar.Parameters.Clear();
+                            agregar.Parameters.AddWithValue("@CompraID", idfactura);
+                            agregar.Parameters.AddWithValue("@ID_MateriaPrima", id_producto);
+                            agregar.Parameters.AddWithValue("@MateriaPrima", producto);
+                            agregar.Parameters.AddWithValue("@Cantidad", cantidad);
+                            agregar.Parameters.AddWithValue("@CostoUnitario", precio);
+                            agregar.Parameters.AddWithValue("@Total", total);
+
+                            // Ejecutar el comando para agregar la factura
+                            agregar.ExecuteNonQuery();
+
+                            // Actualizar los datos de la tabla productos
+                            using (SqlCommand actualizarCmd = new SqlCommand(actualizarQuery, Conn))
+                            {
+                                actualizarCmd.Parameters.AddWithValue("@MateriaPrima", producto);
+                                actualizarCmd.Parameters.AddWithValue("@Cantidad", cantidad);
+                                actualizarCmd.ExecuteNonQuery();
+                            }
+                        }
+
+                        MessageBox.Show("Facturado con exito");
+                        dataGridView1.Rows.Clear();
+                        //Limpiar();
+                    }
+
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error al guardar: " + ex.Message);
+                    }
+
+                    finally
+                    {
+                        Conn.Close();
                     }
 
                     // Indica que la operación fue exitosa

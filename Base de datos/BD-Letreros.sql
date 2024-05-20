@@ -48,6 +48,7 @@ CREATE TABLE DetallePedido (
     DetallePedidoID INT IDENTITY (1,1) PRIMARY KEY,
     PedidoID INT,
     ProductoID INT,
+    Producto VARCHAR(255),
     DescripciónProducto VARCHAR(255),
     Cantidad INT,
     PrecioUnitario DECIMAL(10,2),
@@ -65,6 +66,7 @@ CREATE TABLE Compras (
 CREATE TABLE DetalleCompras (
     CompraID INT, -- Identificador de la compra
     ID_MateriaPrima INT, -- Identificador de la materia prima
+    MateriaPrima varchar(255), -- Identificador de la materia prima
     Cantidad DECIMAL, -- Cantidad comprada
     CostoUnitario DECIMAL(10,2), -- Costo por unidad de medida del material
     Total DECIMAL(10,2), -- Total por el material
@@ -72,8 +74,12 @@ CREATE TABLE DetalleCompras (
 
 
 
-drop table Pedidos
+drop table DetalleCompras
 
-select * from Inventario
+select * from DetalleCompras
+
+select * from Compras
+
+delete from DetalleCompras
 
 drop database ContAlumnos

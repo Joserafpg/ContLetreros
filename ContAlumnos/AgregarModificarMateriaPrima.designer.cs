@@ -77,8 +77,10 @@
             this.label5 = new System.Windows.Forms.Label();
             this.compra = new System.Windows.Forms.DateTimePicker();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.label10 = new System.Windows.Forms.Label();
+            this.txttotal = new System.Windows.Forms.Label();
             this.codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nomber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -86,8 +88,6 @@
             this.costounitario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fechacaducidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Total = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label10 = new System.Windows.Forms.Label();
-            this.txttotal = new System.Windows.Forms.Label();
             this.bunifuPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -1078,7 +1078,7 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.codigo,
-            this.nomber,
+            this.nombre,
             this.descripcion,
             this.categoria,
             this.cantidad,
@@ -1093,6 +1093,28 @@
             this.dataGridView1.Size = new System.Drawing.Size(338, 169);
             this.dataGridView1.TabIndex = 35;
             // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.BackColor = System.Drawing.Color.Transparent;
+            this.label10.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(806, 306);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(53, 21);
+            this.label10.TabIndex = 38;
+            this.label10.Text = "Total:";
+            // 
+            // txttotal
+            // 
+            this.txttotal.AutoSize = true;
+            this.txttotal.BackColor = System.Drawing.Color.Transparent;
+            this.txttotal.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txttotal.Location = new System.Drawing.Point(865, 308);
+            this.txttotal.Name = "txttotal";
+            this.txttotal.Size = new System.Drawing.Size(37, 21);
+            this.txttotal.TabIndex = 39;
+            this.txttotal.Text = "000";
+            // 
             // codigo
             // 
             this.codigo.HeaderText = "Codigo";
@@ -1100,11 +1122,11 @@
             this.codigo.ReadOnly = true;
             this.codigo.Width = 50;
             // 
-            // nomber
+            // nombre
             // 
-            this.nomber.HeaderText = "Nombre";
-            this.nomber.Name = "nomber";
-            this.nomber.ReadOnly = true;
+            this.nombre.HeaderText = "Nombre";
+            this.nombre.Name = "nombre";
+            this.nombre.ReadOnly = true;
             // 
             // descripcion
             // 
@@ -1147,28 +1169,6 @@
             this.Total.HeaderText = "Total";
             this.Total.Name = "Total";
             this.Total.ReadOnly = true;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.BackColor = System.Drawing.Color.Transparent;
-            this.label10.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(806, 306);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(53, 21);
-            this.label10.TabIndex = 38;
-            this.label10.Text = "Total:";
-            // 
-            // txttotal
-            // 
-            this.txttotal.AutoSize = true;
-            this.txttotal.BackColor = System.Drawing.Color.Transparent;
-            this.txttotal.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txttotal.Location = new System.Drawing.Point(865, 308);
-            this.txttotal.Name = "txttotal";
-            this.txttotal.Size = new System.Drawing.Size(37, 21);
-            this.txttotal.TabIndex = 39;
-            this.txttotal.Text = "000";
             // 
             // AgregarModificarMateriaPrima
             // 
@@ -1226,7 +1226,7 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label txttotal;
         private System.Windows.Forms.DataGridViewTextBoxColumn codigo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nomber;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn descripcion;
         private System.Windows.Forms.DataGridViewTextBoxColumn categoria;
         private System.Windows.Forms.DataGridViewTextBoxColumn cantidad;
