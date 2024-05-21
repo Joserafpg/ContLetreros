@@ -66,7 +66,7 @@ namespace ContAlumnos
 
         void Buscar()
         {
-            dataGridView1.DataSource = DatosbaseInventario.BuscarAlumnos(txtcurso.Text, txtseccion.Text, txtarea.Text, bunifuTextBox1.Text);
+            dataGridView1.DataSource = DatosbaseInventario.BuscarAlumnos(txtcurso.Text, txtseccion.Text, bunifuTextBox1.Text, bunifuTextBox1.Text);
         }
 
         private void bunifuTextBox1_TextChanged(object sender, EventArgs e)
@@ -173,7 +173,7 @@ namespace ContAlumnos
 
         private void bunifuButton23_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(txtcurso.Text) && !string.IsNullOrEmpty(txtseccion.Text) && !string.IsNullOrEmpty(txtarea.Text))
+            if (!string.IsNullOrEmpty(txtcurso.Text) && !string.IsNullOrEmpty(txtseccion.Text))
             {
                 /*PlantillaReporte form = new PlantillaReporte();
                 ReportDocument oRep = new ReportDocument();

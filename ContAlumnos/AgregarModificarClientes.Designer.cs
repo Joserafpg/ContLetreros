@@ -52,6 +52,7 @@
             this.bunifuButton21 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton2();
             this.btnestudiantes = new Bunifu.UI.WinForms.BunifuButton.BunifuButton2();
             this.bunifuPanel1 = new Bunifu.UI.WinForms.BunifuPanel();
+            this.bunifuPanel3 = new Bunifu.UI.WinForms.BunifuPanel();
             this.txtcedula = new Bunifu.UI.WinForms.BunifuTextBox();
             this.fecha = new System.Windows.Forms.DateTimePicker();
             this.label7 = new System.Windows.Forms.Label();
@@ -65,7 +66,6 @@
             this.cSexo = new Bunifu.UI.WinForms.BunifuDropdown();
             this.txtapellido = new Bunifu.UI.WinForms.BunifuTextBox();
             this.bunifuPanel2 = new Bunifu.UI.WinForms.BunifuPanel();
-            this.bunifuPanel3 = new Bunifu.UI.WinForms.BunifuPanel();
             this.bunifuPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -368,6 +368,20 @@
             this.bunifuPanel1.Size = new System.Drawing.Size(498, 388);
             this.bunifuPanel1.TabIndex = 28;
             // 
+            // bunifuPanel3
+            // 
+            this.bunifuPanel3.BackgroundColor = System.Drawing.Color.LightGray;
+            this.bunifuPanel3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuPanel3.BackgroundImage")));
+            this.bunifuPanel3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.bunifuPanel3.BorderColor = System.Drawing.Color.Transparent;
+            this.bunifuPanel3.BorderRadius = 11;
+            this.bunifuPanel3.BorderThickness = 1;
+            this.bunifuPanel3.Location = new System.Drawing.Point(445, -15);
+            this.bunifuPanel3.Name = "bunifuPanel3";
+            this.bunifuPanel3.ShowBorders = false;
+            this.bunifuPanel3.Size = new System.Drawing.Size(27, 401);
+            this.bunifuPanel3.TabIndex = 31;
+            // 
             // txtcedula
             // 
             this.txtcedula.AcceptsReturn = false;
@@ -461,7 +475,7 @@
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(68, 21);
             this.label7.TabIndex = 30;
-            this.label7.Text = "Cèdula";
+            this.label7.Text = "Cédula";
             // 
             // label5
             // 
@@ -521,7 +535,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(68, 21);
             this.label1.TabIndex = 24;
-            this.label1.Text = "Còdigo";
+            this.label1.Text = "Código";
             // 
             // txtnumero
             // 
@@ -544,6 +558,7 @@
             this.txtnumero.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtnumero.DefaultFont = new System.Drawing.Font("Segoe UI", 9.25F);
             this.txtnumero.DefaultText = "";
+            this.txtnumero.Enabled = false;
             this.txtnumero.FillColor = System.Drawing.Color.White;
             this.txtnumero.HideSelection = true;
             this.txtnumero.IconLeft = null;
@@ -581,7 +596,7 @@
             this.txtnumero.Padding = new System.Windows.Forms.Padding(3);
             this.txtnumero.PasswordChar = '\0';
             this.txtnumero.PlaceholderForeColor = System.Drawing.Color.Silver;
-            this.txtnumero.PlaceholderText = "Numero";
+            this.txtnumero.PlaceholderText = "Código";
             this.txtnumero.ReadOnly = false;
             this.txtnumero.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.txtnumero.SelectedText = "";
@@ -595,7 +610,7 @@
             this.txtnumero.TextMarginBottom = 0;
             this.txtnumero.TextMarginLeft = 3;
             this.txtnumero.TextMarginTop = 1;
-            this.txtnumero.TextPlaceholder = "Numero";
+            this.txtnumero.TextPlaceholder = "Código";
             this.txtnumero.UseSystemPasswordChar = false;
             this.txtnumero.WordWrap = true;
             // 
@@ -811,20 +826,6 @@
             this.bunifuPanel2.ShowBorders = true;
             this.bunifuPanel2.Size = new System.Drawing.Size(27, 424);
             this.bunifuPanel2.TabIndex = 30;
-            // 
-            // bunifuPanel3
-            // 
-            this.bunifuPanel3.BackgroundColor = System.Drawing.Color.LightGray;
-            this.bunifuPanel3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuPanel3.BackgroundImage")));
-            this.bunifuPanel3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.bunifuPanel3.BorderColor = System.Drawing.Color.Transparent;
-            this.bunifuPanel3.BorderRadius = 11;
-            this.bunifuPanel3.BorderThickness = 1;
-            this.bunifuPanel3.Location = new System.Drawing.Point(445, -15);
-            this.bunifuPanel3.Name = "bunifuPanel3";
-            this.bunifuPanel3.ShowBorders = false;
-            this.bunifuPanel3.Size = new System.Drawing.Size(27, 401);
-            this.bunifuPanel3.TabIndex = 31;
             // 
             // AgregarModificarClientes
             // 

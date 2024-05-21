@@ -39,10 +39,8 @@
             Bunifu.UI.WinForms.BunifuButton.BunifuButton2.BorderEdges borderEdges4 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton2.BorderEdges();
             Bunifu.UI.WinForms.BunifuButton.BunifuButton2.BorderEdges borderEdges5 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton2.BorderEdges();
             this.bunifuPanel1 = new Bunifu.UI.WinForms.BunifuPanel();
-            this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtarea = new Bunifu.UI.WinForms.BunifuDropdown();
             this.txtseccion = new Bunifu.UI.WinForms.BunifuDropdown();
             this.txtcurso = new Bunifu.UI.WinForms.BunifuDropdown();
             this.bunifuButton24 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton2();
@@ -64,10 +62,8 @@
             this.bunifuPanel1.BorderColor = System.Drawing.Color.Transparent;
             this.bunifuPanel1.BorderRadius = 35;
             this.bunifuPanel1.BorderThickness = 1;
-            this.bunifuPanel1.Controls.Add(this.label3);
             this.bunifuPanel1.Controls.Add(this.label2);
             this.bunifuPanel1.Controls.Add(this.label1);
-            this.bunifuPanel1.Controls.Add(this.txtarea);
             this.bunifuPanel1.Controls.Add(this.txtseccion);
             this.bunifuPanel1.Controls.Add(this.txtcurso);
             this.bunifuPanel1.Controls.Add(this.bunifuButton24);
@@ -78,29 +74,17 @@
             this.bunifuPanel1.Size = new System.Drawing.Size(783, 84);
             this.bunifuPanel1.TabIndex = 12;
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(692, 52);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(37, 16);
-            this.label3.TabIndex = 24;
-            this.label3.Text = "Area";
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(568, 52);
+            this.label2.Location = new System.Drawing.Point(627, 53);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(56, 16);
+            this.label2.Size = new System.Drawing.Size(117, 16);
             this.label2.TabIndex = 23;
-            this.label2.Text = "Seccion";
+            this.label2.Text = "Unidad de medida";
             // 
             // label1
             // 
@@ -108,57 +92,11 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(455, 52);
+            this.label1.Location = new System.Drawing.Point(465, 52);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(67, 16);
+            this.label1.Size = new System.Drawing.Size(91, 16);
             this.label1.TabIndex = 22;
-            this.label1.Text = "Categoria";
-            // 
-            // txtarea
-            // 
-            this.txtarea.BackColor = System.Drawing.Color.Transparent;
-            this.txtarea.BackgroundColor = System.Drawing.Color.White;
-            this.txtarea.BorderColor = System.Drawing.Color.Silver;
-            this.txtarea.BorderRadius = 13;
-            this.txtarea.Color = System.Drawing.Color.Silver;
-            this.txtarea.Direction = Bunifu.UI.WinForms.BunifuDropdown.Directions.Down;
-            this.txtarea.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.txtarea.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.txtarea.DisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.txtarea.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.txtarea.DisabledIndicatorColor = System.Drawing.Color.DarkGray;
-            this.txtarea.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.txtarea.DropdownBorderThickness = Bunifu.UI.WinForms.BunifuDropdown.BorderThickness.Thin;
-            this.txtarea.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.txtarea.DropDownTextAlign = Bunifu.UI.WinForms.BunifuDropdown.TextAlign.Left;
-            this.txtarea.FillDropDown = true;
-            this.txtarea.FillIndicator = false;
-            this.txtarea.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.txtarea.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txtarea.ForeColor = System.Drawing.Color.Black;
-            this.txtarea.FormattingEnabled = true;
-            this.txtarea.Icon = null;
-            this.txtarea.IndicatorAlignment = Bunifu.UI.WinForms.BunifuDropdown.Indicator.Right;
-            this.txtarea.IndicatorColor = System.Drawing.Color.DarkGray;
-            this.txtarea.IndicatorLocation = Bunifu.UI.WinForms.BunifuDropdown.Indicator.Right;
-            this.txtarea.IndicatorThickness = 2;
-            this.txtarea.IsDropdownOpened = false;
-            this.txtarea.ItemBackColor = System.Drawing.Color.White;
-            this.txtarea.ItemBorderColor = System.Drawing.Color.White;
-            this.txtarea.ItemForeColor = System.Drawing.Color.Black;
-            this.txtarea.ItemHeight = 26;
-            this.txtarea.ItemHighLightColor = System.Drawing.Color.DodgerBlue;
-            this.txtarea.ItemHighLightForeColor = System.Drawing.Color.White;
-            this.txtarea.ItemTopMargin = 3;
-            this.txtarea.Location = new System.Drawing.Point(655, 17);
-            this.txtarea.Name = "txtarea";
-            this.txtarea.Size = new System.Drawing.Size(108, 32);
-            this.txtarea.TabIndex = 21;
-            this.txtarea.Text = null;
-            this.txtarea.TextAlignment = Bunifu.UI.WinForms.BunifuDropdown.TextAlign.Left;
-            this.txtarea.TextLeftMargin = 5;
-            this.txtarea.SelectedIndexChanged += new System.EventHandler(this.txtcurso_SelectedIndexChanged);
-            this.txtarea.TextChanged += new System.EventHandler(this.txtcurso_TextChanged);
+            this.label1.Text = "Departamento";
             // 
             // txtseccion
             // 
@@ -196,9 +134,9 @@
             this.txtseccion.ItemHighLightColor = System.Drawing.Color.DodgerBlue;
             this.txtseccion.ItemHighLightForeColor = System.Drawing.Color.White;
             this.txtseccion.ItemTopMargin = 3;
-            this.txtseccion.Location = new System.Drawing.Point(555, 17);
+            this.txtseccion.Location = new System.Drawing.Point(607, 18);
             this.txtseccion.Name = "txtseccion";
-            this.txtseccion.Size = new System.Drawing.Size(80, 32);
+            this.txtseccion.Size = new System.Drawing.Size(156, 32);
             this.txtseccion.TabIndex = 20;
             this.txtseccion.Text = null;
             this.txtseccion.TextAlignment = Bunifu.UI.WinForms.BunifuDropdown.TextAlign.Left;
@@ -244,7 +182,7 @@
             this.txtcurso.ItemTopMargin = 3;
             this.txtcurso.Location = new System.Drawing.Point(432, 17);
             this.txtcurso.Name = "txtcurso";
-            this.txtcurso.Size = new System.Drawing.Size(108, 32);
+            this.txtcurso.Size = new System.Drawing.Size(156, 32);
             this.txtcurso.TabIndex = 19;
             this.txtcurso.Text = null;
             this.txtcurso.TextAlignment = Bunifu.UI.WinForms.BunifuDropdown.TextAlign.Left;
@@ -825,10 +763,8 @@
         private Bunifu.UI.WinForms.BunifuButton.BunifuButton2 bunifuButton23;
         private Bunifu.UI.WinForms.BunifuTextBox bunifuTextBox1;
         private Bunifu.UI.WinForms.BunifuButton.BunifuButton2 bunifuButton24;
-        private Bunifu.UI.WinForms.BunifuDropdown txtarea;
         private Bunifu.UI.WinForms.BunifuDropdown txtseccion;
         private Bunifu.UI.WinForms.BunifuDropdown txtcurso;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
     }

@@ -70,7 +70,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1200, 44);
             this.panel1.TabIndex = 0;
-            this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
             // 
             // label2
             // 
@@ -82,7 +81,6 @@
             this.label2.Size = new System.Drawing.Size(74, 16);
             this.label2.TabIndex = 4;
             this.label2.Text = "ContLetreros";
-            this.label2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.label1_MouseDown);
             // 
             // bunifuFormControlBox1
             // 
@@ -348,6 +346,7 @@
             this.btnSalir.AllowAnimations = true;
             this.btnSalir.AllowMouseEffects = true;
             this.btnSalir.AllowToggling = false;
+            this.btnSalir.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnSalir.AnimationSpeed = 200;
             this.btnSalir.AutoGenerateColors = false;
             this.btnSalir.AutoRoundBorders = false;

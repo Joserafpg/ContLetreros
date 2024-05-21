@@ -875,9 +875,9 @@
             this.label7.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(25, 189);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(91, 21);
+            this.label7.Size = new System.Drawing.Size(129, 21);
             this.label7.TabIndex = 30;
-            this.label7.Text = "Categoria";
+            this.label7.Text = "Departamento";
             // 
             // cCategoria
             // 
@@ -918,7 +918,7 @@
             "Planchas",
             "Pinturas"});
             this.cCategoria.ItemTopMargin = 3;
-            this.cCategoria.Location = new System.Drawing.Point(130, 183);
+            this.cCategoria.Location = new System.Drawing.Point(160, 183);
             this.cCategoria.Name = "cCategoria";
             this.cCategoria.Size = new System.Drawing.Size(90, 32);
             this.cCategoria.TabIndex = 29;
@@ -955,9 +955,9 @@
             this.label3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(25, 99);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(73, 21);
+            this.label3.Size = new System.Drawing.Size(82, 21);
             this.label3.TabIndex = 25;
-            this.label3.Text = "Nombre";
+            this.label3.Text = "Producto";
             // 
             // label2
             // 
@@ -977,9 +977,9 @@
             this.label1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(25, 54);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(72, 21);
+            this.label1.Size = new System.Drawing.Size(68, 21);
             this.label1.TabIndex = 24;
-            this.label1.Text = "Numero";
+            this.label1.Text = "Codigo";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // txtcodigo
@@ -1040,7 +1040,7 @@
             this.txtcodigo.Padding = new System.Windows.Forms.Padding(3);
             this.txtcodigo.PasswordChar = '\0';
             this.txtcodigo.PlaceholderForeColor = System.Drawing.Color.Silver;
-            this.txtcodigo.PlaceholderText = "Numero";
+            this.txtcodigo.PlaceholderText = "Codigo";
             this.txtcodigo.ReadOnly = false;
             this.txtcodigo.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.txtcodigo.SelectedText = "";
@@ -1054,7 +1054,7 @@
             this.txtcodigo.TextMarginBottom = 0;
             this.txtcodigo.TextMarginLeft = 3;
             this.txtcodigo.TextMarginTop = 1;
-            this.txtcodigo.TextPlaceholder = "Numero";
+            this.txtcodigo.TextPlaceholder = "Codigo";
             this.txtcodigo.UseSystemPasswordChar = false;
             this.txtcodigo.WordWrap = true;
             // 

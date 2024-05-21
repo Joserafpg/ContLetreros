@@ -95,43 +95,13 @@ namespace ContAlumnos
             fh.Show();
         }
 
-        void bordesradius()
-        {
-            int borderRadius = 20;
-            GraphicsPath objDraw = new GraphicsPath();
-
-            objDraw.AddArc(0, 0, borderRadius * 2, borderRadius * 2, 180, 90);
-            objDraw.AddArc(this.Width - borderRadius * 2, 0, borderRadius * 2, borderRadius * 2, 270, 90);
-            objDraw.AddArc(this.Width - borderRadius * 2, this.Height - borderRadius * 2, borderRadius * 2, borderRadius * 2, 0, 90);
-            objDraw.AddArc(0, this.Height - borderRadius * 2, borderRadius * 2, borderRadius * 2, 90, 90);
-            objDraw.CloseFigure();
-
-            this.Region = new Region(objDraw);
-        }
-
-        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
-        private extern static void ReleaseCapture();
-        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
-        private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
-
-        private void panel1_MouseDown(object sender, MouseEventArgs e)
-        {
-            ReleaseCapture();
-            SendMessage(this.Handle, 0x112, 0xf012, 0);
-        }
-
-        private void label1_MouseDown(object sender, MouseEventArgs e)
-        {
-            ReleaseCapture();
-            SendMessage(this.Handle, 0x112, 0xf012, 0);
-        }
-
-
         private void Menu_Load(object sender, EventArgs e)
         {
-            bordesradius();
             btnInicio.PerformClick();
             btnuser.Text = Acceso.Nombre;
+
+            this.FormBorderStyle = FormBorderStyle.None;
+            this.WindowState = FormWindowState.Maximized;
         }
 
         private void bunifuButton25_Click(object sender, EventArgs e)

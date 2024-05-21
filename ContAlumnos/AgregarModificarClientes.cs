@@ -37,7 +37,7 @@ namespace ContAlumnos
         {
             if (EditMode)
             {
-                txtnumero.Visible = true;
+                txtnumero.Enabled = false;
                 DatosgetClientes pEstudiantes = new DatosgetClientes();
                 pEstudiantes.Numero = Convert.ToInt64(txtnumero.Text);
                 pEstudiantes.Nombre = txtnombre.Text;
