@@ -62,14 +62,14 @@
             this.bunifuPanel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuPanel1.BackgroundImage")));
             this.bunifuPanel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.bunifuPanel1.BorderColor = System.Drawing.Color.Transparent;
-            this.bunifuPanel1.BorderRadius = 40;
+            this.bunifuPanel1.BorderRadius = 30;
             this.bunifuPanel1.BorderThickness = 1;
             this.bunifuPanel1.Controls.Add(this.bunifuPictureBox1);
             this.bunifuPanel1.Controls.Add(this.bunifuButton21);
             this.bunifuPanel1.Controls.Add(this.txtpass);
             this.bunifuPanel1.Controls.Add(this.txtuser);
             this.bunifuPanel1.Controls.Add(this.label1);
-            this.bunifuPanel1.Location = new System.Drawing.Point(475, 20);
+            this.bunifuPanel1.Location = new System.Drawing.Point(471, 19);
             this.bunifuPanel1.Name = "bunifuPanel1";
             this.bunifuPanel1.ShowBorders = true;
             this.bunifuPanel1.Size = new System.Drawing.Size(361, 350);
@@ -191,7 +191,7 @@
             this.txtpass.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
             this.txtpass.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
             this.txtpass.AutoSizeHeight = true;
-            this.txtpass.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtpass.BackColor = System.Drawing.Color.White;
             this.txtpass.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("txtpass.BackgroundImage")));
             this.txtpass.BorderColorActive = System.Drawing.Color.DodgerBlue;
             this.txtpass.BorderColorDisabled = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
@@ -204,7 +204,7 @@
             this.txtpass.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtpass.DefaultFont = new System.Drawing.Font("Segoe UI", 9.25F);
             this.txtpass.DefaultText = "";
-            this.txtpass.FillColor = System.Drawing.Color.WhiteSmoke;
+            this.txtpass.FillColor = System.Drawing.Color.White;
             this.txtpass.HideSelection = true;
             this.txtpass.IconLeft = null;
             this.txtpass.IconLeftCursor = System.Windows.Forms.Cursors.IBeam;
@@ -234,7 +234,7 @@
             stateProperties3.PlaceholderForeColor = System.Drawing.Color.Empty;
             this.txtpass.OnHoverState = stateProperties3;
             stateProperties4.BorderColor = System.Drawing.Color.Silver;
-            stateProperties4.FillColor = System.Drawing.Color.WhiteSmoke;
+            stateProperties4.FillColor = System.Drawing.Color.White;
             stateProperties4.ForeColor = System.Drawing.Color.Empty;
             stateProperties4.PlaceholderForeColor = System.Drawing.Color.Empty;
             this.txtpass.OnIdleState = stateProperties4;
@@ -256,7 +256,7 @@
             this.txtpass.TextMarginLeft = 3;
             this.txtpass.TextMarginTop = 1;
             this.txtpass.TextPlaceholder = "Contraseña";
-            this.txtpass.UseSystemPasswordChar = false;
+            this.txtpass.UseSystemPasswordChar = true;
             this.txtpass.WordWrap = true;
             // 
             // txtuser
@@ -267,20 +267,20 @@
             this.txtuser.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
             this.txtuser.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
             this.txtuser.AutoSizeHeight = true;
-            this.txtuser.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtuser.BackColor = System.Drawing.Color.White;
             this.txtuser.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("txtuser.BackgroundImage")));
             this.txtuser.BorderColorActive = System.Drawing.Color.DodgerBlue;
             this.txtuser.BorderColorDisabled = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
             this.txtuser.BorderColorHover = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
             this.txtuser.BorderColorIdle = System.Drawing.Color.Silver;
-            this.txtuser.BorderRadius = 29;
+            this.txtuser.BorderRadius = 20;
             this.txtuser.BorderThickness = 1;
             this.txtuser.CharacterCase = Bunifu.UI.WinForms.BunifuTextBox.CharacterCases.Normal;
             this.txtuser.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.txtuser.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtuser.DefaultFont = new System.Drawing.Font("Segoe UI", 9.25F);
             this.txtuser.DefaultText = "";
-            this.txtuser.FillColor = System.Drawing.Color.WhiteSmoke;
+            this.txtuser.FillColor = System.Drawing.Color.White;
             this.txtuser.HideSelection = true;
             this.txtuser.IconLeft = null;
             this.txtuser.IconLeftCursor = System.Windows.Forms.Cursors.IBeam;
@@ -310,7 +310,7 @@
             stateProperties7.PlaceholderForeColor = System.Drawing.Color.Empty;
             this.txtuser.OnHoverState = stateProperties7;
             stateProperties8.BorderColor = System.Drawing.Color.Silver;
-            stateProperties8.FillColor = System.Drawing.Color.WhiteSmoke;
+            stateProperties8.FillColor = System.Drawing.Color.White;
             stateProperties8.ForeColor = System.Drawing.Color.Empty;
             stateProperties8.PlaceholderForeColor = System.Drawing.Color.Empty;
             this.txtuser.OnIdleState = stateProperties8;
@@ -445,7 +445,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(900, 450);
             this.Controls.Add(this.bunifuPanel4);
             this.Controls.Add(this.panel1);
