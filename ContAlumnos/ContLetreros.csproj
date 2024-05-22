@@ -72,6 +72,12 @@
     <Compile Include="AgregarModificarMateriaPrima.designer.cs">
       <DependentUpon>AgregarModificarMateriaPrima.cs</DependentUpon>
     </Compile>
+    <Compile Include="AgregarModificarPedidos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AgregarModificarPedidos.Designer.cs">
+      <DependentUpon>AgregarModificarPedidos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Clases\Conexion.cs" />
     <Compile Include="Clases\Inventario\MateriaPrima.cs" />
     <Compile Include="Clases\Usuarios\DTUsuarios.cs" />
