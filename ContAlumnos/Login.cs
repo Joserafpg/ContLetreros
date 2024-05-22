@@ -142,5 +142,10 @@ namespace ContAlumnos
         {
             Application.Exit();
         }
+
+        private void bunifuPanel1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

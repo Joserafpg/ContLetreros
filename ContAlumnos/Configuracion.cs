@@ -28,5 +28,15 @@ namespace ContAlumnos
             Usuarios form = new Usuarios();
             form.ShowDialog();*/
         }
+
+        private void Configuracion_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bunifuButton23_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
