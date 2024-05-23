@@ -1,4 +1,6 @@
 ﻿using ContAlumnos.Clases.Estudiantes;
+using ContAlumnos.Clases.Inventario;
+using ContAlumnos.Clases.Login;
 using ContAlumnos.Clases.Ventas;
 using System;
 using System.Collections.Generic;
@@ -24,6 +26,8 @@ namespace ContAlumnos
         public static double medidac;
 
         public string ccodigo, cnombre;
+
+        public Int64 ULTFactura;
         public static string computerName = Environment.MachineName;
         public static SqlConnection Conn = new SqlConnection($"Server = {computerName}; database=ContLetreros; Integrated Security=True");
 
@@ -237,7 +241,7 @@ namespace ContAlumnos
 
         private void txtnumero_TextChanged(object sender, EventArgs e)
         {
-            
+
         }
 
         private void bunifuButton23_Click(object sender, EventArgs e)
@@ -245,14 +249,159 @@ namespace ContAlumnos
             Sumar2();
         }
 
-        
+        private void btnestudiantes_Click(object sender, EventArgs e)
+        {
+            if (EditMode)
+            {
+                /*DatosgetInventario pEstudiantes = new DatosgetInventario();
+                pEstudiantes.Numero = Convert.ToInt64(txtcodigo.Text);
+                pEstudiantes.Nombre = txtnombre.Text;
+                pEstudiantes.Descripción = txtdescripcion.Text;
+                pEstudiantes.Categoria = cCategoria.Text;
+                pEstudiantes.Cantidad = Convert.ToInt64(txtcantidad.Text);
+                pEstudiantes.UnidadMedida = cUnidadMedida.Text;
+                pEstudiantes.CostoUnitario = Convert.ToDecimal(txtcosto.Text);
+                pEstudiantes.FechaCaducidad = caducidad.Value;
+                pEstudiantes.FechaCompra = compra.Value;
+
+                int Resultado = DatosbaseInventario.Modificar(pEstudiantes);
+
+                if (Resultado > 0)
+                {
+                    MessageBox.Show("Alumno Modificado con exito", "Alumno modificado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                }
+                else
+                {
+                    MessageBox.Show("No se pudo modificar el alumno", "Ocurrio un error!!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+
+                // Indica que la operación fue exitosa
+                this.DialogResult = DialogResult.OK;
+                this.Close();*/
+            }
+
+
+            else
+            {
+                if (/*!string.IsNullOrEmpty(txtnumero.Text) && !string.IsNullOrEmpty(txtnombre.Text) && !string.IsNullOrEmpty(txtapellido.Text) &&*/ !string.IsNullOrEmpty(txtancho.Text))
+                {
+                    DatosgetVentas pEstudiantes = new DatosgetVentas();
+                    pEstudiantes.ClienteID = Convert.ToInt64(code.Text);
+                    pEstudiantes.NombreCliente = txtnombre.Text;
+                    pEstudiantes.Empleado = Acceso.Nombre;
+                    pEstudiantes.Ancho = Convert.ToDecimal(txtancho.Text);
+                    pEstudiantes.Largo = Convert.ToDecimal(txtlargo.Text);
+                    pEstudiantes.Precio_material = Convert.ToDecimal(txtprecio.Text);
+                    pEstudiantes.FechaPedido = DateTime.Now;
+                    pEstudiantes.FechaEntrega = DateTime.Now;
+                    pEstudiantes.Total = Convert.ToDouble(txttotal.Text);
+                    pEstudiantes.Pagado = false;
+
+                    int Resultado = DatosbaseVentas.Agregar(pEstudiantes);
+                    Conn.Open();
+
+                    string query = "SELECT TOP 1 PedidoID FROM Pedidos ORDER BY PedidoID DESC";
+                    using (SqlCommand command = new SqlCommand(query, Conn))
+                    {
+                        // Obtener el resultado de la consulta
+                        object result = command.ExecuteScalar();
+
+                        // Verificar si se obtuvo un resultado válido
+                        if (result != null && result != DBNull.Value)
+                        {
+                            // Convertir el resultado en un entero
+                            int ultimoIdFactura = Convert.ToInt32(result);
+
+                            // Mostrar el último Id_Factura en un TextBox
+                            ULTFactura = ultimoIdFactura;
+                        }
+                    }
+
+                    Conn.Close();
+
+                    // Define las consultas SQL para la tabla DetallePedido
+                    SqlCommand agregar = new SqlCommand("INSERT INTO DetallePedido (PedidoID, ProductoID, Producto, DescripciónProducto, Cantidad, PrecioUnitario, Subtotal) VALUES (@PedidoID, @ProductoID, @Producto, @DescripciónProducto, @Cantidad, @PrecioUnitario, @Subtotal)", Conn);
+                    string verificarQuery = "SELECT Cantidad FROM Inventario WHERE Nombre = @Producto";
+                    string actualizarQuery = "UPDATE Inventario SET Cantidad = Cantidad + @Cantidad WHERE Nombre = @Producto";
+
+                    Conn.Open();
+
+                    try
+                    {
+                        foreach (DataGridViewRow row in dataGridView1.Rows)
+                        {
+                            // Obtener los valores de la fila actual del DataGridView
+                            Int64 idfactura = Convert.ToInt64(ULTFactura);
+                            int id_producto = Convert.ToInt32(row.Cells["codigo"].Value);
+                            string producto = Convert.ToString(row.Cells["nombre"].Value);
+                            string descripcion = Convert.ToString(row.Cells["descripcion"].Value);
+                            int cantidad = Convert.ToInt32(row.Cells["cantidad"].Value);
+                            decimal precio = Convert.ToDecimal(row.Cells["costounitario"].Value);
+                            decimal total = Convert.ToDecimal(row.Cells["Total"].Value);
+
+                            // Verificar si el stock es menor que la cantidad
+                            using (SqlCommand verificarCmd = new SqlCommand(verificarQuery, Conn))
+                            {
+                                verificarCmd.Parameters.AddWithValue("@Producto", producto);
+                                int stock = Convert.ToInt32(verificarCmd.ExecuteScalar());
+
+                                if (stock < cantidad)
+                                {
+                                    MessageBox.Show("No hay suficiente stock para el producto " + producto);
+                                    return; // Salta a la siguiente iteración del bucle sin ejecutar el código restante
+                                }
+                            }
+
+                            // Agregar los parámetros al comando
+                            agregar.Parameters.Clear();
+                            agregar.Parameters.AddWithValue("@PedidoID", idfactura);
+                            agregar.Parameters.AddWithValue("@ProductoID", id_producto);
+                            agregar.Parameters.AddWithValue("@Producto", producto);
+                            agregar.Parameters.AddWithValue("@DescripciónProducto", descripcion);
+                            agregar.Parameters.AddWithValue("@Cantidad", cantidad);
+                            agregar.Parameters.AddWithValue("@PrecioUnitario", precio);
+                            agregar.Parameters.AddWithValue("@Subtotal", total);
+
+                            // Ejecutar el comando para agregar el detalle del pedido
+                            agregar.ExecuteNonQuery();
+
+                            // Actualizar los datos de la tabla inventario
+                            using (SqlCommand actualizarCmd = new SqlCommand(actualizarQuery, Conn))
+                            {
+                                actualizarCmd.Parameters.AddWithValue("@Producto", producto);
+                                actualizarCmd.Parameters.AddWithValue("@Cantidad", cantidad);
+                                actualizarCmd.ExecuteNonQuery();
+                            }
+                        }
+
+                        MessageBox.Show("Pedido guardado con éxito");
+                        dataGridView1.Rows.Clear();
+                        // Limpiar();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error al guardar: " + ex.Message);
+                    }
+                    finally
+                    {
+                        Conn.Close();
+                    }
+
+                    // Indica que la operación fue exitosa
+                    this.DialogResult = DialogResult.OK;
+                    this.Close();
+                }
+            }
+        }
+
         private void bunifuButton24_Click(object sender, EventArgs e)
         {
             ClienteSelect frm = new ClienteSelect();
             AddOwnedForm(frm);
             frm.ShowDialog();
-            code.Text = ccodigo; 
-            txtnombre.Text = cnombre; 
+            code.Text = ccodigo;
+            txtnombre.Text = cnombre;
         }
     }
 }
