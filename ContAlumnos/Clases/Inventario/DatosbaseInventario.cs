@@ -66,13 +66,13 @@ namespace ContAlumnos.Clases.Estudiantes
             return retorno;
         }
 
-        public static List<DatosgetInventario> BuscarAlumnos(string pCurso, string pSeccion, string pArea, string nombre)
+        public static List<DatosgetInventario> BuscarAlumnos(string pCategoria, string pUnidaddeMedida, string nombre)
         {
             List<DatosgetInventario> lista = new List<DatosgetInventario>();
             Conexion.opencon();
             {
 
-                SqlCommand comando = new SqlCommand(String.Format("SELECT ID_MateriaPrima, Nombre, Descripción, Categoría, Cantidad, UnidadMedida, CostoUnitario, FechaCompra, FechaCaducidad FROM Inventario where Categoría like '%{0}%' and UnidadMedida like '%{1}%' and Nombre like '%{2}%' and ID_MateriaPrima like '%{3}%' ", pCurso, pSeccion, pArea, nombre),
+                SqlCommand comando = new SqlCommand(String.Format("SELECT ID_MateriaPrima, Nombre, Descripción, Categoría, Cantidad, UnidadMedida, CostoUnitario, FechaCompra, FechaCaducidad FROM Inventario where Categoría like '%{0}%' and UnidadMedida like '%{1}%' and Nombre like '%{2}%' ", pCategoria, pUnidaddeMedida, nombre),
                     Conexion.ObtenerConexion());
 
                 SqlDataReader reader = comando.ExecuteReader();

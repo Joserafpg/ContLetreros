@@ -19,14 +19,27 @@ namespace ContAlumnos
             InitializeComponent();
         }
 
-        void Buscar()
+        private void Buscar()
         {
-            dataGridView1.DataSource = DatosbaseVentas.BuscarAlumnos();
+            DateTime fechapedido = txtfechapedido.Value;
+            DateTime fechaentrega = txtfechaentrega.Value;
+
+            long? id = null;
+
+            // Intentar convertir el texto a un número, si no es válido, id permanecerá como null
+            if (!string.IsNullOrEmpty(txtid.Text) && Int64.TryParse(txtid.Text, out long parsedId))
+            {
+                id = parsedId;
+            }
+
+            // Llamar al método BuscarAlumnos con el id (si existe)
+            dataGridView1.DataSource = DatosbaseVentas.BuscarAlumnos(fechapedido, fechaentrega, id);
         }
+
 
         private void btnestudiantes_Click(object sender, EventArgs e)
         {
-            AgregarModificarMateriaPrima formAgregar = new AgregarModificarMateriaPrima();
+            AgregarModificarPedidos formAgregar = new AgregarModificarPedidos();
             formAgregar.EditMode = false;
             if (formAgregar.ShowDialog() == DialogResult.OK)
             {

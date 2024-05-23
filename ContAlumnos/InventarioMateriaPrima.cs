@@ -27,46 +27,34 @@ namespace ContAlumnos
 
         void CargarComboBox()
         {
-            /*Conn.Open();
-            string consulta = "SELECT DISTINCT Curso FROM Estudiantes";
+            Conn.Open();
+            string consulta = "SELECT DISTINCT Categoría FROM Inventario";
             SqlCommand comando = new SqlCommand(consulta, Conn);
             SqlDataReader lector = comando.ExecuteReader();
 
             while (lector.Read())
             {
-                txtcurso.Items.Add(lector.GetString(0));
+                txtdepartamento.Items.Add(lector.GetString(0));
             }
 
             Conn.Close();
 
             Conn.Open();
-            string consulta2 = "SELECT DISTINCT Seccion FROM Estudiantes";
+            string consulta2 = "SELECT DISTINCT UnidadMedida FROM Inventario";
             SqlCommand comando2 = new SqlCommand(consulta2, Conn);
             SqlDataReader lector2 = comando2.ExecuteReader();
 
             while (lector2.Read())
             {
-                txtseccion.Items.Add(lector2.GetString(0));
+                txtunidad.Items.Add(lector2.GetString(0));
             }
 
             Conn.Close();
-
-            Conn.Open();
-            string consulta3 = "SELECT DISTINCT Area FROM Estudiantes";
-            SqlCommand comando3 = new SqlCommand(consulta3, Conn);
-            SqlDataReader lector3 = comando3.ExecuteReader();
-
-            while (lector3.Read())
-            {
-                txtarea.Items.Add(lector3.GetString(0));
-            }
-
-            Conn.Close();*/
         }
 
         void Buscar()
         {
-            dataGridView1.DataSource = DatosbaseInventario.BuscarAlumnos(txtcurso.Text, txtseccion.Text, bunifuTextBox1.Text, bunifuTextBox1.Text);
+            dataGridView1.DataSource = DatosbaseInventario.BuscarAlumnos(txtdepartamento.Text, txtunidad.Text, txtnombre.Text);
         }
 
         private void bunifuTextBox1_TextChanged(object sender, EventArgs e)
@@ -173,7 +161,7 @@ namespace ContAlumnos
 
         private void bunifuButton23_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(txtcurso.Text) && !string.IsNullOrEmpty(txtseccion.Text))
+            if (!string.IsNullOrEmpty(txtdepartamento.Text) && !string.IsNullOrEmpty(txtunidad.Text))
             {
                 /*PlantillaReporte form = new PlantillaReporte();
                 ReportDocument oRep = new ReportDocument();

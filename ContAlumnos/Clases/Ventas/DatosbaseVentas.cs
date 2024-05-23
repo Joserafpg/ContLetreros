@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -50,14 +51,31 @@ namespace ContAlumnos.Clases.Estudiantes
             return retorno;
         }
 
-        public static List<DatosgetVentas> BuscarAlumnos()
+        public static List<DatosgetVentas> BuscarAlumnos(DateTime fechapedido, DateTime fechaentrega, long? pedidoID = null)
         {
             List<DatosgetVentas> lista = new List<DatosgetVentas>();
             Conexion.opencon();
             {
+                // Construcción de la consulta para permitir la búsqueda por ID y/o por rango de fechas
+                string query =
+                    "SELECT PedidoID, ClienteID, NombreCliente, Empleado, FechaPedido, FechaEntrega, Total, Pagado " +
+                    "FROM Pedidos " +
+                    "WHERE (@PedidoID IS NOT NULL AND PedidoID = @PedidoID) " +
+                    "OR (FechaEntrega BETWEEN @FechaInicio AND @FechaFin)";
 
-                SqlCommand comando = new SqlCommand(String.Format("SELECT PedidoID, ClienteID, NombreCliente, Empleado, FechaPedido, FechaEntrega, Total, Pagado FROM Pedidos "),
-                    Conexion.ObtenerConexion());
+                SqlCommand comando = new SqlCommand(query, Conexion.ObtenerConexion());
+                comando.Parameters.AddWithValue("@FechaInicio", fechapedido);
+                comando.Parameters.AddWithValue("@FechaFin", fechaentrega);
+
+                // Añadir el parámetro PedidoID, aunque sea nulo
+                if (pedidoID.HasValue)
+                {
+                    comando.Parameters.AddWithValue("@PedidoID", pedidoID.Value);
+                }
+                else
+                {
+                    comando.Parameters.AddWithValue("@PedidoID", DBNull.Value);
+                }
 
                 SqlDataReader reader = comando.ExecuteReader();
                 while (reader.Read())
@@ -74,10 +92,13 @@ namespace ContAlumnos.Clases.Estudiantes
 
                     lista.Add(pAlumnos);
                 }
+                reader.Close(); // Asegúrate de cerrar el reader
                 Conexion.cerrarcon();
                 return lista;
             }
         }
+
+
 
 
         /*public static DatosgetEstudiantes ObtenerAlumnos(string pId)
