@@ -38,6 +38,9 @@ CREATE TABLE Pedidos (
     ClienteID INT,
     NombreCliente VARCHAR(255),
     Empleado VARCHAR(50),
+    Ancho DECIMAL (10,2),
+    Largo DECIMAL(10,2),
+	Precio_material DECIMAL (10,2),
     FechaPedido DATE,
     FechaEntrega DATE,
     Total DECIMAL(10,2),
@@ -74,12 +77,54 @@ CREATE TABLE DetalleCompras (
 
 
 
-drop table DetalleCompras
 
-select * from DetalleCompras
 
-select * from Compras
+CREATE PROCEDURE ContarPedidosNoPagados
+AS
+BEGIN
+    SELECT COUNT(*) AS TotalNoPagados
+    FROM Pedidos
+    WHERE Pagado = 0;
+END;
 
-delete from DetalleCompras
 
-drop database ContAlumnos
+EXEC ContarPedidosNoPagados;
+
+
+
+CREATE PROCEDURE ContarPedidosCompletadosMesActual
+AS
+BEGIN
+    SELECT COUNT(*) AS TotalPedidosCompletados
+    FROM Pedidos
+    WHERE Pagado = 1
+      AND YEAR(FechaEntrega) = YEAR(GETDATE())
+      AND MONTH(FechaEntrega) = MONTH(GETDATE());
+END;
+
+EXEC ContarPedidosCompletadosMesActual;
+
+
+
+CREATE PROCEDURE SumarCantidadTotalProductos
+AS
+BEGIN
+    SELECT SUM(Cantidad) AS CantidadTotalProductos
+    FROM Inventario;
+END;
+
+
+EXEC SumarCantidadTotalProductos;
+
+
+
+
+drop procedure ContarProductosEnExistencia
+
+select * from Pedidos
+
+select * from DetallePedido
+
+delete from DetalleCoDmpras
+
+drop TABLE Pedidos
