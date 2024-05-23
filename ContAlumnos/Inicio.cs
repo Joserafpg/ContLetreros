@@ -24,15 +24,15 @@ namespace ContAlumnos
         private void Inicio_Load(object sender, EventArgs e)
         {
             lname.Text = Acceso.Nombre;
-            //ExecuteProcedureAndDisplayResult("CalcularTotalEstudiantes", total);
-            //ExecuteProcedureAndDisplayResult("CalcularTotalHembras", hembras);
-            //ExecuteProcedureAndDisplayResult("CalcularTotalVarones", varones);
+            ExecuteProcedureAndDisplayResult("ContarPedidosNoPagados", ordenes);
+            ExecuteProcedureAndDisplayResult("SumarCantidadTotalProductos", inventario);
+            ExecuteProcedureAndDisplayResult("ContarPedidosCompletadosMesActual", ventas);
         }
 
         private void ExecuteProcedureAndDisplayResult(string procedureName, Label textBox)
         {
 
-            string connectionString = $"Server = {computerName}; database = ContAlumnos; Integrated Security = True";
+            string connectionString = $"Server = {computerName}; database = ContLetreros; Integrated Security = True";
             SqlConnection connection = new SqlConnection(connectionString);
 
             using (SqlCommand command = new SqlCommand(procedureName, connection))
