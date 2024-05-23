@@ -1,4 +1,5 @@
 ﻿using ContAlumnos.Clases.Estudiantes;
+using ContAlumnos.Clases.Ventas;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -21,6 +22,8 @@ namespace ContAlumnos
 
         public bool EditMode { get; set; }
         public static double medidac;
+
+        public string ccodigo, cnombre;
         public static string computerName = Environment.MachineName;
         public static SqlConnection Conn = new SqlConnection($"Server = {computerName}; database=ContLetreros; Integrated Security=True");
 
@@ -69,33 +72,53 @@ namespace ContAlumnos
 
             foreach (DataGridViewRow row in dataGridView1.Rows)
             {
-                Total += Convert.ToDouble(row.Cells["Total"].Value);
+                if (row.Cells["Total"].Value != null)
+                {
+                    Total += Convert.ToDouble(row.Cells["Total"].Value);
+                }
             }
 
-            Total = Total + medidac;
+            // Total ya incluye los valores de la columna Total del DataGridView
             txttotal.Text = Total.ToString();
-
         }
 
         void Sumar2()
         {
             const int valor = 144;
 
-            decimal medida, medida2, precio, total, total2;
+            decimal medida, medida2, precio, total;
 
-            medida = Convert.ToDecimal(txtancho.Text);
-            medida2 = Convert.ToDecimal(txtlargo.Text);
-            precio = Convert.ToDecimal(txtprecio.Text);
+            // Asegúrate de que los TextBox no estén vacíos
+            if (!decimal.TryParse(txtancho.Text, out medida) ||
+                !decimal.TryParse(txtlargo.Text, out medida2) ||
+                !decimal.TryParse(txtprecio.Text, out precio))
+            {
+                // Manejar la entrada inválida
+                MessageBox.Show("Por favor ingresa valores válidos.");
+                return;
+            }
 
+            // Calcula el nuevo total basado en las medidas actuales
             total = medida * medida2 / valor * precio;
 
-            total2 = Convert.ToDecimal(txttotal.Text);
+            // Actualiza el TextBox del total con el nuevo valor calculado
+            txttotal.Text = total.ToString();
 
-            total2 = total2 + total;
+            // Llama a SumarColumna para recalcular el total del DataGridView y sumar con el nuevo total calculado
+            double totalGrid = 0;
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                if (row.Cells["Total"].Value != null)
+                {
+                    totalGrid += Convert.ToDouble(row.Cells["Total"].Value);
+                }
+            }
 
-            medidac = Convert.ToDouble(total2);
+            // Suma el total calculado con el total del DataGridView
+            totalGrid += Convert.ToDouble(total);
 
-            SumarColumna();
+            // Actualiza el TextBox del total con el nuevo total combinado
+            txttotal.Text = totalGrid.ToString();
         }
 
         private DatosgetInventario ObtenerProducto(Int64 idProducto)
@@ -209,6 +232,7 @@ namespace ContAlumnos
         private void btnbuscar_Click(object sender, EventArgs e)
         {
             dtagregar();
+            Sumar2();
         }
 
         private void txtnumero_TextChanged(object sender, EventArgs e)
@@ -219,6 +243,16 @@ namespace ContAlumnos
         private void bunifuButton23_Click(object sender, EventArgs e)
         {
             Sumar2();
+        }
+
+        
+        private void bunifuButton24_Click(object sender, EventArgs e)
+        {
+            ClienteSelect frm = new ClienteSelect();
+            AddOwnedForm(frm);
+            frm.ShowDialog();
+            code.Text = ccodigo; 
+            txtnombre.Text = cnombre; 
         }
     }
 }

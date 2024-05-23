@@ -18,8 +18,8 @@ namespace ContAlumnos.Clases.Estudiantes
 
             Conexion.opencon();
 
-            SqlCommand Comando = new SqlCommand(string.Format("Insert into Pedidos (ClienteID, NombreCliente, Empleado, FechaPedido, FechaEntrega, Total, Pagado) values ('{0}','{1}','{2}','{3}','{4}','{5}','{6}')",
-                    pget.ClienteID, pget.NombreCliente, pget.Empleado, pget.FechaPedido.ToString("yyyy-MM-dd"),  pget.FechaEntrega.ToString("yyyy-MM-dd"), pget.Total, pget.Pagado), Conexion.ObtenerConexion());
+            SqlCommand Comando = new SqlCommand(string.Format("Insert into Pedidos (ClienteID, NombreCliente, Empleado, Ancho, Largo, Precio_material, FechaPedido, FechaEntrega, Total, Pagado) values ('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}')",
+                    pget.ClienteID, pget.NombreCliente, pget.Empleado, pget.Ancho, pget.Largo, pget.Precio_material, pget.FechaPedido.ToString("yyyy-MM-dd"),  pget.FechaEntrega.ToString("yyyy-MM-dd"), pget.Total, pget.Pagado), Conexion.ObtenerConexion());
 
             retorno = Comando.ExecuteNonQuery();
             Conexion.cerrarcon();

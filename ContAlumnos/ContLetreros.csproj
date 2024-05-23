@@ -82,6 +82,12 @@
     <Compile Include="Clases\Inventario\MateriaPrima.cs" />
     <Compile Include="Clases\Usuarios\DTUsuarios.cs" />
     <Compile Include="Clases\Usuarios\UsuariosGET.cs" />
+    <Compile Include="Clases\Ventas\ClienteSelect.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Clases\Ventas\ClienteSelect.Designer.cs">
+      <DependentUpon>ClienteSelect.cs</DependentUpon>
+    </Compile>
     <Compile Include="Clases\Ventas\DatosbaseVentas.cs" />
     <Compile Include="Clases\Ventas\DatosgetVentas.cs" />
     <Compile Include="CrystalReport1.cs">
@@ -162,6 +168,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AgregarModificarPedidos.resx">
       <DependentUpon>AgregarModificarPedidos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Clases\Ventas\ClienteSelect.resx">
+      <DependentUpon>ClienteSelect.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CrystalReport1.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
