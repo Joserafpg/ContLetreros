@@ -160,6 +160,9 @@
     <EmbeddedResource Include="AgregarModificarMateriaPrima.resx">
       <DependentUpon>AgregarModificarMateriaPrima.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AgregarModificarPedidos.resx">
+      <DependentUpon>AgregarModificarPedidos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CrystalReport1.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>CrystalReport1.cs</LastGenOutput>
