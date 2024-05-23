@@ -320,6 +320,7 @@
             this.bunifuButton21.TextMarginLeft = 0;
             this.bunifuButton21.TextPadding = new System.Windows.Forms.Padding(0);
             this.bunifuButton21.UseDefaultRadiusAndThickness = true;
+            this.bunifuButton21.Click += new System.EventHandler(this.bunifuButton21_Click);
             // 
             // btnestudiantes
             // 
@@ -467,6 +468,7 @@
             this.txtfechaentrega.Name = "txtfechaentrega";
             this.txtfechaentrega.Size = new System.Drawing.Size(202, 32);
             this.txtfechaentrega.TabIndex = 26;
+            this.txtfechaentrega.ValueChanged += new System.EventHandler(this.txtfechapedido_ValueChanged);
             // 
             // txtfechapedido
             // 
@@ -492,6 +494,7 @@
             this.txtfechapedido.Name = "txtfechapedido";
             this.txtfechapedido.Size = new System.Drawing.Size(202, 32);
             this.txtfechapedido.TabIndex = 25;
+            this.txtfechapedido.ValueChanged += new System.EventHandler(this.txtfechapedido_ValueChanged);
             // 
             // label3
             // 

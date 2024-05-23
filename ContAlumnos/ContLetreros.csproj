@@ -90,6 +90,7 @@
     </Compile>
     <Compile Include="Clases\Ventas\DatosbaseVentas.cs" />
     <Compile Include="Clases\Ventas\DatosgetVentas.cs" />
+    <Compile Include="Clases\Ventas\DetallePedido.cs" />
     <Compile Include="CrystalReport1.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

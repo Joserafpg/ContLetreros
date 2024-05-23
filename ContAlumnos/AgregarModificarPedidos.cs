@@ -1,4 +1,5 @@
-﻿using ContAlumnos.Clases.Estudiantes;
+﻿using ContAlumnos.Clases;
+using ContAlumnos.Clases.Estudiantes;
 using ContAlumnos.Clases.Inventario;
 using ContAlumnos.Clases.Login;
 using ContAlumnos.Clases.Ventas;
@@ -28,18 +29,22 @@ namespace ContAlumnos
         public string ccodigo, cnombre;
 
         public Int64 ULTFactura;
+        public Int64 PedidoID;
         public static string computerName = Environment.MachineName;
         public static SqlConnection Conn = new SqlConnection($"Server = {computerName}; database=ContLetreros; Integrated Security=True");
 
-        public void InitializeData(Int64 id, string nombre, string apellido, string cedula, string sexo, DateTime FechaIngreso)
+        public void InitializeData(Int64 pedidoID, int clienteID, string nombreCliente, string empleado, decimal ancho, decimal largo, decimal precioMaterial, DateTime fechaPedido, DateTime fechaEntrega, decimal total, bool pagado)
         {
-            /*txtnumero.Text = id.ToString();
-            txtnombre.Text = nombre;
-            txtapellido.Text = apellido;
-            txtcedula.Text = cedula;
-            cSexo.Text = sexo;
-            fecha.Value = FechaIngreso;*/
+            // Asigna los valores a los controles del formulario
+            PedidoID = pedidoID;
+            code.Text = clienteID.ToString();
+            txtnombre.Text = nombreCliente;
+            txtancho.Text = ancho.ToString();
+            txtlargo.Text = largo.ToString();
+            txtprecio.Text = precioMaterial.ToString();
+            txttotal.Text = total.ToString();
         }
+
 
         private void VerificarAgregarModificarProducto(DatosgetInventario producto)
         {
@@ -218,6 +223,37 @@ namespace ContAlumnos
             txtcodigo.Clear();
         }
 
+        public List<DetallePedido> ObtenerDetallesPedido(long pedidoID)
+        {
+            List<DetallePedido> lista = new List<DetallePedido>();
+            Conexion.opencon();
+            {
+                string query = "SELECT PedidoID, ProductoID, Producto, DescripciónProducto, Cantidad, PrecioUnitario, Subtotal FROM DetallePedido WHERE PedidoID = @PedidoID";
+
+                SqlCommand comando = new SqlCommand(query, Conexion.ObtenerConexion());
+                comando.Parameters.AddWithValue("@PedidoID", pedidoID);
+
+                SqlDataReader reader = comando.ExecuteReader();
+                while (reader.Read())
+                {
+                    DetallePedido detalle = new DetallePedido();
+                    detalle.PedidoID = Convert.ToInt32(reader["PedidoID"]);
+                    detalle.ProductoID = Convert.ToInt32(reader["ProductoID"]);
+                    detalle.Producto = reader["Producto"].ToString();
+                    detalle.DescripciónProducto = reader["DescripciónProducto"].ToString();
+                    detalle.Cantidad = Convert.ToInt32(reader["Cantidad"]);
+                    detalle.PrecioUnitario = Convert.ToDecimal(reader["PrecioUnitario"]);
+                    detalle.Subtotal = Convert.ToDecimal(reader["Subtotal"]);
+
+                    lista.Add(detalle);
+                }
+                reader.Close();
+                Conexion.cerrarcon();
+                return lista;
+            }
+        }
+
+
         private void txtnombre_TextChanged(object sender, EventArgs e)
         {
 
@@ -279,6 +315,8 @@ namespace ContAlumnos
                 // Indica que la operación fue exitosa
                 this.DialogResult = DialogResult.OK;
                 this.Close();*/
+
+                ObtenerDetallesPedido(ULTFactura);
             }
 
 

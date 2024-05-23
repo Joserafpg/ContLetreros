@@ -61,5 +61,41 @@ namespace ContAlumnos
         {
             Buscar();
         }
+
+        private void txtfechapedido_ValueChanged(object sender, EventArgs e)
+        {
+            Buscar();
+        }
+
+        private void bunifuButton21_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
+                DataGridViewRow row = dataGridView1.SelectedRows[0];
+
+                // Obtén los datos de la fila seleccionada
+                Int64 pedidoID = Convert.ToInt64(row.Cells[0].Value);
+                int clienteID = Convert.ToInt32(row.Cells[1].Value);
+                string nombreCliente = row.Cells[2].Value.ToString();
+                string empleado = row.Cells[3].Value.ToString();
+                decimal ancho = Convert.ToDecimal(row.Cells[4].Value);
+                decimal largo = Convert.ToDecimal(row.Cells[5].Value);
+                decimal precioMaterial = Convert.ToDecimal(row.Cells[6].Value);
+                DateTime fechaPedido = Convert.ToDateTime(row.Cells[7].Value);
+                DateTime fechaEntrega = Convert.ToDateTime(row.Cells[8].Value);
+                decimal total = Convert.ToDecimal(row.Cells[9].Value);
+                bool pagado = Convert.ToBoolean(row.Cells[10].Value);
+
+                // Abre el formulario para editar el pedido
+                AgregarModificarPedidos formEditar = new AgregarModificarPedidos();
+                formEditar.EditMode = true; // Estás en modo editar
+                formEditar.InitializeData(pedidoID, clienteID, nombreCliente, empleado, ancho, largo, precioMaterial, fechaPedido, fechaEntrega, total, pagado);
+                if (formEditar.ShowDialog() == DialogResult.OK)
+                {
+                    // Actualiza el DataGridView después de la edición
+                    Buscar();
+                }
+            }
+        }
     }
 }

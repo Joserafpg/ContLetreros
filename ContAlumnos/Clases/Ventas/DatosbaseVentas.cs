@@ -58,7 +58,7 @@ namespace ContAlumnos.Clases.Estudiantes
             {
                 // Construcción de la consulta para permitir la búsqueda por ID y/o por rango de fechas
                 string query =
-                    "SELECT PedidoID, ClienteID, NombreCliente, Empleado, FechaPedido, FechaEntrega, Total, Pagado " +
+                    "SELECT PedidoID, ClienteID, NombreCliente, Empleado, Ancho, Largo, Precio_material,FechaPedido, FechaEntrega, Total, Pagado " +
                     "FROM Pedidos " +
                     "WHERE (@PedidoID IS NOT NULL AND PedidoID = @PedidoID) " +
                     "OR (FechaEntrega BETWEEN @FechaInicio AND @FechaFin)";
